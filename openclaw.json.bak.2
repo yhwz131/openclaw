@@ -1,0 +1,431 @@
+{
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "8886951788b90a9ff2e292cbdd3a72bb03262822338776643dddf9eaf08f4b03"
+    },
+    "remote": {
+      "url": "ws://127.0.0.1:18789",
+      "token": "8886951788b90a9ff2e292cbdd3a72bb03262822338776643dddf9eaf08f4b03"
+    }
+  },
+  "skills": {
+    "entries": {
+      "1password": {
+        "enabled": false
+      },
+      "blogwatcher": {
+        "enabled": false
+      },
+      "blucli": {
+        "enabled": false
+      },
+      "camsnap": {
+        "enabled": false
+      },
+      "coding-agent": {
+        "enabled": false
+      },
+      "eightctl": {
+        "enabled": false
+      },
+      "gemini": {
+        "enabled": false
+      },
+      "gh-issues": {
+        "enabled": false
+      },
+      "gifgrep": {
+        "enabled": false
+      },
+      "github": {
+        "enabled": false
+      },
+      "gog": {
+        "enabled": false
+      },
+      "goplaces": {
+        "enabled": false
+      },
+      "himalaya": {
+        "enabled": false
+      },
+      "mcporter": {
+        "enabled": false
+      },
+      "nano-pdf": {
+        "enabled": false
+      },
+      "obsidian": {
+        "enabled": false
+      },
+      "openai-whisper": {
+        "enabled": false
+      },
+      "openai-whisper-api": {
+        "enabled": false
+      },
+      "openhue": {
+        "enabled": false
+      },
+      "oracle": {
+        "enabled": false
+      },
+      "ordercli": {
+        "enabled": false
+      },
+      "sag": {
+        "enabled": false
+      },
+      "session-logs": {
+        "enabled": false
+      },
+      "sherpa-onnx-tts": {
+        "enabled": false
+      },
+      "songsee": {
+        "enabled": false
+      },
+      "sonoscli": {
+        "enabled": false
+      },
+      "spotify-player": {
+        "enabled": false
+      },
+      "summarize": {
+        "enabled": false
+      },
+      "tmux": {
+        "enabled": false
+      },
+      "trello": {
+        "enabled": false
+      },
+      "video-frames": {
+        "enabled": false
+      },
+      "xurl": {
+        "enabled": false
+      }
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-07-16T13:36:52.151Z",
+    "lastRunVersion": "2026.7.1",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.7.1",
+    "lastTouchedAt": "2026-07-16T14:00:51.081Z"
+  },
+  "agents": {
+    "defaults": {
+      "models": {
+        "vllm/qwen3.5-27b": {},
+        "xiaomi-token-plan/mimo-v2.5-pro": {
+          "alias": "Xiaomi MiMo V2.5 Pro"
+        },
+        "openai/mimov2.5-pro": {},
+        "ollama/qwen3.5:27b": {}
+      },
+      "model": {
+        "primary": "ollama/qwen3.5:27b",
+	"fallbacks": [
+	 "xiaomi-token-plan/mimo-v2.5-pro"
+	]
+      },
+      "sandbox": {
+        "mode": "off",
+        "workspaceAccess": "rw"
+      },
+      "compaction": {
+        "reserveTokensFloor": 20000
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "vllm": {
+        "enabled": true
+      },
+      "qqbot": {
+        "enabled": true
+      },
+      "feishu": {
+        "enabled": true
+      },
+      "xiaomi": {
+        "enabled": true
+      },
+      "ollama": {
+        "enabled": true
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "vllm": {
+        "baseUrl": "http://127.0.0.1:8000/v1",
+        "api": "openai-completions",
+        "apiKey": "VLLM_API_KEY",
+        "models": [
+          {
+            "id": "qwen3.5-27b",
+            "name": "qwen3.5-27b",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "xiaomi-token-plan": {
+        "baseUrl": "https://token-plan-cn.xiaomimimo.com/v1",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "mimo-v2.5-pro",
+            "name": "Xiaomi MiMo V2.5 Pro",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 1,
+              "output": 3,
+              "cacheRead": 0.2,
+              "cacheWrite": 0,
+              "tieredPricing": [
+                {
+                  "input": 1,
+                  "output": 3,
+                  "cacheRead": 0.2,
+                  "cacheWrite": 0,
+                  "range": [
+                    0,
+                    256000
+                  ]
+                },
+                {
+                  "input": 1,
+                  "output": 3,
+                  "cacheRead": 0.4,
+                  "cacheWrite": 0,
+                  "range": [
+                    256000
+                  ]
+                }
+              ]
+            },
+            "contextWindow": 1048576,
+            "maxTokens": 131072
+          },
+          {
+            "id": "mimo-v2.5",
+            "name": "Xiaomi MiMo V2.5",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0.4,
+              "output": 2,
+              "cacheRead": 0.08,
+              "cacheWrite": 0,
+              "tieredPricing": [
+                {
+                  "input": 0.4,
+                  "output": 2,
+                  "cacheRead": 0.08,
+                  "cacheWrite": 0,
+                  "range": [
+                    0,
+                    256000
+                  ]
+                },
+                {
+                  "input": 0.4,
+                  "output": 2,
+                  "cacheRead": 0.16,
+                  "cacheWrite": 0,
+                  "range": [
+                    256000
+                  ]
+                }
+              ]
+            },
+            "contextWindow": 1048576,
+            "maxTokens": 131072
+          }
+        ]
+      },
+      "ollama": {
+        "baseUrl": "http://117.50.184.253:11434",
+        "api": "ollama",
+        "apiKey": "OLLAMA_API_KEY",
+        "models": [
+          {
+            "id": "gemma4",
+            "name": "gemma4",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 8192,
+            "compat": {
+              "supportsTools": true,
+              "supportsUsageInStreaming": true
+            }
+          },
+          {
+            "id": "qwen3.5:latest",
+            "name": "qwen3.5:latest",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 8192,
+            "compat": {
+              "supportsTools": true,
+              "supportsUsageInStreaming": true
+            }
+          },
+          {
+            "id": "qwen3.5:27b",
+            "name": "qwen3.5:27b",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 8192,
+            "compat": {
+              "supportsTools": true,
+              "supportsUsageInStreaming": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "vllm:default": {
+        "provider": "vllm",
+        "mode": "api_key"
+      },
+      "xiaomi-token-plan:default": {
+        "provider": "xiaomi-token-plan",
+        "mode": "api_key"
+      },
+      "ollama:default": {
+        "provider": "ollama",
+        "mode": "api_key"
+      }
+    }
+  },
+  "channels": {
+    "qqbot": {
+      "enabled": true,
+      "clientSecret": "kPs8Azay84mGWYMw",
+      "dmPolicy": "allowlist",
+      "groupPolicy": "allowlist",
+      "allowFrom": [
+        "*"
+      ],
+      "appId": "1905205322"
+    },
+    "feishu": {
+      "enabled": true,
+      "appId": "cli_aadf585d2ffc9cc4",
+      "appSecret": {
+        "source": "env",
+        "provider": "default",
+        "id": "FEISHU_APP_SECRET"
+      },
+      "domain": "feishu",
+      "connectionMode": "websocket",
+      "dmPolicy": "allowlist",
+      "groupPolicy": "allowlist",
+      "allowFrom": [
+        "ou_2f67ed66e57e214e72c318a57c60d1c4"
+      ]
+    }
+  },
+  "tools": {
+    "profile": "coding",
+    "exec": {
+      "security": "allowlist",
+      "ask": "always",
+      "host": "auto"
+    },
+    "fs": {
+      "workspaceOnly": true
+    },
+    "elevated": {
+      "enabled": false
+    },
+    "web": {
+      "search": {
+        "maxResults": 5,
+        "provider": "gemini"
+      }
+    },
+    "deny": []
+  },
+  "discovery": {
+    "mdns": {
+      "mode": "off"
+    }
+  },
+  "logging": {
+    "redactSensitive": "tools",
+    "redactPatterns": [
+      "sk-[a-zA-Z0-9]{20,}",
+      "[A-Za-z0-9]{32,}"
+    ]
+  },
+  "commands": {
+    "ownerAllowFrom": [
+      "ou_2f67ed66e57e214e72c318a57c60d1c4"
+    ]
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  }
+}

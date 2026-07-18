@@ -1,0 +1,17 @@
+404b87e012227ec9100f841af6161e3c61fa5769e178983b95389d660431957e  /root/.openclaw/workspace/skills/secureclaw/README.md
+750139f7b73d51613c29575c62a8f29b632d047059601efbb54aa389292ba0e2  /root/.openclaw/workspace/skills/secureclaw/SKILL.md
+ee82471204442243461d12618cdbf06b30f1b0ef753812a6e1ed71ed324a9808  /root/.openclaw/workspace/skills/secureclaw/checksums.json
+d72d1c4a68c4eb6e9aff6fa2d00d9cb3ad061239ab0f886060649eaeac3be4fc  /root/.openclaw/workspace/skills/secureclaw/configs/dangerous-commands.json
+46b4fe84875f23f75dca52e917c8234c4381726128f9a16809d081fe6507a4fb  /root/.openclaw/workspace/skills/secureclaw/configs/injection-patterns.json
+89c194d39e1f0d9e2704e9c051c269927d1be84d108d788bd082203894419f47  /root/.openclaw/workspace/skills/secureclaw/configs/privacy-rules.json
+61dfd745455c714253f58c017f92c69c72b7a0db0eb62f3475763c2a3869a281  /root/.openclaw/workspace/skills/secureclaw/configs/supply-chain-ioc.json
+97b4e77014865449a53626e1b211ea139bfe4f46ed3893f65a41483b47a35b6c  /root/.openclaw/workspace/skills/secureclaw/scripts/check-advisories.sh
+1664a43f8fde130de3720ee7ac61d7ca6fb2e50465798b6138ebc66fd9290549  /root/.openclaw/workspace/skills/secureclaw/scripts/check-integrity.sh
+3309ca23333d1d39070d62e3b886485c1568de17876b0a10a029fe8591e692a0  /root/.openclaw/workspace/skills/secureclaw/scripts/check-privacy.sh
+450fe55017a5ac8692a37b0a3af21184dfa1377a5030110104eaaceb27e1203f  /root/.openclaw/workspace/skills/secureclaw/scripts/emergency-response.sh
+17ed449e1ba51adce2e9a0c0cb6de38cc3b8e68824c3c0bc7c4b24c7d1db0cc6  /root/.openclaw/workspace/skills/secureclaw/scripts/install.sh
+354625ad06bfbaff43aef51b5b61dcaabe751e93d612db82de8a7825fa91c768  /root/.openclaw/workspace/skills/secureclaw/scripts/quick-audit.sh
+0a601badbd15496b41e7d893b351cf96b1829930e5b91c4cdae9649c0d1e5c61  /root/.openclaw/workspace/skills/secureclaw/scripts/quick-harden.sh
+1bce89f759c11c15bf545b55d1a92cb72ea5c6bd5e708c94785f71bc75c9bb5a  /root/.openclaw/workspace/skills/secureclaw/scripts/scan-skills.sh
+4bc47f200225af2bc3d1784a27cbcbd3d07166c3c5a9b72f6bcc25e1da36ce81  /root/.openclaw/workspace/skills/secureclaw/scripts/uninstall.sh
+2868c754c25ee9319e4aa250662498954121f0bc768bf315d937ebf6dda8772c  /root/.openclaw/workspace/skills/secureclaw/skill.json

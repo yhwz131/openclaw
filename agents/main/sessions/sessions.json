@@ -1,0 +1,3367 @@
+{
+  "agent:main:main": {
+    "sessionId": "992780d8-664c-4726-961a-71e0c8c4cf4b",
+    "updatedAt": 1784280593117,
+    "sessionStartedAt": 1784280274195,
+    "lastInteractionAt": 1784280593107,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "usageFamilyKey": "agent:main:main",
+    "usageFamilySessionIds": [
+      "f3cf6897-0eae-4ccd-b258-2dae1ef880e5",
+      "5d3c2bbd-36d0-4c66-b614-cdf3e7ba73f4",
+      "05f769b0-1eb4-4090-afbe-82cc10edc003",
+      "4ff0fc73-6b50-4dac-ba9d-198360be4d42",
+      "992780d8-664c-4726-961a-71e0c8c4cf4b"
+    ],
+    "chatType": "direct",
+    "route": {
+      "channel": "webchat"
+    },
+    "deliveryContext": {
+      "channel": "webchat"
+    },
+    "lastChannel": "webchat",
+    "origin": {
+      "provider": "webchat",
+      "surface": "webchat",
+      "chatType": "direct"
+    },
+    "compactionCount": 0,
+    "totalTokens": 14470,
+    "totalTokensFresh": true,
+    "sessionFile": "/root/.openclaw/agents/main/sessions/992780d8-664c-4726-961a-71e0c8c4cf4b.jsonl",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784280463765,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "status": "done",
+    "startedAt": 1784280397259,
+    "providerOverride": "xiaomi-token-plan",
+    "modelOverride": "mimo-v2.5-pro",
+    "modelOverrideSource": "auto",
+    "modelOverrideFallbackOriginProvider": "ollama",
+    "modelOverrideFallbackOriginModel": "qwen3.5:27b",
+    "endedAt": 1784280399017,
+    "runtimeMs": 1758,
+    "fallbackNoticeSelectedModel": "ollama/qwen3.5:27b",
+    "fallbackNoticeActiveModel": "xiaomi-token-plan/mimo-v2.5-pro",
+    "fallbackNoticeReason": "timeout",
+    "modelProvider": "xiaomi-token-plan",
+    "model": "mimo-v2.5-pro",
+    "contextTokens": 1048576,
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1784280588678,
+      "sessionId": "992780d8-664c-4726-961a-71e0c8c4cf4b",
+      "sessionKey": "agent:main:main",
+      "provider": "xiaomi-token-plan",
+      "model": "mimo-v2.5-pro",
+      "workspaceDir": "/root/.openclaw/workspace",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 60000,
+      "bootstrapTruncation": {
+        "warningMode": "always",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 33311,
+        "hash": "97d11f83f5065f804b1fb914ea96c7a0e7c45f06091d11249ebe580d2b3739dd",
+        "projectContextChars": 13787,
+        "nonProjectContextChars": 19524
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/root/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 8132,
+          "injectedChars": 8132,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/root/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1757,
+          "injectedChars": 1757,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/root/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 1741,
+          "injectedChars": 1741,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/root/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 1275,
+          "injectedChars": 1275,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/root/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 534,
+          "injectedChars": 534,
+          "truncated": false
+        },
+        {
+          "name": "HEARTBEAT.md",
+          "path": "/root/.openclaw/workspace/HEARTBEAT.md",
+          "missing": false,
+          "rawChars": 243,
+          "injectedChars": 243,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 8228,
+        "hash": "b70a260888ec394b7e369ea17dd21f58d616d06f1273699aa5edc018f527bbad",
+        "entries": [
+          {
+            "name": "browser-automation",
+            "blockChars": 371
+          },
+          {
+            "name": "canvas",
+            "blockChars": 289
+          },
+          {
+            "name": "clawhub",
+            "blockChars": 337
+          },
+          {
+            "name": "diagram-maker",
+            "blockChars": 310
+          },
+          {
+            "name": "feishu-doc",
+            "blockChars": 302
+          },
+          {
+            "name": "feishu-drive",
+            "blockChars": 294
+          },
+          {
+            "name": "feishu-perm",
+            "blockChars": 316
+          },
+          {
+            "name": "feishu-wiki",
+            "blockChars": 296
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 322
+          },
+          {
+            "name": "meme-maker",
+            "blockChars": 295
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 325
+          },
+          {
+            "name": "node-inspect-debugger",
+            "blockChars": 321
+          },
+          {
+            "name": "notion",
+            "blockChars": 316
+          },
+          {
+            "name": "python-debugpy",
+            "blockChars": 309
+          },
+          {
+            "name": "qqbot-channel",
+            "blockChars": 394
+          },
+          {
+            "name": "qqbot-media",
+            "blockChars": 384
+          },
+          {
+            "name": "qqbot-remind",
+            "blockChars": 387
+          },
+          {
+            "name": "secureclaw",
+            "blockChars": 543
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 303
+          },
+          {
+            "name": "spike",
+            "blockChars": 295
+          },
+          {
+            "name": "taskflow",
+            "blockChars": 325
+          },
+          {
+            "name": "taskflow-inbox-triage",
+            "blockChars": 335
+          },
+          {
+            "name": "weather",
+            "blockChars": 333
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 10303,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 303,
+            "summaryHash": "b15dd29794ef5562ddee30a6282387ee7b40b9806c10ae2616daf75514ddc1f6",
+            "schemaChars": 304,
+            "schemaHash": "134f19bcabe3e29d63c5cebb38f1d2556759fd08adad6bc90a4b4d3cd1fb8441",
+            "propertiesCount": 3
+          },
+          {
+            "name": "edit",
+            "summaryChars": 326,
+            "summaryHash": "c498a85576e187d069e8e8ea4f70f81bddd57829600d385ef61c4359fd634c9e",
+            "schemaChars": 834,
+            "schemaHash": "457e8bb9f800b21be76c4fd8c0e3078bf07ee9bf93ac82f39944c171bd8f6d84",
+            "propertiesCount": 2
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "summaryHash": "cdb1c46027b22d1f1b923b47bfe297821d9fe589a9f9d92994961948060a4d89",
+            "schemaChars": 225,
+            "schemaHash": "e98a2484f667cf7c22d76ca103bf2022bf9113dc63fe38b899e71c328cb1e833",
+            "propertiesCount": 2
+          },
+          {
+            "name": "apply_patch",
+            "summaryChars": 132,
+            "summaryHash": "432bf38688a4f011d2b765a441ac07e1fdfa9faf2051679adee04abcd9332d93",
+            "schemaChars": 153,
+            "schemaHash": "05521268363ff4f191472c90d69ef08a503ba9acf1d2febc50b3ee68db32ab65",
+            "propertiesCount": 1
+          },
+          {
+            "name": "exec",
+            "summaryChars": 446,
+            "summaryHash": "369f5e5e195c647ab1e3cfad282e6d25488d4b9fe269f1157e273a546ca80295",
+            "schemaChars": 1332,
+            "schemaHash": "49dcb29ee9f7016cd248f40cfb44508aac4d6a67d4c9acb52cbd08ad3e3ae893",
+            "propertiesCount": 12
+          },
+          {
+            "name": "process",
+            "summaryChars": 362,
+            "summaryHash": "21d78afb643a24f211fe9aa86c748f165ca82f1dc21bbaf6e3e6d6d4d4411d86",
+            "schemaChars": 1074,
+            "schemaHash": "a2d30a25569f409d7e8539844c89a088044535388b24031d014577b96ed27c5c",
+            "propertiesCount": 12
+          },
+          {
+            "name": "get_goal",
+            "summaryChars": 71,
+            "summaryHash": "58dea7906d9e17e5f89a75fea24597ee068d8a56af824370dc27f8501374d6e3",
+            "schemaChars": 33,
+            "schemaHash": "8243f0af367f188a376f2c17b5eabe872a2f7a979813e0d4e2be6d594c2aa259",
+            "propertiesCount": 0
+          },
+          {
+            "name": "create_goal",
+            "summaryChars": 155,
+            "summaryHash": "f01e3a63d673a410ba55213ce6bd3fa2b0d2279e8e780c18aa0cb5aa991b29b3",
+            "schemaChars": 267,
+            "schemaHash": "27ee794432736471bd76390e236cc7d7e98f8469a02656e7a27109041eea0f8c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "update_goal",
+            "summaryChars": 212,
+            "summaryHash": "285201690e5f2456b4cdcd252ff391709b84d69538df61bad694d3c0cfc19958",
+            "schemaChars": 207,
+            "schemaHash": "c37894492eedfad02f1e7fe1488900765bfe547f3b3f34cefbab4f7f57441c2c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "skill_workshop",
+            "summaryChars": 171,
+            "summaryHash": "577c1d2b8f56bf3e9dd5e00463bbce8b8bf4cf201da9b21b588dcaa3bc6ed8cf",
+            "schemaChars": 2298,
+            "schemaHash": "a15f720240f6f8fed5b136844a6868388a4c35170b419a89c570bc560dc27090",
+            "propertiesCount": 13
+          },
+          {
+            "name": "update_plan",
+            "summaryChars": 163,
+            "summaryHash": "ea18cc44224e849c68cdf0a4839c295c1b20daf2699e2fc2be4c4e1552327455",
+            "schemaChars": 489,
+            "schemaHash": "50cb08b8a29e72637eb6720e6f5f3786783824537574f05ee9ae7a5f4ecacc4b",
+            "propertiesCount": 2
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 150,
+            "summaryHash": "6991b34a692cbbecc50302184503776bf8d7317b336d649fcd9373beab5473dc",
+            "schemaChars": 465,
+            "schemaHash": "89e377fd8694a3b81a5d72a0e9536e1770a127aff3ee539cef01c5af01e59129",
+            "propertiesCount": 10
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 149,
+            "summaryHash": "09b418c8da696b361c021f66705dab0215a613f6c18a9722767f6129907e0dcd",
+            "schemaChars": 202,
+            "schemaHash": "7c48bf270e608aa5c167ec15d571b536c626aed56e88d6e760fcf0802bb75cc4",
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 79,
+            "summaryHash": "f3782fc41c1522657e1d3494f486a2df998fed38a6b89dcf7f6934fb41424320",
+            "schemaChars": 60,
+            "schemaHash": "b1c4c753820bc3096d85ef7a266a14c9fbe12450536db58076b75bb61d14dbbb",
+            "propertiesCount": 1
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 132,
+            "summaryHash": "1c2ffd38549c0444b118d43736fc4b875ea1aaabc446bbf8bc1fc4ee9180cca4",
+            "schemaChars": 122,
+            "schemaHash": "c4a241d2c3d46ba7985abfce4d3fcd63298ce81f89d49183c8f3d584c48d0c33",
+            "propertiesCount": 2
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 278,
+            "summaryHash": "71177e543dc6235bad4b1a26761995681dcec27ab58dcb4f4f8a7fc9a7b2b5aa",
+            "schemaChars": 89,
+            "schemaHash": "d2995f3d69d126e98ac93eec3c2a9fe5556925bd7979a8e4b6b5a2bf62d329dd",
+            "propertiesCount": 2
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 65,
+            "summaryHash": "b38e9b3c079beaa988d3c576303660b91a55c2e72f56351da04160529173273f",
+            "schemaChars": 991,
+            "schemaHash": "3879e368875d824b14e0e683f81408824e9a2a5850fa2f8514a68caebda54d18",
+            "propertiesCount": 12
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 93,
+            "summaryHash": "8875afbb51bd63673e5e6836ca31eeda73914a464862665cd73b346e28d28fd5",
+            "schemaChars": 317,
+            "schemaHash": "d2d8ad58a1b84d849dd16142282aff6c5606f7b0e3d08405e1b740a6a79e6bcc",
+            "propertiesCount": 3
+          },
+          {
+            "name": "image",
+            "summaryChars": 119,
+            "summaryHash": "0eae16e4e16f86cc74ea64bdd48812b0a1d86577fee36dc4cf2c6e7974c83ef6",
+            "schemaChars": 350,
+            "schemaHash": "49bb766071c935edca8c2d0df47fc2109bbffe3d4ba32d0b19fe90ec873736ce",
+            "propertiesCount": 6
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 605,
+            "summaryHash": "0f918d28864d3682ae77731f149273997c84773592a466b18c7cd0121b599a05",
+            "schemaChars": 250,
+            "schemaHash": "088cd2a3d3a47b251429ff7c56844cdedd1c45c3af0fa8bfaf7aa795766976bf",
+            "propertiesCount": 4
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 239,
+            "summaryHash": "bff1141a3da31a345c550337417efc9ace4da2909004606c727c59ca1a294495",
+            "schemaChars": 241,
+            "schemaHash": "78f5d58460a82f9104deebad2f1873a8cde05d1ce7328b3ba4da6e994653e70a",
+            "propertiesCount": 4
+          }
+        ]
+      },
+      "currentTurn": {
+        "promptChars": 9,
+        "runtimeContextChars": 60
+      }
+    },
+    "inputTokens": 13446,
+    "outputTokens": 90,
+    "cacheRead": 1024,
+    "cacheWrite": 0,
+    "estimatedCostUsd": 0.013920799999999999,
+    "lastActivityAt": 1784280593107,
+    "agentHarnessId": "openclaw",
+    "contextBudgetStatus": {
+      "schemaVersion": 1,
+      "source": "pre-prompt-estimate",
+      "updatedAt": 1784280588878,
+      "provider": "xiaomi-token-plan",
+      "model": "mimo-v2.5-pro",
+      "route": "fits",
+      "shouldCompact": false,
+      "estimatedPromptTokens": 10491,
+      "contextTokenBudget": 1048576,
+      "promptBudgetBeforeReserve": 1028576,
+      "reserveTokens": 20000,
+      "effectiveReserveTokens": 20000,
+      "remainingPromptBudgetTokens": 1018085,
+      "overflowTokens": 0,
+      "toolResultReducibleChars": 0,
+      "messageCount": 3,
+      "unwindowedMessageCount": 3,
+      "sessionId": "992780d8-664c-4726-961a-71e0c8c4cf4b"
+    }
+  },
+  "agent:main:feishu:direct:ou_2f67ed66e57e214e72c318a57c60d1c4": {
+    "sessionId": "f2d5e8c9-4723-4d36-9343-40b1b09a1fa8",
+    "updatedAt": 1784279848018,
+    "sessionStartedAt": 1784279697186,
+    "lastInteractionAt": 1784279723676,
+    "systemSent": true,
+    "usageFamilyKey": "agent:main:feishu:direct:ou_2f67ed66e57e214e72c318a57c60d1c4",
+    "usageFamilySessionIds": [
+      "75177a08-8c1b-44b3-92df-4c58fe8d1e25",
+      "4169db71-56b6-43f7-81be-128e287a2d6f",
+      "acd70031-2c2a-42d7-be17-1fd13a62906c",
+      "52432434-d3e9-40c4-a2ac-ba350555d37e",
+      "8b5ca24a-7020-427e-bda4-bc9047b71806",
+      "f2d5e8c9-4723-4d36-9343-40b1b09a1fa8"
+    ],
+    "chatType": "direct",
+    "route": {
+      "channel": "feishu",
+      "accountId": "default",
+      "target": {
+        "to": "user:ou_2f67ed66e57e214e72c318a57c60d1c4"
+      }
+    },
+    "deliveryContext": {
+      "channel": "feishu",
+      "to": "user:ou_2f67ed66e57e214e72c318a57c60d1c4",
+      "accountId": "default"
+    },
+    "lastChannel": "feishu",
+    "lastTo": "user:ou_2f67ed66e57e214e72c318a57c60d1c4",
+    "lastAccountId": "default",
+    "origin": {
+      "label": "ou_2f67ed66e57e214e72c318a57c60d1c4",
+      "provider": "feishu",
+      "surface": "feishu",
+      "chatType": "direct",
+      "from": "feishu:ou_2f67ed66e57e214e72c318a57c60d1c4",
+      "to": "user:ou_2f67ed66e57e214e72c318a57c60d1c4",
+      "accountId": "default"
+    },
+    "compactionCount": 0,
+    "totalTokens": 0,
+    "totalTokensFresh": true,
+    "sessionFile": "/root/.openclaw/agents/main/sessions/f2d5e8c9-4723-4d36-9343-40b1b09a1fa8.jsonl",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784279660258,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "abortedLastRun": false,
+    "status": "failed",
+    "startedAt": 1784279724131,
+    "authProfileOverride": "ollama:default",
+    "authProfileOverrideSource": "auto",
+    "authProfileOverrideCompactionCount": 0,
+    "endedAt": 1784279848013,
+    "runtimeMs": 123882
+  },
+  "agent:main:cron:67c5a0eb-5d46-4b79-8cf2-8a180f194c15:run:1784337724833": {
+    "sessionId": "eac195c3-ffc5-47cf-993a-a80e572afaa3",
+    "updatedAt": 1784337865419,
+    "sessionStartedAt": 1784337725301,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "chatType": "direct",
+    "compactionCount": 0,
+    "totalTokens": 15531,
+    "totalTokensFresh": true,
+    "sessionFile": "/root/.openclaw/agents/main/sessions/eac195c3-ffc5-47cf-993a-a80e572afaa3.jsonl",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784337718893,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "status": "done",
+    "startedAt": 1784337847818,
+    "providerOverride": "xiaomi-token-plan",
+    "modelOverride": "mimo-v2.5-pro",
+    "modelOverrideSource": "auto",
+    "modelOverrideFallbackOriginProvider": "ollama",
+    "modelOverrideFallbackOriginModel": "qwen3.5:27b",
+    "endedAt": 1784337865410,
+    "runtimeMs": 17592,
+    "fallbackNoticeSelectedModel": "ollama/qwen3.5:27b",
+    "fallbackNoticeActiveModel": "xiaomi-token-plan/mimo-v2.5-pro",
+    "fallbackNoticeReason": "timeout",
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1784337847575,
+      "sessionId": "eac195c3-ffc5-47cf-993a-a80e572afaa3",
+      "sessionKey": "agent:main:cron:67c5a0eb-5d46-4b79-8cf2-8a180f194c15:run:1784337724833",
+      "provider": "xiaomi-token-plan",
+      "model": "mimo-v2.5-pro",
+      "workspaceDir": "/root/.openclaw/workspace",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 60000,
+      "bootstrapTruncation": {
+        "warningMode": "always",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 28777,
+        "hash": "308cd86360efb081f8c915c95ca658c3b4f912c1b8f45dca36732ad8fd2770b8",
+        "projectContextChars": 15273,
+        "nonProjectContextChars": 13504
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/root/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 8132,
+          "injectedChars": 8132,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/root/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1757,
+          "injectedChars": 1757,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/root/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 1741,
+          "injectedChars": 1741,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/root/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 1275,
+          "injectedChars": 1275,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/root/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 534,
+          "injectedChars": 534,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 8228,
+        "hash": "b70a260888ec394b7e369ea17dd21f58d616d06f1273699aa5edc018f527bbad",
+        "entries": [
+          {
+            "name": "browser-automation",
+            "blockChars": 371
+          },
+          {
+            "name": "canvas",
+            "blockChars": 289
+          },
+          {
+            "name": "clawhub",
+            "blockChars": 337
+          },
+          {
+            "name": "diagram-maker",
+            "blockChars": 310
+          },
+          {
+            "name": "feishu-doc",
+            "blockChars": 302
+          },
+          {
+            "name": "feishu-drive",
+            "blockChars": 294
+          },
+          {
+            "name": "feishu-perm",
+            "blockChars": 316
+          },
+          {
+            "name": "feishu-wiki",
+            "blockChars": 296
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 322
+          },
+          {
+            "name": "meme-maker",
+            "blockChars": 295
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 325
+          },
+          {
+            "name": "node-inspect-debugger",
+            "blockChars": 321
+          },
+          {
+            "name": "notion",
+            "blockChars": 316
+          },
+          {
+            "name": "python-debugpy",
+            "blockChars": 309
+          },
+          {
+            "name": "qqbot-channel",
+            "blockChars": 394
+          },
+          {
+            "name": "qqbot-media",
+            "blockChars": 384
+          },
+          {
+            "name": "qqbot-remind",
+            "blockChars": 387
+          },
+          {
+            "name": "secureclaw",
+            "blockChars": 543
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 303
+          },
+          {
+            "name": "spike",
+            "blockChars": 295
+          },
+          {
+            "name": "taskflow",
+            "blockChars": 325
+          },
+          {
+            "name": "taskflow-inbox-triage",
+            "blockChars": 335
+          },
+          {
+            "name": "weather",
+            "blockChars": 333
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 11729,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 303,
+            "summaryHash": "b15dd29794ef5562ddee30a6282387ee7b40b9806c10ae2616daf75514ddc1f6",
+            "schemaChars": 304,
+            "schemaHash": "134f19bcabe3e29d63c5cebb38f1d2556759fd08adad6bc90a4b4d3cd1fb8441",
+            "propertiesCount": 3
+          },
+          {
+            "name": "edit",
+            "summaryChars": 326,
+            "summaryHash": "c498a85576e187d069e8e8ea4f70f81bddd57829600d385ef61c4359fd634c9e",
+            "schemaChars": 834,
+            "schemaHash": "457e8bb9f800b21be76c4fd8c0e3078bf07ee9bf93ac82f39944c171bd8f6d84",
+            "propertiesCount": 2
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "summaryHash": "cdb1c46027b22d1f1b923b47bfe297821d9fe589a9f9d92994961948060a4d89",
+            "schemaChars": 225,
+            "schemaHash": "e98a2484f667cf7c22d76ca103bf2022bf9113dc63fe38b899e71c328cb1e833",
+            "propertiesCount": 2
+          },
+          {
+            "name": "apply_patch",
+            "summaryChars": 132,
+            "summaryHash": "432bf38688a4f011d2b765a441ac07e1fdfa9faf2051679adee04abcd9332d93",
+            "schemaChars": 153,
+            "schemaHash": "05521268363ff4f191472c90d69ef08a503ba9acf1d2febc50b3ee68db32ab65",
+            "propertiesCount": 1
+          },
+          {
+            "name": "exec",
+            "summaryChars": 446,
+            "summaryHash": "369f5e5e195c647ab1e3cfad282e6d25488d4b9fe269f1157e273a546ca80295",
+            "schemaChars": 1332,
+            "schemaHash": "49dcb29ee9f7016cd248f40cfb44508aac4d6a67d4c9acb52cbd08ad3e3ae893",
+            "propertiesCount": 12
+          },
+          {
+            "name": "process",
+            "summaryChars": 362,
+            "summaryHash": "21d78afb643a24f211fe9aa86c748f165ca82f1dc21bbaf6e3e6d6d4d4411d86",
+            "schemaChars": 1074,
+            "schemaHash": "a2d30a25569f409d7e8539844c89a088044535388b24031d014577b96ed27c5c",
+            "propertiesCount": 12
+          },
+          {
+            "name": "get_goal",
+            "summaryChars": 71,
+            "summaryHash": "58dea7906d9e17e5f89a75fea24597ee068d8a56af824370dc27f8501374d6e3",
+            "schemaChars": 33,
+            "schemaHash": "8243f0af367f188a376f2c17b5eabe872a2f7a979813e0d4e2be6d594c2aa259",
+            "propertiesCount": 0
+          },
+          {
+            "name": "create_goal",
+            "summaryChars": 155,
+            "summaryHash": "f01e3a63d673a410ba55213ce6bd3fa2b0d2279e8e780c18aa0cb5aa991b29b3",
+            "schemaChars": 267,
+            "schemaHash": "27ee794432736471bd76390e236cc7d7e98f8469a02656e7a27109041eea0f8c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "update_goal",
+            "summaryChars": 212,
+            "summaryHash": "285201690e5f2456b4cdcd252ff391709b84d69538df61bad694d3c0cfc19958",
+            "schemaChars": 207,
+            "schemaHash": "c37894492eedfad02f1e7fe1488900765bfe547f3b3f34cefbab4f7f57441c2c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "skill_workshop",
+            "summaryChars": 171,
+            "summaryHash": "577c1d2b8f56bf3e9dd5e00463bbce8b8bf4cf201da9b21b588dcaa3bc6ed8cf",
+            "schemaChars": 2298,
+            "schemaHash": "a15f720240f6f8fed5b136844a6868388a4c35170b419a89c570bc560dc27090",
+            "propertiesCount": 13
+          },
+          {
+            "name": "update_plan",
+            "summaryChars": 163,
+            "summaryHash": "ea18cc44224e849c68cdf0a4839c295c1b20daf2699e2fc2be4c4e1552327455",
+            "schemaChars": 489,
+            "schemaHash": "50cb08b8a29e72637eb6720e6f5f3786783824537574f05ee9ae7a5f4ecacc4b",
+            "propertiesCount": 2
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 150,
+            "summaryHash": "6991b34a692cbbecc50302184503776bf8d7317b336d649fcd9373beab5473dc",
+            "schemaChars": 465,
+            "schemaHash": "89e377fd8694a3b81a5d72a0e9536e1770a127aff3ee539cef01c5af01e59129",
+            "propertiesCount": 10
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 149,
+            "summaryHash": "09b418c8da696b361c021f66705dab0215a613f6c18a9722767f6129907e0dcd",
+            "schemaChars": 202,
+            "schemaHash": "7c48bf270e608aa5c167ec15d571b536c626aed56e88d6e760fcf0802bb75cc4",
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 282,
+            "summaryHash": "061e9ef3487676bb2a4fd4c0336bd973aaab5eea0725e7443c4cb17518cd1e78",
+            "schemaChars": 275,
+            "schemaHash": "f1fbaa412fe6b6aee102234c87c5aa140f39c9086f9bae6e1e9691309a602ffb",
+            "propertiesCount": 5
+          },
+          {
+            "name": "sessions_spawn",
+            "summaryChars": 578,
+            "summaryHash": "c75061234ba01a4eb29ca223c1c63a44935e9e555ef2ca280722ba9e844db86d",
+            "schemaChars": 1151,
+            "schemaHash": "9a91c7668463da8a66386260ce2ae97e7efe3bb93b9b6f03ac85102c354457e1",
+            "propertiesCount": 15
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 79,
+            "summaryHash": "f3782fc41c1522657e1d3494f486a2df998fed38a6b89dcf7f6934fb41424320",
+            "schemaChars": 60,
+            "schemaHash": "b1c4c753820bc3096d85ef7a266a14c9fbe12450536db58076b75bb61d14dbbb",
+            "propertiesCount": 1
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 132,
+            "summaryHash": "1c2ffd38549c0444b118d43736fc4b875ea1aaabc446bbf8bc1fc4ee9180cca4",
+            "schemaChars": 122,
+            "schemaHash": "c4a241d2c3d46ba7985abfce4d3fcd63298ce81f89d49183c8f3d584c48d0c33",
+            "propertiesCount": 2
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 278,
+            "summaryHash": "71177e543dc6235bad4b1a26761995681dcec27ab58dcb4f4f8a7fc9a7b2b5aa",
+            "schemaChars": 89,
+            "schemaHash": "d2995f3d69d126e98ac93eec3c2a9fe5556925bd7979a8e4b6b5a2bf62d329dd",
+            "propertiesCount": 2
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 65,
+            "summaryHash": "b38e9b3c079beaa988d3c576303660b91a55c2e72f56351da04160529173273f",
+            "schemaChars": 991,
+            "schemaHash": "3879e368875d824b14e0e683f81408824e9a2a5850fa2f8514a68caebda54d18",
+            "propertiesCount": 12
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 93,
+            "summaryHash": "8875afbb51bd63673e5e6836ca31eeda73914a464862665cd73b346e28d28fd5",
+            "schemaChars": 317,
+            "schemaHash": "d2d8ad58a1b84d849dd16142282aff6c5606f7b0e3d08405e1b740a6a79e6bcc",
+            "propertiesCount": 3
+          },
+          {
+            "name": "image",
+            "summaryChars": 119,
+            "summaryHash": "0eae16e4e16f86cc74ea64bdd48812b0a1d86577fee36dc4cf2c6e7974c83ef6",
+            "schemaChars": 350,
+            "schemaHash": "49bb766071c935edca8c2d0df47fc2109bbffe3d4ba32d0b19fe90ec873736ce",
+            "propertiesCount": 6
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 605,
+            "summaryHash": "0f918d28864d3682ae77731f149273997c84773592a466b18c7cd0121b599a05",
+            "schemaChars": 250,
+            "schemaHash": "088cd2a3d3a47b251429ff7c56844cdedd1c45c3af0fa8bfaf7aa795766976bf",
+            "propertiesCount": 4
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 239,
+            "summaryHash": "bff1141a3da31a345c550337417efc9ace4da2909004606c727c59ca1a294495",
+            "schemaChars": 241,
+            "schemaHash": "78f5d58460a82f9104deebad2f1873a8cde05d1ce7328b3ba4da6e994653e70a",
+            "propertiesCount": 4
+          }
+        ]
+      },
+      "currentTurn": {
+        "promptChars": 25,
+        "runtimeContextChars": 0
+      }
+    },
+    "inputTokens": 14620,
+    "outputTokens": 559,
+    "cacheRead": 15040,
+    "cacheWrite": 0,
+    "estimatedCostUsd": 0.025295400000000003
+  },
+  "agent:main:cron:75da8ab8-59f6-44a1-ab67-79e111137a20:run:1784337724833": {
+    "sessionId": "eb8fa912-5b9c-4258-9ff9-b18a251c905a",
+    "updatedAt": 1784338107496,
+    "sessionStartedAt": 1784337865444,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "chatType": "direct",
+    "compactionCount": 0,
+    "totalTokens": 26896,
+    "totalTokensFresh": true,
+    "sessionFile": "/root/.openclaw/agents/main/sessions/eb8fa912-5b9c-4258-9ff9-b18a251c905a.jsonl",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784337864470,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "status": "done",
+    "startedAt": 1784337986698,
+    "providerOverride": "xiaomi-token-plan",
+    "modelOverride": "mimo-v2.5-pro",
+    "modelOverrideSource": "auto",
+    "modelOverrideFallbackOriginProvider": "ollama",
+    "modelOverrideFallbackOriginModel": "qwen3.5:27b",
+    "endedAt": 1784338107477,
+    "runtimeMs": 120779,
+    "fallbackNoticeSelectedModel": "ollama/qwen3.5:27b",
+    "fallbackNoticeActiveModel": "xiaomi-token-plan/mimo-v2.5-pro",
+    "fallbackNoticeReason": "timeout",
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1784337986507,
+      "sessionId": "eb8fa912-5b9c-4258-9ff9-b18a251c905a",
+      "sessionKey": "agent:main:cron:75da8ab8-59f6-44a1-ab67-79e111137a20:run:1784337724833",
+      "provider": "xiaomi-token-plan",
+      "model": "mimo-v2.5-pro",
+      "workspaceDir": "/root/.openclaw/workspace",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 60000,
+      "bootstrapTruncation": {
+        "warningMode": "always",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 28777,
+        "hash": "30bdd2b4d747cfa7dc8c1d9fc140fa803be06100f2e06aa06daa8ad4a1f60c0c",
+        "projectContextChars": 15273,
+        "nonProjectContextChars": 13504
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/root/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 8132,
+          "injectedChars": 8132,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/root/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1757,
+          "injectedChars": 1757,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/root/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 1741,
+          "injectedChars": 1741,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/root/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 1275,
+          "injectedChars": 1275,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/root/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 534,
+          "injectedChars": 534,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 8228,
+        "hash": "b70a260888ec394b7e369ea17dd21f58d616d06f1273699aa5edc018f527bbad",
+        "entries": [
+          {
+            "name": "browser-automation",
+            "blockChars": 371
+          },
+          {
+            "name": "canvas",
+            "blockChars": 289
+          },
+          {
+            "name": "clawhub",
+            "blockChars": 337
+          },
+          {
+            "name": "diagram-maker",
+            "blockChars": 310
+          },
+          {
+            "name": "feishu-doc",
+            "blockChars": 302
+          },
+          {
+            "name": "feishu-drive",
+            "blockChars": 294
+          },
+          {
+            "name": "feishu-perm",
+            "blockChars": 316
+          },
+          {
+            "name": "feishu-wiki",
+            "blockChars": 296
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 322
+          },
+          {
+            "name": "meme-maker",
+            "blockChars": 295
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 325
+          },
+          {
+            "name": "node-inspect-debugger",
+            "blockChars": 321
+          },
+          {
+            "name": "notion",
+            "blockChars": 316
+          },
+          {
+            "name": "python-debugpy",
+            "blockChars": 309
+          },
+          {
+            "name": "qqbot-channel",
+            "blockChars": 394
+          },
+          {
+            "name": "qqbot-media",
+            "blockChars": 384
+          },
+          {
+            "name": "qqbot-remind",
+            "blockChars": 387
+          },
+          {
+            "name": "secureclaw",
+            "blockChars": 543
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 303
+          },
+          {
+            "name": "spike",
+            "blockChars": 295
+          },
+          {
+            "name": "taskflow",
+            "blockChars": 325
+          },
+          {
+            "name": "taskflow-inbox-triage",
+            "blockChars": 335
+          },
+          {
+            "name": "weather",
+            "blockChars": 333
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 11729,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 303,
+            "summaryHash": "b15dd29794ef5562ddee30a6282387ee7b40b9806c10ae2616daf75514ddc1f6",
+            "schemaChars": 304,
+            "schemaHash": "134f19bcabe3e29d63c5cebb38f1d2556759fd08adad6bc90a4b4d3cd1fb8441",
+            "propertiesCount": 3
+          },
+          {
+            "name": "edit",
+            "summaryChars": 326,
+            "summaryHash": "c498a85576e187d069e8e8ea4f70f81bddd57829600d385ef61c4359fd634c9e",
+            "schemaChars": 834,
+            "schemaHash": "457e8bb9f800b21be76c4fd8c0e3078bf07ee9bf93ac82f39944c171bd8f6d84",
+            "propertiesCount": 2
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "summaryHash": "cdb1c46027b22d1f1b923b47bfe297821d9fe589a9f9d92994961948060a4d89",
+            "schemaChars": 225,
+            "schemaHash": "e98a2484f667cf7c22d76ca103bf2022bf9113dc63fe38b899e71c328cb1e833",
+            "propertiesCount": 2
+          },
+          {
+            "name": "apply_patch",
+            "summaryChars": 132,
+            "summaryHash": "432bf38688a4f011d2b765a441ac07e1fdfa9faf2051679adee04abcd9332d93",
+            "schemaChars": 153,
+            "schemaHash": "05521268363ff4f191472c90d69ef08a503ba9acf1d2febc50b3ee68db32ab65",
+            "propertiesCount": 1
+          },
+          {
+            "name": "exec",
+            "summaryChars": 446,
+            "summaryHash": "369f5e5e195c647ab1e3cfad282e6d25488d4b9fe269f1157e273a546ca80295",
+            "schemaChars": 1332,
+            "schemaHash": "49dcb29ee9f7016cd248f40cfb44508aac4d6a67d4c9acb52cbd08ad3e3ae893",
+            "propertiesCount": 12
+          },
+          {
+            "name": "process",
+            "summaryChars": 362,
+            "summaryHash": "21d78afb643a24f211fe9aa86c748f165ca82f1dc21bbaf6e3e6d6d4d4411d86",
+            "schemaChars": 1074,
+            "schemaHash": "a2d30a25569f409d7e8539844c89a088044535388b24031d014577b96ed27c5c",
+            "propertiesCount": 12
+          },
+          {
+            "name": "get_goal",
+            "summaryChars": 71,
+            "summaryHash": "58dea7906d9e17e5f89a75fea24597ee068d8a56af824370dc27f8501374d6e3",
+            "schemaChars": 33,
+            "schemaHash": "8243f0af367f188a376f2c17b5eabe872a2f7a979813e0d4e2be6d594c2aa259",
+            "propertiesCount": 0
+          },
+          {
+            "name": "create_goal",
+            "summaryChars": 155,
+            "summaryHash": "f01e3a63d673a410ba55213ce6bd3fa2b0d2279e8e780c18aa0cb5aa991b29b3",
+            "schemaChars": 267,
+            "schemaHash": "27ee794432736471bd76390e236cc7d7e98f8469a02656e7a27109041eea0f8c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "update_goal",
+            "summaryChars": 212,
+            "summaryHash": "285201690e5f2456b4cdcd252ff391709b84d69538df61bad694d3c0cfc19958",
+            "schemaChars": 207,
+            "schemaHash": "c37894492eedfad02f1e7fe1488900765bfe547f3b3f34cefbab4f7f57441c2c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "skill_workshop",
+            "summaryChars": 171,
+            "summaryHash": "577c1d2b8f56bf3e9dd5e00463bbce8b8bf4cf201da9b21b588dcaa3bc6ed8cf",
+            "schemaChars": 2298,
+            "schemaHash": "a15f720240f6f8fed5b136844a6868388a4c35170b419a89c570bc560dc27090",
+            "propertiesCount": 13
+          },
+          {
+            "name": "update_plan",
+            "summaryChars": 163,
+            "summaryHash": "ea18cc44224e849c68cdf0a4839c295c1b20daf2699e2fc2be4c4e1552327455",
+            "schemaChars": 489,
+            "schemaHash": "50cb08b8a29e72637eb6720e6f5f3786783824537574f05ee9ae7a5f4ecacc4b",
+            "propertiesCount": 2
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 150,
+            "summaryHash": "6991b34a692cbbecc50302184503776bf8d7317b336d649fcd9373beab5473dc",
+            "schemaChars": 465,
+            "schemaHash": "89e377fd8694a3b81a5d72a0e9536e1770a127aff3ee539cef01c5af01e59129",
+            "propertiesCount": 10
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 149,
+            "summaryHash": "09b418c8da696b361c021f66705dab0215a613f6c18a9722767f6129907e0dcd",
+            "schemaChars": 202,
+            "schemaHash": "7c48bf270e608aa5c167ec15d571b536c626aed56e88d6e760fcf0802bb75cc4",
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 282,
+            "summaryHash": "061e9ef3487676bb2a4fd4c0336bd973aaab5eea0725e7443c4cb17518cd1e78",
+            "schemaChars": 275,
+            "schemaHash": "f1fbaa412fe6b6aee102234c87c5aa140f39c9086f9bae6e1e9691309a602ffb",
+            "propertiesCount": 5
+          },
+          {
+            "name": "sessions_spawn",
+            "summaryChars": 578,
+            "summaryHash": "c75061234ba01a4eb29ca223c1c63a44935e9e555ef2ca280722ba9e844db86d",
+            "schemaChars": 1151,
+            "schemaHash": "9a91c7668463da8a66386260ce2ae97e7efe3bb93b9b6f03ac85102c354457e1",
+            "propertiesCount": 15
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 79,
+            "summaryHash": "f3782fc41c1522657e1d3494f486a2df998fed38a6b89dcf7f6934fb41424320",
+            "schemaChars": 60,
+            "schemaHash": "b1c4c753820bc3096d85ef7a266a14c9fbe12450536db58076b75bb61d14dbbb",
+            "propertiesCount": 1
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 132,
+            "summaryHash": "1c2ffd38549c0444b118d43736fc4b875ea1aaabc446bbf8bc1fc4ee9180cca4",
+            "schemaChars": 122,
+            "schemaHash": "c4a241d2c3d46ba7985abfce4d3fcd63298ce81f89d49183c8f3d584c48d0c33",
+            "propertiesCount": 2
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 278,
+            "summaryHash": "71177e543dc6235bad4b1a26761995681dcec27ab58dcb4f4f8a7fc9a7b2b5aa",
+            "schemaChars": 89,
+            "schemaHash": "d2995f3d69d126e98ac93eec3c2a9fe5556925bd7979a8e4b6b5a2bf62d329dd",
+            "propertiesCount": 2
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 65,
+            "summaryHash": "b38e9b3c079beaa988d3c576303660b91a55c2e72f56351da04160529173273f",
+            "schemaChars": 991,
+            "schemaHash": "3879e368875d824b14e0e683f81408824e9a2a5850fa2f8514a68caebda54d18",
+            "propertiesCount": 12
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 93,
+            "summaryHash": "8875afbb51bd63673e5e6836ca31eeda73914a464862665cd73b346e28d28fd5",
+            "schemaChars": 317,
+            "schemaHash": "d2d8ad58a1b84d849dd16142282aff6c5606f7b0e3d08405e1b740a6a79e6bcc",
+            "propertiesCount": 3
+          },
+          {
+            "name": "image",
+            "summaryChars": 119,
+            "summaryHash": "0eae16e4e16f86cc74ea64bdd48812b0a1d86577fee36dc4cf2c6e7974c83ef6",
+            "schemaChars": 350,
+            "schemaHash": "49bb766071c935edca8c2d0df47fc2109bbffe3d4ba32d0b19fe90ec873736ce",
+            "propertiesCount": 6
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 605,
+            "summaryHash": "0f918d28864d3682ae77731f149273997c84773592a466b18c7cd0121b599a05",
+            "schemaChars": 250,
+            "schemaHash": "088cd2a3d3a47b251429ff7c56844cdedd1c45c3af0fa8bfaf7aa795766976bf",
+            "propertiesCount": 4
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 239,
+            "summaryHash": "bff1141a3da31a345c550337417efc9ace4da2909004606c727c59ca1a294495",
+            "schemaChars": 241,
+            "schemaHash": "78f5d58460a82f9104deebad2f1873a8cde05d1ce7328b3ba4da6e994653e70a",
+            "propertiesCount": 4
+          }
+        ]
+      },
+      "currentTurn": {
+        "promptChars": 25,
+        "runtimeContextChars": 0
+      }
+    },
+    "inputTokens": 22233,
+    "outputTokens": 4278,
+    "cacheRead": 26752,
+    "cacheWrite": 0,
+    "estimatedCostUsd": 0.211579,
+    "pendingFinalDelivery": true,
+    "pendingFinalDeliveryText": "↪️ Model Fallback: xiaomi-token-plan/mimo-v2.5-pro (selected ollama/qwen3.5:27b; timeout)",
+    "pendingFinalDeliveryCreatedAt": 1784338107496
+  },
+  "agent:main:cron:5ed4f961-d6d0-4845-9bde-5bd763533913:run:1784338445263": {
+    "sessionId": "a49052e6-b443-426c-8389-8734d0ffbf88",
+    "updatedAt": 1784338574252,
+    "sessionStartedAt": 1784338445552,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "chatType": "direct",
+    "compactionCount": 0,
+    "totalTokens": 14663,
+    "totalTokensFresh": true,
+    "sessionFile": "/root/.openclaw/agents/main/sessions/a49052e6-b443-426c-8389-8734d0ffbf88.jsonl",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784337864470,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "status": "done",
+    "startedAt": 1784338566735,
+    "providerOverride": "xiaomi-token-plan",
+    "modelOverride": "mimo-v2.5-pro",
+    "modelOverrideSource": "auto",
+    "modelOverrideFallbackOriginProvider": "ollama",
+    "modelOverrideFallbackOriginModel": "qwen3.5:27b",
+    "endedAt": 1784338574241,
+    "runtimeMs": 7506,
+    "fallbackNoticeSelectedModel": "ollama/qwen3.5:27b",
+    "fallbackNoticeActiveModel": "xiaomi-token-plan/mimo-v2.5-pro",
+    "fallbackNoticeReason": "timeout",
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1784338566536,
+      "sessionId": "a49052e6-b443-426c-8389-8734d0ffbf88",
+      "sessionKey": "agent:main:cron:5ed4f961-d6d0-4845-9bde-5bd763533913:run:1784338445263",
+      "provider": "xiaomi-token-plan",
+      "model": "mimo-v2.5-pro",
+      "workspaceDir": "/root/.openclaw/workspace",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 60000,
+      "bootstrapTruncation": {
+        "warningMode": "always",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 28777,
+        "hash": "59d375c7a26dc97f3fd77e0992631046f6f5ed5a8c4bed084821e4a453d117bc",
+        "projectContextChars": 15273,
+        "nonProjectContextChars": 13504
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/root/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 8132,
+          "injectedChars": 8132,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/root/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1757,
+          "injectedChars": 1757,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/root/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 1741,
+          "injectedChars": 1741,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/root/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 1275,
+          "injectedChars": 1275,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/root/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 534,
+          "injectedChars": 534,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 8228,
+        "hash": "b70a260888ec394b7e369ea17dd21f58d616d06f1273699aa5edc018f527bbad",
+        "entries": [
+          {
+            "name": "browser-automation",
+            "blockChars": 371
+          },
+          {
+            "name": "canvas",
+            "blockChars": 289
+          },
+          {
+            "name": "clawhub",
+            "blockChars": 337
+          },
+          {
+            "name": "diagram-maker",
+            "blockChars": 310
+          },
+          {
+            "name": "feishu-doc",
+            "blockChars": 302
+          },
+          {
+            "name": "feishu-drive",
+            "blockChars": 294
+          },
+          {
+            "name": "feishu-perm",
+            "blockChars": 316
+          },
+          {
+            "name": "feishu-wiki",
+            "blockChars": 296
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 322
+          },
+          {
+            "name": "meme-maker",
+            "blockChars": 295
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 325
+          },
+          {
+            "name": "node-inspect-debugger",
+            "blockChars": 321
+          },
+          {
+            "name": "notion",
+            "blockChars": 316
+          },
+          {
+            "name": "python-debugpy",
+            "blockChars": 309
+          },
+          {
+            "name": "qqbot-channel",
+            "blockChars": 394
+          },
+          {
+            "name": "qqbot-media",
+            "blockChars": 384
+          },
+          {
+            "name": "qqbot-remind",
+            "blockChars": 387
+          },
+          {
+            "name": "secureclaw",
+            "blockChars": 543
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 303
+          },
+          {
+            "name": "spike",
+            "blockChars": 295
+          },
+          {
+            "name": "taskflow",
+            "blockChars": 325
+          },
+          {
+            "name": "taskflow-inbox-triage",
+            "blockChars": 335
+          },
+          {
+            "name": "weather",
+            "blockChars": 333
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 11729,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 303,
+            "summaryHash": "b15dd29794ef5562ddee30a6282387ee7b40b9806c10ae2616daf75514ddc1f6",
+            "schemaChars": 304,
+            "schemaHash": "134f19bcabe3e29d63c5cebb38f1d2556759fd08adad6bc90a4b4d3cd1fb8441",
+            "propertiesCount": 3
+          },
+          {
+            "name": "edit",
+            "summaryChars": 326,
+            "summaryHash": "c498a85576e187d069e8e8ea4f70f81bddd57829600d385ef61c4359fd634c9e",
+            "schemaChars": 834,
+            "schemaHash": "457e8bb9f800b21be76c4fd8c0e3078bf07ee9bf93ac82f39944c171bd8f6d84",
+            "propertiesCount": 2
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "summaryHash": "cdb1c46027b22d1f1b923b47bfe297821d9fe589a9f9d92994961948060a4d89",
+            "schemaChars": 225,
+            "schemaHash": "e98a2484f667cf7c22d76ca103bf2022bf9113dc63fe38b899e71c328cb1e833",
+            "propertiesCount": 2
+          },
+          {
+            "name": "apply_patch",
+            "summaryChars": 132,
+            "summaryHash": "432bf38688a4f011d2b765a441ac07e1fdfa9faf2051679adee04abcd9332d93",
+            "schemaChars": 153,
+            "schemaHash": "05521268363ff4f191472c90d69ef08a503ba9acf1d2febc50b3ee68db32ab65",
+            "propertiesCount": 1
+          },
+          {
+            "name": "exec",
+            "summaryChars": 446,
+            "summaryHash": "369f5e5e195c647ab1e3cfad282e6d25488d4b9fe269f1157e273a546ca80295",
+            "schemaChars": 1332,
+            "schemaHash": "49dcb29ee9f7016cd248f40cfb44508aac4d6a67d4c9acb52cbd08ad3e3ae893",
+            "propertiesCount": 12
+          },
+          {
+            "name": "process",
+            "summaryChars": 362,
+            "summaryHash": "21d78afb643a24f211fe9aa86c748f165ca82f1dc21bbaf6e3e6d6d4d4411d86",
+            "schemaChars": 1074,
+            "schemaHash": "a2d30a25569f409d7e8539844c89a088044535388b24031d014577b96ed27c5c",
+            "propertiesCount": 12
+          },
+          {
+            "name": "get_goal",
+            "summaryChars": 71,
+            "summaryHash": "58dea7906d9e17e5f89a75fea24597ee068d8a56af824370dc27f8501374d6e3",
+            "schemaChars": 33,
+            "schemaHash": "8243f0af367f188a376f2c17b5eabe872a2f7a979813e0d4e2be6d594c2aa259",
+            "propertiesCount": 0
+          },
+          {
+            "name": "create_goal",
+            "summaryChars": 155,
+            "summaryHash": "f01e3a63d673a410ba55213ce6bd3fa2b0d2279e8e780c18aa0cb5aa991b29b3",
+            "schemaChars": 267,
+            "schemaHash": "27ee794432736471bd76390e236cc7d7e98f8469a02656e7a27109041eea0f8c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "update_goal",
+            "summaryChars": 212,
+            "summaryHash": "285201690e5f2456b4cdcd252ff391709b84d69538df61bad694d3c0cfc19958",
+            "schemaChars": 207,
+            "schemaHash": "c37894492eedfad02f1e7fe1488900765bfe547f3b3f34cefbab4f7f57441c2c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "skill_workshop",
+            "summaryChars": 171,
+            "summaryHash": "577c1d2b8f56bf3e9dd5e00463bbce8b8bf4cf201da9b21b588dcaa3bc6ed8cf",
+            "schemaChars": 2298,
+            "schemaHash": "a15f720240f6f8fed5b136844a6868388a4c35170b419a89c570bc560dc27090",
+            "propertiesCount": 13
+          },
+          {
+            "name": "update_plan",
+            "summaryChars": 163,
+            "summaryHash": "ea18cc44224e849c68cdf0a4839c295c1b20daf2699e2fc2be4c4e1552327455",
+            "schemaChars": 489,
+            "schemaHash": "50cb08b8a29e72637eb6720e6f5f3786783824537574f05ee9ae7a5f4ecacc4b",
+            "propertiesCount": 2
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 150,
+            "summaryHash": "6991b34a692cbbecc50302184503776bf8d7317b336d649fcd9373beab5473dc",
+            "schemaChars": 465,
+            "schemaHash": "89e377fd8694a3b81a5d72a0e9536e1770a127aff3ee539cef01c5af01e59129",
+            "propertiesCount": 10
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 149,
+            "summaryHash": "09b418c8da696b361c021f66705dab0215a613f6c18a9722767f6129907e0dcd",
+            "schemaChars": 202,
+            "schemaHash": "7c48bf270e608aa5c167ec15d571b536c626aed56e88d6e760fcf0802bb75cc4",
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 282,
+            "summaryHash": "061e9ef3487676bb2a4fd4c0336bd973aaab5eea0725e7443c4cb17518cd1e78",
+            "schemaChars": 275,
+            "schemaHash": "f1fbaa412fe6b6aee102234c87c5aa140f39c9086f9bae6e1e9691309a602ffb",
+            "propertiesCount": 5
+          },
+          {
+            "name": "sessions_spawn",
+            "summaryChars": 578,
+            "summaryHash": "c75061234ba01a4eb29ca223c1c63a44935e9e555ef2ca280722ba9e844db86d",
+            "schemaChars": 1151,
+            "schemaHash": "9a91c7668463da8a66386260ce2ae97e7efe3bb93b9b6f03ac85102c354457e1",
+            "propertiesCount": 15
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 79,
+            "summaryHash": "f3782fc41c1522657e1d3494f486a2df998fed38a6b89dcf7f6934fb41424320",
+            "schemaChars": 60,
+            "schemaHash": "b1c4c753820bc3096d85ef7a266a14c9fbe12450536db58076b75bb61d14dbbb",
+            "propertiesCount": 1
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 132,
+            "summaryHash": "1c2ffd38549c0444b118d43736fc4b875ea1aaabc446bbf8bc1fc4ee9180cca4",
+            "schemaChars": 122,
+            "schemaHash": "c4a241d2c3d46ba7985abfce4d3fcd63298ce81f89d49183c8f3d584c48d0c33",
+            "propertiesCount": 2
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 278,
+            "summaryHash": "71177e543dc6235bad4b1a26761995681dcec27ab58dcb4f4f8a7fc9a7b2b5aa",
+            "schemaChars": 89,
+            "schemaHash": "d2995f3d69d126e98ac93eec3c2a9fe5556925bd7979a8e4b6b5a2bf62d329dd",
+            "propertiesCount": 2
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 65,
+            "summaryHash": "b38e9b3c079beaa988d3c576303660b91a55c2e72f56351da04160529173273f",
+            "schemaChars": 991,
+            "schemaHash": "3879e368875d824b14e0e683f81408824e9a2a5850fa2f8514a68caebda54d18",
+            "propertiesCount": 12
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 93,
+            "summaryHash": "8875afbb51bd63673e5e6836ca31eeda73914a464862665cd73b346e28d28fd5",
+            "schemaChars": 317,
+            "schemaHash": "d2d8ad58a1b84d849dd16142282aff6c5606f7b0e3d08405e1b740a6a79e6bcc",
+            "propertiesCount": 3
+          },
+          {
+            "name": "image",
+            "summaryChars": 119,
+            "summaryHash": "0eae16e4e16f86cc74ea64bdd48812b0a1d86577fee36dc4cf2c6e7974c83ef6",
+            "schemaChars": 350,
+            "schemaHash": "49bb766071c935edca8c2d0df47fc2109bbffe3d4ba32d0b19fe90ec873736ce",
+            "propertiesCount": 6
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 605,
+            "summaryHash": "0f918d28864d3682ae77731f149273997c84773592a466b18c7cd0121b599a05",
+            "schemaChars": 250,
+            "schemaHash": "088cd2a3d3a47b251429ff7c56844cdedd1c45c3af0fa8bfaf7aa795766976bf",
+            "propertiesCount": 4
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 239,
+            "summaryHash": "bff1141a3da31a345c550337417efc9ace4da2909004606c727c59ca1a294495",
+            "schemaChars": 241,
+            "schemaHash": "78f5d58460a82f9104deebad2f1873a8cde05d1ce7328b3ba4da6e994653e70a",
+            "propertiesCount": 4
+          }
+        ]
+      },
+      "currentTurn": {
+        "promptChars": 25,
+        "runtimeContextChars": 0
+      }
+    },
+    "inputTokens": 14690,
+    "outputTokens": 146,
+    "cacheRead": 14208,
+    "cacheWrite": 0,
+    "estimatedCostUsd": 0.0179696,
+    "pendingFinalDelivery": true,
+    "pendingFinalDeliveryText": "↪️ Model Fallback: xiaomi-token-plan/mimo-v2.5-pro (selected ollama/qwen3.5:27b; timeout)",
+    "pendingFinalDeliveryCreatedAt": 1784338574252
+  },
+  "agent:main:cron:67c5a0eb-5d46-4b79-8cf2-8a180f194c15:run:1784338883862": {
+    "sessionId": "5bf952c1-6ca2-4b31-8859-2c15de4f4962",
+    "updatedAt": 1784338938539,
+    "sessionStartedAt": 1784338884129,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "chatType": "direct",
+    "compactionCount": 0,
+    "totalTokens": 13348,
+    "totalTokensFresh": true,
+    "sessionFile": "/root/.openclaw/agents/main/sessions/5bf952c1-6ca2-4b31-8859-2c15de4f4962.jsonl",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784337864470,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "authProfileOverride": "ollama:default",
+    "authProfileOverrideSource": "auto",
+    "authProfileOverrideCompactionCount": 0,
+    "status": "done",
+    "startedAt": 1784338884606,
+    "endedAt": 1784338938531,
+    "runtimeMs": 53925,
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1784338884421,
+      "sessionId": "5bf952c1-6ca2-4b31-8859-2c15de4f4962",
+      "sessionKey": "agent:main:cron:67c5a0eb-5d46-4b79-8cf2-8a180f194c15:run:1784338883862",
+      "provider": "ollama",
+      "model": "qwen3.5:27b",
+      "workspaceDir": "/root/.openclaw/workspace",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 60000,
+      "bootstrapTruncation": {
+        "warningMode": "always",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 28751,
+        "hash": "87628a69296c17db7e353c636b116af10d08bc3167a707e64bd24e07fcdf0128",
+        "projectContextChars": 15247,
+        "nonProjectContextChars": 13504
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/root/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 8132,
+          "injectedChars": 8132,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/root/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1757,
+          "injectedChars": 1757,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/root/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 1741,
+          "injectedChars": 1741,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/root/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 1275,
+          "injectedChars": 1275,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/root/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 534,
+          "injectedChars": 534,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 8228,
+        "hash": "b70a260888ec394b7e369ea17dd21f58d616d06f1273699aa5edc018f527bbad",
+        "entries": [
+          {
+            "name": "browser-automation",
+            "blockChars": 371
+          },
+          {
+            "name": "canvas",
+            "blockChars": 289
+          },
+          {
+            "name": "clawhub",
+            "blockChars": 337
+          },
+          {
+            "name": "diagram-maker",
+            "blockChars": 310
+          },
+          {
+            "name": "feishu-doc",
+            "blockChars": 302
+          },
+          {
+            "name": "feishu-drive",
+            "blockChars": 294
+          },
+          {
+            "name": "feishu-perm",
+            "blockChars": 316
+          },
+          {
+            "name": "feishu-wiki",
+            "blockChars": 296
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 322
+          },
+          {
+            "name": "meme-maker",
+            "blockChars": 295
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 325
+          },
+          {
+            "name": "node-inspect-debugger",
+            "blockChars": 321
+          },
+          {
+            "name": "notion",
+            "blockChars": 316
+          },
+          {
+            "name": "python-debugpy",
+            "blockChars": 309
+          },
+          {
+            "name": "qqbot-channel",
+            "blockChars": 394
+          },
+          {
+            "name": "qqbot-media",
+            "blockChars": 384
+          },
+          {
+            "name": "qqbot-remind",
+            "blockChars": 387
+          },
+          {
+            "name": "secureclaw",
+            "blockChars": 543
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 303
+          },
+          {
+            "name": "spike",
+            "blockChars": 295
+          },
+          {
+            "name": "taskflow",
+            "blockChars": 325
+          },
+          {
+            "name": "taskflow-inbox-triage",
+            "blockChars": 335
+          },
+          {
+            "name": "weather",
+            "blockChars": 333
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 11729,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 303,
+            "summaryHash": "b15dd29794ef5562ddee30a6282387ee7b40b9806c10ae2616daf75514ddc1f6",
+            "schemaChars": 304,
+            "schemaHash": "134f19bcabe3e29d63c5cebb38f1d2556759fd08adad6bc90a4b4d3cd1fb8441",
+            "propertiesCount": 3
+          },
+          {
+            "name": "edit",
+            "summaryChars": 326,
+            "summaryHash": "c498a85576e187d069e8e8ea4f70f81bddd57829600d385ef61c4359fd634c9e",
+            "schemaChars": 834,
+            "schemaHash": "457e8bb9f800b21be76c4fd8c0e3078bf07ee9bf93ac82f39944c171bd8f6d84",
+            "propertiesCount": 2
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "summaryHash": "cdb1c46027b22d1f1b923b47bfe297821d9fe589a9f9d92994961948060a4d89",
+            "schemaChars": 225,
+            "schemaHash": "e98a2484f667cf7c22d76ca103bf2022bf9113dc63fe38b899e71c328cb1e833",
+            "propertiesCount": 2
+          },
+          {
+            "name": "apply_patch",
+            "summaryChars": 132,
+            "summaryHash": "432bf38688a4f011d2b765a441ac07e1fdfa9faf2051679adee04abcd9332d93",
+            "schemaChars": 153,
+            "schemaHash": "05521268363ff4f191472c90d69ef08a503ba9acf1d2febc50b3ee68db32ab65",
+            "propertiesCount": 1
+          },
+          {
+            "name": "exec",
+            "summaryChars": 446,
+            "summaryHash": "369f5e5e195c647ab1e3cfad282e6d25488d4b9fe269f1157e273a546ca80295",
+            "schemaChars": 1332,
+            "schemaHash": "49dcb29ee9f7016cd248f40cfb44508aac4d6a67d4c9acb52cbd08ad3e3ae893",
+            "propertiesCount": 12
+          },
+          {
+            "name": "process",
+            "summaryChars": 362,
+            "summaryHash": "21d78afb643a24f211fe9aa86c748f165ca82f1dc21bbaf6e3e6d6d4d4411d86",
+            "schemaChars": 1074,
+            "schemaHash": "a2d30a25569f409d7e8539844c89a088044535388b24031d014577b96ed27c5c",
+            "propertiesCount": 12
+          },
+          {
+            "name": "get_goal",
+            "summaryChars": 71,
+            "summaryHash": "58dea7906d9e17e5f89a75fea24597ee068d8a56af824370dc27f8501374d6e3",
+            "schemaChars": 33,
+            "schemaHash": "8243f0af367f188a376f2c17b5eabe872a2f7a979813e0d4e2be6d594c2aa259",
+            "propertiesCount": 0
+          },
+          {
+            "name": "create_goal",
+            "summaryChars": 155,
+            "summaryHash": "f01e3a63d673a410ba55213ce6bd3fa2b0d2279e8e780c18aa0cb5aa991b29b3",
+            "schemaChars": 267,
+            "schemaHash": "27ee794432736471bd76390e236cc7d7e98f8469a02656e7a27109041eea0f8c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "update_goal",
+            "summaryChars": 212,
+            "summaryHash": "285201690e5f2456b4cdcd252ff391709b84d69538df61bad694d3c0cfc19958",
+            "schemaChars": 207,
+            "schemaHash": "c37894492eedfad02f1e7fe1488900765bfe547f3b3f34cefbab4f7f57441c2c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "skill_workshop",
+            "summaryChars": 171,
+            "summaryHash": "577c1d2b8f56bf3e9dd5e00463bbce8b8bf4cf201da9b21b588dcaa3bc6ed8cf",
+            "schemaChars": 2298,
+            "schemaHash": "a15f720240f6f8fed5b136844a6868388a4c35170b419a89c570bc560dc27090",
+            "propertiesCount": 13
+          },
+          {
+            "name": "update_plan",
+            "summaryChars": 163,
+            "summaryHash": "ea18cc44224e849c68cdf0a4839c295c1b20daf2699e2fc2be4c4e1552327455",
+            "schemaChars": 489,
+            "schemaHash": "50cb08b8a29e72637eb6720e6f5f3786783824537574f05ee9ae7a5f4ecacc4b",
+            "propertiesCount": 2
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 150,
+            "summaryHash": "6991b34a692cbbecc50302184503776bf8d7317b336d649fcd9373beab5473dc",
+            "schemaChars": 465,
+            "schemaHash": "89e377fd8694a3b81a5d72a0e9536e1770a127aff3ee539cef01c5af01e59129",
+            "propertiesCount": 10
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 149,
+            "summaryHash": "09b418c8da696b361c021f66705dab0215a613f6c18a9722767f6129907e0dcd",
+            "schemaChars": 202,
+            "schemaHash": "7c48bf270e608aa5c167ec15d571b536c626aed56e88d6e760fcf0802bb75cc4",
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 282,
+            "summaryHash": "061e9ef3487676bb2a4fd4c0336bd973aaab5eea0725e7443c4cb17518cd1e78",
+            "schemaChars": 275,
+            "schemaHash": "f1fbaa412fe6b6aee102234c87c5aa140f39c9086f9bae6e1e9691309a602ffb",
+            "propertiesCount": 5
+          },
+          {
+            "name": "sessions_spawn",
+            "summaryChars": 578,
+            "summaryHash": "c75061234ba01a4eb29ca223c1c63a44935e9e555ef2ca280722ba9e844db86d",
+            "schemaChars": 1151,
+            "schemaHash": "9a91c7668463da8a66386260ce2ae97e7efe3bb93b9b6f03ac85102c354457e1",
+            "propertiesCount": 15
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 79,
+            "summaryHash": "f3782fc41c1522657e1d3494f486a2df998fed38a6b89dcf7f6934fb41424320",
+            "schemaChars": 60,
+            "schemaHash": "b1c4c753820bc3096d85ef7a266a14c9fbe12450536db58076b75bb61d14dbbb",
+            "propertiesCount": 1
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 132,
+            "summaryHash": "1c2ffd38549c0444b118d43736fc4b875ea1aaabc446bbf8bc1fc4ee9180cca4",
+            "schemaChars": 122,
+            "schemaHash": "c4a241d2c3d46ba7985abfce4d3fcd63298ce81f89d49183c8f3d584c48d0c33",
+            "propertiesCount": 2
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 278,
+            "summaryHash": "71177e543dc6235bad4b1a26761995681dcec27ab58dcb4f4f8a7fc9a7b2b5aa",
+            "schemaChars": 89,
+            "schemaHash": "d2995f3d69d126e98ac93eec3c2a9fe5556925bd7979a8e4b6b5a2bf62d329dd",
+            "propertiesCount": 2
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 65,
+            "summaryHash": "b38e9b3c079beaa988d3c576303660b91a55c2e72f56351da04160529173273f",
+            "schemaChars": 991,
+            "schemaHash": "3879e368875d824b14e0e683f81408824e9a2a5850fa2f8514a68caebda54d18",
+            "propertiesCount": 12
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 93,
+            "summaryHash": "8875afbb51bd63673e5e6836ca31eeda73914a464862665cd73b346e28d28fd5",
+            "schemaChars": 317,
+            "schemaHash": "d2d8ad58a1b84d849dd16142282aff6c5606f7b0e3d08405e1b740a6a79e6bcc",
+            "propertiesCount": 3
+          },
+          {
+            "name": "image",
+            "summaryChars": 169,
+            "summaryHash": "a46820ca8952445d3663a8908bfa5d3adddff5b53d18b9d8e9eed8f9e593b494",
+            "schemaChars": 350,
+            "schemaHash": "49bb766071c935edca8c2d0df47fc2109bbffe3d4ba32d0b19fe90ec873736ce",
+            "propertiesCount": 6
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 605,
+            "summaryHash": "0f918d28864d3682ae77731f149273997c84773592a466b18c7cd0121b599a05",
+            "schemaChars": 250,
+            "schemaHash": "088cd2a3d3a47b251429ff7c56844cdedd1c45c3af0fa8bfaf7aa795766976bf",
+            "propertiesCount": 4
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 239,
+            "summaryHash": "bff1141a3da31a345c550337417efc9ace4da2909004606c727c59ca1a294495",
+            "schemaChars": 241,
+            "schemaHash": "78f5d58460a82f9104deebad2f1873a8cde05d1ce7328b3ba4da6e994653e70a",
+            "propertiesCount": 4
+          }
+        ]
+      },
+      "currentTurn": {
+        "promptChars": 25,
+        "runtimeContextChars": 0
+      }
+    },
+    "inputTokens": 26228,
+    "outputTokens": 217,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "estimatedCostUsd": 0,
+    "pendingFinalDelivery": true,
+    "pendingFinalDeliveryText": "Checking the current state... **Last checks:** All null except memory_maintenance (done today at 01:24 UTC) **Last heartbeat:** Today at 01:24 UTC **Current time:** 01:41 UTC (about 17 minutes later) It's early morning (01:41 UTC) and I just checked in 17 minutes ago. Per the AGENTS.md guidelines, I should stay quiet during late night hours (23:00-08:00) unless there's something urgent, and nothing is new since the last check.",
+    "pendingFinalDeliveryCreatedAt": 1784338938539
+  },
+  "agent:main:cron:75da8ab8-59f6-44a1-ab67-79e111137a20:run:1784338900000": {
+    "sessionId": "1d704ca8-2d0e-4898-95a3-9bc85d47831f",
+    "updatedAt": 1784338949950,
+    "sessionStartedAt": 1784338938831,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "chatType": "direct",
+    "compactionCount": 0,
+    "totalTokens": 13318,
+    "totalTokensFresh": true,
+    "sessionFile": "/root/.openclaw/agents/main/sessions/1d704ca8-2d0e-4898-95a3-9bc85d47831f.jsonl",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784337864470,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "authProfileOverride": "ollama:default",
+    "authProfileOverrideSource": "auto",
+    "authProfileOverrideCompactionCount": 0,
+    "status": "done",
+    "startedAt": 1784338939394,
+    "endedAt": 1784338949946,
+    "runtimeMs": 10552,
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1784338939205,
+      "sessionId": "1d704ca8-2d0e-4898-95a3-9bc85d47831f",
+      "sessionKey": "agent:main:cron:75da8ab8-59f6-44a1-ab67-79e111137a20:run:1784338900000",
+      "provider": "ollama",
+      "model": "qwen3.5:27b",
+      "workspaceDir": "/root/.openclaw/workspace",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 60000,
+      "bootstrapTruncation": {
+        "warningMode": "always",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 28751,
+        "hash": "ed2e64bafa2f8a61f58d69ccd7b1944093df8b162405f5f25213508ee0a538d3",
+        "projectContextChars": 15247,
+        "nonProjectContextChars": 13504
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/root/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 8132,
+          "injectedChars": 8132,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/root/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1757,
+          "injectedChars": 1757,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/root/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 1741,
+          "injectedChars": 1741,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/root/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 1275,
+          "injectedChars": 1275,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/root/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 534,
+          "injectedChars": 534,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 8228,
+        "hash": "b70a260888ec394b7e369ea17dd21f58d616d06f1273699aa5edc018f527bbad",
+        "entries": [
+          {
+            "name": "browser-automation",
+            "blockChars": 371
+          },
+          {
+            "name": "canvas",
+            "blockChars": 289
+          },
+          {
+            "name": "clawhub",
+            "blockChars": 337
+          },
+          {
+            "name": "diagram-maker",
+            "blockChars": 310
+          },
+          {
+            "name": "feishu-doc",
+            "blockChars": 302
+          },
+          {
+            "name": "feishu-drive",
+            "blockChars": 294
+          },
+          {
+            "name": "feishu-perm",
+            "blockChars": 316
+          },
+          {
+            "name": "feishu-wiki",
+            "blockChars": 296
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 322
+          },
+          {
+            "name": "meme-maker",
+            "blockChars": 295
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 325
+          },
+          {
+            "name": "node-inspect-debugger",
+            "blockChars": 321
+          },
+          {
+            "name": "notion",
+            "blockChars": 316
+          },
+          {
+            "name": "python-debugpy",
+            "blockChars": 309
+          },
+          {
+            "name": "qqbot-channel",
+            "blockChars": 394
+          },
+          {
+            "name": "qqbot-media",
+            "blockChars": 384
+          },
+          {
+            "name": "qqbot-remind",
+            "blockChars": 387
+          },
+          {
+            "name": "secureclaw",
+            "blockChars": 543
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 303
+          },
+          {
+            "name": "spike",
+            "blockChars": 295
+          },
+          {
+            "name": "taskflow",
+            "blockChars": 325
+          },
+          {
+            "name": "taskflow-inbox-triage",
+            "blockChars": 335
+          },
+          {
+            "name": "weather",
+            "blockChars": 333
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 11729,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 303,
+            "summaryHash": "b15dd29794ef5562ddee30a6282387ee7b40b9806c10ae2616daf75514ddc1f6",
+            "schemaChars": 304,
+            "schemaHash": "134f19bcabe3e29d63c5cebb38f1d2556759fd08adad6bc90a4b4d3cd1fb8441",
+            "propertiesCount": 3
+          },
+          {
+            "name": "edit",
+            "summaryChars": 326,
+            "summaryHash": "c498a85576e187d069e8e8ea4f70f81bddd57829600d385ef61c4359fd634c9e",
+            "schemaChars": 834,
+            "schemaHash": "457e8bb9f800b21be76c4fd8c0e3078bf07ee9bf93ac82f39944c171bd8f6d84",
+            "propertiesCount": 2
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "summaryHash": "cdb1c46027b22d1f1b923b47bfe297821d9fe589a9f9d92994961948060a4d89",
+            "schemaChars": 225,
+            "schemaHash": "e98a2484f667cf7c22d76ca103bf2022bf9113dc63fe38b899e71c328cb1e833",
+            "propertiesCount": 2
+          },
+          {
+            "name": "apply_patch",
+            "summaryChars": 132,
+            "summaryHash": "432bf38688a4f011d2b765a441ac07e1fdfa9faf2051679adee04abcd9332d93",
+            "schemaChars": 153,
+            "schemaHash": "05521268363ff4f191472c90d69ef08a503ba9acf1d2febc50b3ee68db32ab65",
+            "propertiesCount": 1
+          },
+          {
+            "name": "exec",
+            "summaryChars": 446,
+            "summaryHash": "369f5e5e195c647ab1e3cfad282e6d25488d4b9fe269f1157e273a546ca80295",
+            "schemaChars": 1332,
+            "schemaHash": "49dcb29ee9f7016cd248f40cfb44508aac4d6a67d4c9acb52cbd08ad3e3ae893",
+            "propertiesCount": 12
+          },
+          {
+            "name": "process",
+            "summaryChars": 362,
+            "summaryHash": "21d78afb643a24f211fe9aa86c748f165ca82f1dc21bbaf6e3e6d6d4d4411d86",
+            "schemaChars": 1074,
+            "schemaHash": "a2d30a25569f409d7e8539844c89a088044535388b24031d014577b96ed27c5c",
+            "propertiesCount": 12
+          },
+          {
+            "name": "get_goal",
+            "summaryChars": 71,
+            "summaryHash": "58dea7906d9e17e5f89a75fea24597ee068d8a56af824370dc27f8501374d6e3",
+            "schemaChars": 33,
+            "schemaHash": "8243f0af367f188a376f2c17b5eabe872a2f7a979813e0d4e2be6d594c2aa259",
+            "propertiesCount": 0
+          },
+          {
+            "name": "create_goal",
+            "summaryChars": 155,
+            "summaryHash": "f01e3a63d673a410ba55213ce6bd3fa2b0d2279e8e780c18aa0cb5aa991b29b3",
+            "schemaChars": 267,
+            "schemaHash": "27ee794432736471bd76390e236cc7d7e98f8469a02656e7a27109041eea0f8c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "update_goal",
+            "summaryChars": 212,
+            "summaryHash": "285201690e5f2456b4cdcd252ff391709b84d69538df61bad694d3c0cfc19958",
+            "schemaChars": 207,
+            "schemaHash": "c37894492eedfad02f1e7fe1488900765bfe547f3b3f34cefbab4f7f57441c2c",
+            "propertiesCount": 2
+          },
+          {
+            "name": "skill_workshop",
+            "summaryChars": 171,
+            "summaryHash": "577c1d2b8f56bf3e9dd5e00463bbce8b8bf4cf201da9b21b588dcaa3bc6ed8cf",
+            "schemaChars": 2298,
+            "schemaHash": "a15f720240f6f8fed5b136844a6868388a4c35170b419a89c570bc560dc27090",
+            "propertiesCount": 13
+          },
+          {
+            "name": "update_plan",
+            "summaryChars": 163,
+            "summaryHash": "ea18cc44224e849c68cdf0a4839c295c1b20daf2699e2fc2be4c4e1552327455",
+            "schemaChars": 489,
+            "schemaHash": "50cb08b8a29e72637eb6720e6f5f3786783824537574f05ee9ae7a5f4ecacc4b",
+            "propertiesCount": 2
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 150,
+            "summaryHash": "6991b34a692cbbecc50302184503776bf8d7317b336d649fcd9373beab5473dc",
+            "schemaChars": 465,
+            "schemaHash": "89e377fd8694a3b81a5d72a0e9536e1770a127aff3ee539cef01c5af01e59129",
+            "propertiesCount": 10
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 149,
+            "summaryHash": "09b418c8da696b361c021f66705dab0215a613f6c18a9722767f6129907e0dcd",
+            "schemaChars": 202,
+            "schemaHash": "7c48bf270e608aa5c167ec15d571b536c626aed56e88d6e760fcf0802bb75cc4",
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 282,
+            "summaryHash": "061e9ef3487676bb2a4fd4c0336bd973aaab5eea0725e7443c4cb17518cd1e78",
+            "schemaChars": 275,
+            "schemaHash": "f1fbaa412fe6b6aee102234c87c5aa140f39c9086f9bae6e1e9691309a602ffb",
+            "propertiesCount": 5
+          },
+          {
+            "name": "sessions_spawn",
+            "summaryChars": 578,
+            "summaryHash": "c75061234ba01a4eb29ca223c1c63a44935e9e555ef2ca280722ba9e844db86d",
+            "schemaChars": 1151,
+            "schemaHash": "9a91c7668463da8a66386260ce2ae97e7efe3bb93b9b6f03ac85102c354457e1",
+            "propertiesCount": 15
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 79,
+            "summaryHash": "f3782fc41c1522657e1d3494f486a2df998fed38a6b89dcf7f6934fb41424320",
+            "schemaChars": 60,
+            "schemaHash": "b1c4c753820bc3096d85ef7a266a14c9fbe12450536db58076b75bb61d14dbbb",
+            "propertiesCount": 1
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 132,
+            "summaryHash": "1c2ffd38549c0444b118d43736fc4b875ea1aaabc446bbf8bc1fc4ee9180cca4",
+            "schemaChars": 122,
+            "schemaHash": "c4a241d2c3d46ba7985abfce4d3fcd63298ce81f89d49183c8f3d584c48d0c33",
+            "propertiesCount": 2
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 278,
+            "summaryHash": "71177e543dc6235bad4b1a26761995681dcec27ab58dcb4f4f8a7fc9a7b2b5aa",
+            "schemaChars": 89,
+            "schemaHash": "d2995f3d69d126e98ac93eec3c2a9fe5556925bd7979a8e4b6b5a2bf62d329dd",
+            "propertiesCount": 2
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 65,
+            "summaryHash": "b38e9b3c079beaa988d3c576303660b91a55c2e72f56351da04160529173273f",
+            "schemaChars": 991,
+            "schemaHash": "3879e368875d824b14e0e683f81408824e9a2a5850fa2f8514a68caebda54d18",
+            "propertiesCount": 12
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 93,
+            "summaryHash": "8875afbb51bd63673e5e6836ca31eeda73914a464862665cd73b346e28d28fd5",
+            "schemaChars": 317,
+            "schemaHash": "d2d8ad58a1b84d849dd16142282aff6c5606f7b0e3d08405e1b740a6a79e6bcc",
+            "propertiesCount": 3
+          },
+          {
+            "name": "image",
+            "summaryChars": 169,
+            "summaryHash": "a46820ca8952445d3663a8908bfa5d3adddff5b53d18b9d8e9eed8f9e593b494",
+            "schemaChars": 350,
+            "schemaHash": "49bb766071c935edca8c2d0df47fc2109bbffe3d4ba32d0b19fe90ec873736ce",
+            "propertiesCount": 6
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 605,
+            "summaryHash": "0f918d28864d3682ae77731f149273997c84773592a466b18c7cd0121b599a05",
+            "schemaChars": 250,
+            "schemaHash": "088cd2a3d3a47b251429ff7c56844cdedd1c45c3af0fa8bfaf7aa795766976bf",
+            "propertiesCount": 4
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 239,
+            "summaryHash": "bff1141a3da31a345c550337417efc9ace4da2909004606c727c59ca1a294495",
+            "schemaChars": 241,
+            "schemaHash": "78f5d58460a82f9104deebad2f1873a8cde05d1ce7328b3ba4da6e994653e70a",
+            "propertiesCount": 4
+          }
+        ]
+      },
+      "currentTurn": {
+        "promptChars": 25,
+        "runtimeContextChars": 0
+      }
+    },
+    "inputTokens": 26197,
+    "outputTokens": 114,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "estimatedCostUsd": 0
+  },
+  "agent:main:cron:ca5df690-1056-4c99-8d00-d853044e5990": {
+    "lifecycleRevision": "3bd03a93-e813-4afb-ae26-8d2cf07cf7fb",
+    "updatedAt": 1784339943396,
+    "systemSent": true,
+    "label": "Cron: 夜间安全审计",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784337864470,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "model": "mimo-v2.5",
+    "modelProvider": "xiaomi-token-plan",
+    "authProfileOverride": "xiaomi-token-plan:default",
+    "authProfileOverrideSource": "auto",
+    "authProfileOverrideCompactionCount": 0,
+    "sessionId": "6584cf87-2835-4647-9ca6-5f161740c3ea",
+    "sessionStartedAt": 1784339943396
+  },
+  "agent:main:cron:cb4d2d00-e685-4ecd-8d7b-2df21377481e": {
+    "lifecycleRevision": "18e4e817-1b1b-4853-871c-6063f0312ed6",
+    "updatedAt": 1784340821381,
+    "systemSent": true,
+    "label": "Cron: 夜间安全审计",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784340783486,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "model": "mimo-v2.5",
+    "modelProvider": "xiaomi-token-plan",
+    "authProfileOverride": "xiaomi-token-plan:default",
+    "authProfileOverrideSource": "auto",
+    "authProfileOverrideCompactionCount": 0,
+    "sessionId": "a442c6b5-8ae1-4a2b-8432-ce1561ec194f",
+    "sessionStartedAt": 1784340821381
+  },
+  "agent:main:cron:c68485e6-48e0-4b12-bc7f-7f7f6cb4f589": {
+    "lifecycleRevision": "c250821e-ad5d-44d5-acbf-e942ffb7da9d",
+    "updatedAt": 1784341214113,
+    "systemSent": true,
+    "label": "Cron: 夜间安全审计",
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "browser-automation"
+        },
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "python-debugpy",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-channel",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-media",
+          "requiredEnv": []
+        },
+        {
+          "name": "qqbot-remind",
+          "requiredEnv": []
+        },
+        {
+          "name": "secureclaw"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1784341196235,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "5eeca7e2794abd37828145ee69ba78f75a0097578832797988c3e1c6f1e1a983",
+        "bytes": 8230
+      }
+    },
+    "model": "mimo-v2.5",
+    "modelProvider": "xiaomi-token-plan",
+    "authProfileOverride": "xiaomi-token-plan:default",
+    "authProfileOverrideSource": "auto",
+    "authProfileOverrideCompactionCount": 0,
+    "sessionId": "32fb06dd-4cae-445f-a4d5-a330746af29a",
+    "sessionStartedAt": 1784341214113
+  }
+}

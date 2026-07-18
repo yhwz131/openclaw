@@ -1,0 +1,87 @@
+{
+  "generatedBy": "openclaw-plugin-model-catalog-v1",
+  "providers": {
+    "xiaomi-token-plan": {
+      "baseUrl": "https://token-plan-cn.xiaomimimo.com/v1",
+      "models": [
+        {
+          "id": "mimo-v2.5-pro",
+          "name": "Xiaomi MiMo V2.5 Pro",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 1,
+            "output": 3,
+            "cacheRead": 0.2,
+            "cacheWrite": 0,
+            "tieredPricing": [
+              {
+                "input": 1,
+                "output": 3,
+                "cacheRead": 0.2,
+                "cacheWrite": 0,
+                "range": [
+                  0,
+                  256000
+                ]
+              },
+              {
+                "input": 1,
+                "output": 3,
+                "cacheRead": 0.4,
+                "cacheWrite": 0,
+                "range": [
+                  256000
+                ]
+              }
+            ]
+          },
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "mimo-v2.5",
+          "name": "Xiaomi MiMo V2.5",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0.4,
+            "output": 2,
+            "cacheRead": 0.08,
+            "cacheWrite": 0,
+            "tieredPricing": [
+              {
+                "input": 0.4,
+                "output": 2,
+                "cacheRead": 0.08,
+                "cacheWrite": 0,
+                "range": [
+                  0,
+                  256000
+                ]
+              },
+              {
+                "input": 0.4,
+                "output": 2,
+                "cacheRead": 0.16,
+                "cacheWrite": 0,
+                "range": [
+                  256000
+                ]
+              }
+            ]
+          },
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        }
+      ],
+      "apiKey": "tp-cs9a0e8lz4436rsmu8l64zms18jidm97da66hmyqzy511ft8",
+      "api": "openai-completions"
+    }
+  }
+}

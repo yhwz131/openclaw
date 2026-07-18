@@ -1,0 +1,6 @@
+{"type":"session","version":3,"id":"acd70031-2c2a-42d7-be17-1fd13a62906c","timestamp":"2026-07-16T09:40:52.300Z","cwd":"/root/.openclaw/workspace"}
+{"type":"model_change","id":"ffe32a00","parentId":null,"timestamp":"2026-07-16T09:40:52.301Z","provider":"vllm","modelId":"qwen3.5-27b"}
+{"type":"thinking_level_change","id":"52324c15","parentId":"ffe32a00","timestamp":"2026-07-16T09:40:52.301Z","thinkingLevel":"off"}
+{"type":"custom","customType":"model-snapshot","data":{"timestamp":1784194852414,"provider":"vllm","modelApi":"openai-completions","modelId":"qwen3.5-27b"},"id":"b1b896f9","parentId":"52324c15","timestamp":"2026-07-16T09:40:52.414Z"}
+{"type":"message","id":"0a31ac4d","parentId":"b1b896f9","timestamp":"2026-07-16T09:40:52.449Z","message":{"role":"user","content":"[message_id: om_x100b6…07c8]\nou_2f67ed…d1c4: 富民等下会下雨吗","timestamp":1784194851104,"__openclaw":{"senderIsOwner":true}}}
+{"type":"message","id":"b244a947","parentId":"0a31ac4d","timestamp":"2026-07-16T09:42:29.496Z","message":{"role":"assistant","content":[],"api":"openai-completions","provider":"vllm","model":"qwen3.5-27b","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"stopReason":"error","timestamp":1784194852452,"responseId":"chatcmpl-bb60ea84fb88319c","errorMessage":"terminated"}}
