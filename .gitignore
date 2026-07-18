@@ -20,3 +20,4 @@ state/
 *.sqlite-shm
 security-reports/
 openclaw.json
+.env
