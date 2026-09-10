@@ -13,9 +13,14 @@ note() { echo "$*"; }
 die() { echo "FAIL: $*" >&2; fail=1; }
 
 python3 - <<PY
-import sys, yaml
+import json, sys
 from pathlib import Path
-y = yaml.safe_load(Path("$YAML").read_text())
+raw = Path("$YAML").read_text()
+try:
+    y = json.loads(raw)
+except Exception:
+    import yaml
+    y = yaml.safe_load(raw)
 defaults = y["agents"]["defaults"]["subagents"]
 assert defaults["maxChildrenPerAgent"] == 8, defaults
 assert defaults["runTimeoutSeconds"] == 1800, defaults
@@ -24,6 +29,20 @@ for a in y["agents"]["list"]:
     if "maxChildrenPerAgent" in sub or "runTimeoutSeconds" in sub:
         raise SystemExit(f"illegal list[].subagents keys on {a.get('id')}: {sub}")
 print("PASS yaml defaults maxChildren=8 runTimeout=1800; no list[].subagents timeout keys")
+router = next(a for a in y["agents"]["list"] if a.get("id") == "router")
+allow = set(router.get("tools", {}).get("allow") or [])
+deny = set(router.get("tools", {}).get("deny") or [])
+if "*" in allow:
+    raise SystemExit("FAIL router tools.allow still contains *")
+for must in ("sessions_spawn", "sessions_yield", "read", "image"):
+    if must not in allow:
+        raise SystemExit(f"FAIL router tools.allow missing {must}")
+for banned in ("exec", "write", "edit", "apply_patch"):
+    if banned in allow:
+        raise SystemExit(f"FAIL router tools.allow still has {banned}")
+    if banned not in deny:
+        raise SystemExit(f"FAIL router tools.deny missing {banned}")
+print("PASS router Per-Agent allow spawn/yield/read/image; deny exec/write")
 PY
 
 for f in "$SOUL" "$AGENTS" "$INTRO"; do
@@ -37,6 +56,8 @@ fi
 grep -q '禁止编造' "$SOUL" || die "SOUL missing 禁止编造"
 grep -qE '找不到指定文件|回流为空' "$SOUL" || die "SOUL missing empty-result rule"
 grep -qE '找不到指定文件|回流为空' "$AGENTS" || die "AGENTS missing empty-result rule"
+grep -q '非五域只口头拒绝' "$SOUL" || die "SOUL missing non-HR refuse rule"
+grep -q '子 Agent 失败禁止代做' "$SOUL" || die "SOUL missing no-compensate rule"
 note "PASS empty-result / no-invent language"
 
 if [[ "$fail" -ne 0 ]]; then

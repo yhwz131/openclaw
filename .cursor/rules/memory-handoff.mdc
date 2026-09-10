@@ -17,8 +17,11 @@ alwaysApply: true
 
 - 说话人是**总控**。OpenClaw 钉 **2026.5.12**。`maxChildrenPerAgent` / `runTimeoutSeconds` 只写 `agents.defaults.subagents`。
 - **禁止编造**花名册、绩效 S/A/B/C、人才库真人。夹具不是生产数据。默认人才库非夹具主要是员工1。
-- **ASR 跳过**直到换机补测。做梦已开（每天 22:00 `Asia/Shanghai`，`storage.mode: separate`）；改时间只改 `dreaming.frequency` 后重启 Gateway。不要 `memory promote --apply`。
-- 飞书绑 **er-admin**（不是 router）。Router 用 `sessions_spawn`。飞书 **禁止出月报**（月报只 `er-admin-cron`）。
+- **招聘面试 ASR** 已于 2026-09-10 本机 FunASR CPU 补测通过（`interview-yuangong1-tech2.wav`：105 段 / A31·B74 / 推理 36.34s）。**乐奇眼镜音视频仍不转写**。
+- **子 Agent 1800s** 已于 2026-09-10 实等：`runTimeoutSeconds=1800` 会在约 1800s 杀掉子 Agent 会话；Router 照实转述超时，禁止编造成功。exec 子进程可能不被连带杀掉。
+- 做梦已开（每天 22:00 `Asia/Shanghai`，`storage.mode: separate`）；改时间只改 `dreaming.frequency` 后重启 Gateway。不要 `memory promote --apply`。
+- **Router Per-Agent** 只有 `sessions_spawn` / `sessions_yield` / `read` / `image`，没有 `write`/`exec`（2026-09-10 收紧并回测）。飞书 `toolsBySender.*` 演示期仍 allow，不是同一层。
+- 飞书绑 **er-admin**（不是 router）。Router 用 `sessions_spawn`。飞书 **禁止出月报**（月末自动走宿主机 cron；对话补跑 spawn `er-admin`）。
 - HR 测试号 `ou_2f67ed66…` 可 write；主管/员工/`*` deny write。
 - 密钥只在 `env.sh`。Canvas 反代配置不要写 Gateway token。
 - **HCM ≠ 入职看板。** HCM 是人力资源管理系统（花名册 + 五部门准备节点，无 7/30/60/90），不要叫「入职管理看板」。入职进度看板是 Canvas `onboarding-dashboard`（HR 监督面，含试用期跟进）。

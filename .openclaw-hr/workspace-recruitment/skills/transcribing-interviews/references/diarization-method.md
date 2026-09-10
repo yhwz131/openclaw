@@ -45,7 +45,7 @@ ASR 用 **Paraformer-zh**（ModelScope `iic/speech_seaco_paraformer_large_asr_na
 - `medium` / `large-v3` 中文好一点，但前者在 CPU 上慢 ~3 倍，后者在国内下载不稳定、显存吃紧。
 - 即使换 `large-v3`，仍需面对说话人分离这道独立的难关（见 §3）。
 
-**课程 playground 曾测**（同一条 wav `interview-yuangong1-tech2.wav`，282.84 s）：CPU RTF 0.131、GPU V100S RTF 0.031、105 段 / A=31 B=74。那是教学环境记录，**不是本机换机后的验收**。本机 FunASR 环境在，尚未补测通过——不要把上述数字写成本机已通过。
+**课程 playground 与本机（同一条 wav `interview-yuangong1-tech2.wav`，282.84 s）**：教学环境 CPU RTF 0.131、GPU V100S RTF 0.031、105 段 / A=31 B=74。**2026-09-10 本机 CPU 补测**：105 段 / A=31 B=74 / 推理 36.34s / RTF 0.124，校验通过。GPU 数字仍只是课程记录。
 
 ## 3. 为什么说话人分离用 CAM++，不用 pyannote-audio / 基频聚类
 
@@ -158,4 +158,4 @@ $OPENCLAW_STATE_DIR/workspace-recruitment/models/
 | `ffmpeg is not installed` warning              | FunASR 优先用 ffmpeg 读音频，没装就退到 torchaudio     | **无害**——16 kHz WAV torchaudio 直接读                     |
 | `--venv` 重递归                                  | `--venv` 参数没被剥                                | 已在 `reexec_in_venv` 里 `--venv <value>` 这两 token 一并剥掉        |
 
-环境装好后仍须在本机补测；未补测通过前不要把课程 playground smoke 当成本仓结论。
+2026-09-10 本机 CPU 已补测通过；不要把课程 GPU（V100S 8.7s）数字写成本机 GPU 结果。

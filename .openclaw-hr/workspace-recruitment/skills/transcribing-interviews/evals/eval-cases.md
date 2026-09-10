@@ -1,7 +1,7 @@
 # transcribing-interviews 评测场景
 
 > 评测对象：把面试录音转成按发言人标注的转写稿。
-> **本机 FunASR 环境存在，换机后尚未补测通过。** 场景 1 / 9 的 105 段、A/B=31/74、V100S 8.7s 是课程 playground 记录，不是本机验收。未补测时不要把「校验通过」写进现行结论，也不要为评测去跑长音频。
+> **2026-09-10 本机 CPU 已补测通过**：场景 1 夹具 `interview-yuangong1-tech2.wav` 得到 105 段 / A=31 B=74 / 推理 36.34s，`validate_transcript.js` 退出 0。课程 V100S 8.7s 仍只是 GPU 记录（本机无卡）。禁止编造转写稿。
 
 ## 评测场景
 
@@ -9,8 +9,9 @@
 
 - 输入：`interview/interview-yuangong1-tech2.wav`（282.8s / 16kHz 单声道，面试官女声 + 候选人低音调，TTS 造的模拟二面录音）
 - query：把这段面试录音转成按发言人组织的转写稿
-- expected_behavior（课程目标形态；本机未补测则标「未验收」，不要写成已通过）：
+- expected_behavior：
   - FunASR + Paraformer-zh 转写成功，产出按发言人分段
+  - **2026-09-10 本机实测**：105 段 / speaker_A 31 · speaker_B 74 / wall 36.34s，校验通过
   - 说话人分离分成至少 2 类，且没有一方畸高
   - 产物 JSON 顶层含 `audio / model / diarization_method / spk_campplus_used / device / batch_size_s / wall_sec / segments`
   - `diarization_method == "funasr-cam++"`
@@ -81,7 +82,7 @@
 
 - 输入：同一条 wav，连续跑 3 次，每次换 CPU / GPU 切换
 - query：跑转写
-- expected_behavior：课程 playground 曾要求三跑段数/文本/说话人比例一致。本 workspace 没有该报告的现行复测；未补测前不要引用 105 段 / 31/74 / 8.7s 当成本机结果。
+- expected_behavior：课程 playground 曾要求三跑段数/文本/说话人比例一致。**2026-09-10 只跑了 1 次 CPU**（105 / 31/74 / 36.34s），未做三跑、本机无 GPU。
 
 ## 基线测试（没有 Skill 时）
 

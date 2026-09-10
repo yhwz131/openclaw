@@ -75,11 +75,11 @@ bash scripts/recruitment-run.sh node skills/transcribing-interviews/scripts/vali
 
 ## 本机状态（必须诚实）
 
-conda `funasr_me` 与本 workspace `models/` **环境存在，换机后尚未补测通过**。禁止把下面课程 playground / 他机数字说成本机已验收，禁止假装转写已通过。未补测时如实告知，不要编转写稿，也不要为交差跑长音频。
+conda `funasr_me` 与本 workspace `models/` 环境存在。**2026-09-10 本机 CPU 已补测通过**：夹具 `interview/interview-yuangong1-tech2.wav`（282.84 s / 16 kHz 单声道）→ 105 段 / speaker_A 31 · speaker_B 74 / 推理 wall **36.34s** / RTF **0.124**（进程含加载约 64s）；`validate_transcript.js` 退出 0。落盘 `interview/transcript-yuangong1-tech2-20260910.json`。未做三跑。禁止编造转写稿。中文术语仍可能误识。乐奇眼镜音视频不走本 Skill。
 
-## 课程 playground 记录（不是本机验收）
+## 课程 playground 与本机对照
 
-课程同一条 wav `interview-yuangong1-tech2.wav`（282.84 s）在教学环境曾测过：CPU 约 105 段 / RTF 0.131；GPU V100S 约 8.68s / RTF 0.031；三跑段数与文本一致。报告路径属于课程 playground，本 workspace 没有把该结果复测为现行真源。
+课程同一条 wav 在教学环境曾测：CPU 约 105 段 / RTF 0.131；GPU V100S 约 8.68s / RTF 0.031。**本机 2026-09-10 CPU 复现了 105 段与 A/B=31/74**，推理 RTF 0.124，与课程 CPU 量级一致。GPU 数字仍只是课程记录（本机无 NVIDIA）。
 
 ## 迁移历史
 

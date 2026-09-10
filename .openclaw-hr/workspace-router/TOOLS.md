@@ -26,8 +26,14 @@ WebChat / CLI（无飞书 `ou_`）时，`task` 末尾加：
 - image：`image` 读本地绝对路径，禁止 `web_fetch` / OSS。不 spawn。
 - audio / video：只确认已收到，不转写、不 spawn。
 
+## 工具面（yaml Per-Agent）
+
+只有 `sessions_spawn` / `sessions_yield` / `read` / `image`。没有 `write` / `edit` / `apply_patch` / `exec` / `browser` / `cron`。
+
 ## 不做
 
-- 不在 `exec` 里跑业务脚本。
+- 不在 `exec` 里跑业务脚本（也没有 `exec`）。
+- 非五域请求不写文件、不代写代码。
+- 子 Agent 失败只转述，不代做。
 - 政策/评分/薪资/月报数字只来自子 Agent 回流。
 - 不改 `openclaw.yaml` 的 bindings / toolsBySender。

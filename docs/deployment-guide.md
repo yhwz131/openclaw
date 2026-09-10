@@ -56,7 +56,7 @@ bash "$PROFILE/scripts/ensure-rar-tools.sh"
 pip install -r "$PROFILE/hcm/backend/requirements.txt"
 ```
 
-FunASR 用**单独**环境 `funasr_me`，见 [环境配置.md](环境配置.md)。本机面试转写仍跳过补测。
+FunASR 用**单独**环境 `funasr_me`，见 [环境配置.md](环境配置.md)。招聘面试 ASR **2026-09-10 本机 CPU 已补测通过**；乐奇眼镜音视频仍不转写。
 
 ---
 

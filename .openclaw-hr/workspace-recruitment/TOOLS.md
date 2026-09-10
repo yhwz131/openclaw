@@ -116,7 +116,7 @@
 
 - **做什么**：把面试录音转成按发言人标注的转写稿。FunASR Paraformer-zh + CAM++ 一次推理同输出。不做纪要、不评分。
 - **什么时候用**：有面试录音、需要按发言人组织的文字稿时。纪要链路第一段。
-- **本机状态（必须诚实）**：conda `funasr_me` 与本 workspace `models/` **环境存在，换机后尚未补测通过**。禁止把课程 playground / 他机数字（如 105 段、A/B=31/74、RTX 3050 11s）说成本机已验收。未补测时如实告知，不要编转写稿，也不要为交差跑长音频。
+- **本机状态（必须诚实）**：conda `funasr_me` 与本 workspace `models/` 环境存在。**2026-09-10 本机 CPU 已补测通过**：`interview-yuangong1-tech2.wav`（282.84 s）→ 105 段 / speaker_A 31 · speaker_B 74 / 推理 wall 36.34s / RTF 0.124（含加载约 64s）；`validate_transcript.js` 退出 0。产物 `interview/transcript-yuangong1-tech2-20260910.json`。未做三跑。专业术语仍可能误识。乐奇眼镜音视频不走本 Skill。
 - **调用要点**（仅当用户明确要求且接受未验收风险时）：
   - `bash scripts/recruitment-run.sh python3 skills/transcribing-interviews/scripts/transcribe_diarize.py <音频文件> interview/<转写名>.json`
   - 校验：`bash scripts/recruitment-run.sh node skills/transcribing-interviews/scripts/validate_transcript.js interview/<转写名>.json`
@@ -126,7 +126,7 @@
 ## generating-minutes — 结构化面试纪要 + 数字回核
 
 - **做什么**：把转写稿整理成结构化纪要（关键问答 / 优势 / 待考察 / 评分建议），并对口述数字回核：大模型只提取，真伪由脚本对照原简历判定。
-- **什么时候用**：已有合格转写稿之后。没有转写稿就没有纪要。本机 ASR 未补测时，不要假装已有转写稿。
+- **什么时候用**：已有合格转写稿之后。没有转写稿就没有纪要。本机招聘面试 ASR 已补测；仍不要假装有一份不存在的转写稿。
 - **调用要点**：
   - `bash scripts/recruitment-run.sh python3 skills/generating-minutes/scripts/gen_minutes.py interview/<转写名>.json inbox/<候选人简历>.md interview/<纪要名>.json interview/<纪要名>.md --candidate <姓名> --position <岗位> --round <轮次> --interviewer speaker_A`
   - 校验：`bash scripts/recruitment-run.sh node skills/generating-minutes/scripts/validate_minutes.js interview/<纪要名>.json`

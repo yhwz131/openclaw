@@ -87,7 +87,7 @@ bash workspace-er-admin/scripts/er-admin-run.sh monthly-report --force 2026-07
 - **er-admin**：`answering-hr-policy-questions`、`querying-employee-payroll`、`generating-monthly-report`、`ima-skill`
 - **router**：无业务 Skill
 
-面试转写是 **FunASR**（conda `funasr_me`），不是 faster-whisper。本机 ASR 尚未补测，不要用假转写冒充通过。
+面试转写是 **FunASR**（conda `funasr_me`），不是 faster-whisper。**2026-09-10 本机 CPU 已补测通过**（105 段 / A31·B74 / 36.34s）。不要用假转写；乐奇眼镜音视频仍不转写。
 
 ---
 

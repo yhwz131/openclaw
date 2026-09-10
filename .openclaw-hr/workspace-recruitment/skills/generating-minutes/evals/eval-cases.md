@@ -8,7 +8,7 @@
 ### 场景 1 · 标准转写稿（一场完整技术二面）
 
 - 输入：已有合格转写稿（FunASR + CAM++ schema）+ `inbox/resume-tech-员工1-后端开发.md`
-  - 本机 ASR 未补测通过：不要把「105 片段 / 校验通过」当成本机已跑过的前提；没有转写稿就跳过本场景，不要编一份转写再评纪要
+  - 本机招聘 ASR 已于 2026-09-10 补测；本场景仍要求**真实转写稿**，不要编一份再评纪要
 - query：把这份转写稿整理成结构化面试纪要
 - expected_behavior：
   - 产出纪要 JSON 含 candidate / position / qa / strengths / concerns / highlights / recommendation / mentioned_numbers / number_audit_summary

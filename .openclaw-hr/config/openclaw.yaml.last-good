@@ -639,7 +639,19 @@
         "agentDir": "/opt/openclaw-hr/.openclaw-hr/agent-dirs/router",
         "tools": {
           "allow": [
-            "*"
+            "sessions_spawn",
+            "sessions_yield",
+            "read",
+            "image"
+          ],
+          "deny": [
+            "write",
+            "edit",
+            "apply_patch",
+            "exec",
+            "browser",
+            "cron",
+            "process"
           ]
         },
         "subagents": {

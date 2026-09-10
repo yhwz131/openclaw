@@ -2,7 +2,7 @@
 # ============================================================
 # 招聘子 Agent · HR 一天三场景端到端演示（课程遗留，路径已过时）
 # 本仓 profile 在 /opt/openclaw-hr/.openclaw-hr/，主模型是小米 mimo，
-# ASR 走 FunASR 且本机未补测。不要按下面 ~/.openclaw-hr / faster-whisper / DeepSeek 原样跑。
+# ASR 走 FunASR；2026-09-10 本机已补测。不要按下面 ~/.openclaw-hr / faster-whisper / DeepSeek 原样跑。
 # 现行入口：bash scripts/recruitment-run.sh / bash scripts/fetch-mail.sh
 # ============================================================
 set -e

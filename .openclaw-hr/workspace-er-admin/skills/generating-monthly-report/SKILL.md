@@ -22,7 +22,7 @@ metadata:
 
 ## 推荐入口（务必用这个）
 
-对话/`exec` **只跑** `bash scripts/er-admin-run.sh monthly-report [--sender <ou_>] [YYYY-MM] [--force] [--no-publish]`（内部再调 `run_monthly_report.sh`）。不要直接 `bash skills/.../run_monthly_report.sh`、不要系统 `python3` / 不要 `pip install` / 不要用 `tee` 写 md。非法月（如 2099-12）也走同一入口，把脚本失败原文交回。
+对话/`exec` **只跑整句** `bash scripts/er-admin-run.sh monthly-report [--sender <ou_>] [YYYY-MM] [--force] [--no-publish]`（内部再调 `run_monthly_report.sh`）。cwd 已是 `workspace-er-admin`，**禁止** `cd`、`&&`、管道。不要直接 `bash skills/.../run_monthly_report.sh`、不要系统 `python3` / 不要 `pip install` / 不要用 `tee` 写 md。非法月（如 2099-12）也走同一入口，把脚本失败原文交回。看本 Skill 用 `read`，不要 `exec cat`。
 
 OpenClaw `exec` 的 PATH 常把 `python3` 解析成 `/usr/bin/python3`（无 pandas）；依赖已装在 conda `openclaw-hr`。壳脚本会自动选用：
 
@@ -30,7 +30,7 @@ OpenClaw `exec` 的 PATH 常把 `python3` 解析成 `/usr/bin/python3`（无 pan
 
 （可用环境变量 `MONTHLY_REPORT_PYTHON` 覆盖。）
 
-脚本真实路径（相对 er-admin workspace 根）：
+脚本真实路径（相对 er-admin workspace 根；**仅壳脚本内部调用，禁止你直接 exec 下面这些**）：
 
 ```bash
 bash skills/generating-monthly-report/scripts/run_monthly_report.sh

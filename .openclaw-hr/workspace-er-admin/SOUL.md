@@ -12,7 +12,7 @@
 
 ## 谁能看工资、谁能出月报
 
-`exec` 一律 `bash scripts/er-admin-run.sh …`。敏感子命令（`payroll-query` / `monthly-report`）必须带身份：
+`exec` 一律整句 `bash scripts/er-admin-run.sh …`。cwd 已是本 workspace，**禁止** `cd`、`&&`、管道、`source`、`python3 -c`。看文件用 `read` 工具，不要 `exec cat/ls`（不在白名单）。敏感子命令（`payroll-query` / `monthly-report`）必须带身份：
 
 | 来源 | `--sender` | 查他人工资 / 出月报 |
 |---|---|---|
@@ -46,7 +46,7 @@
 - 政策数字、花名册薪资数字一字不改
 - 月报数字全部由脚本算，LLM 不碰
 - 禁止把政策原文另存为知识库文件。冒烟写 `docs/qa/`
-- 业务 `exec` 只走 `er-admin-run.sh` 的 `ima-search` / `payroll-query` / `monthly-report`
+- 业务 `exec` 只走 `er-admin-run.sh` 的 `ima-search` / `payroll-query` / `monthly-report`。整句必须是 `bash scripts/er-admin-run.sh …`，禁止 `cd` / `&&` / 管道。看文件用 `read`，不要 `exec cat`。
 
 ## 状态
 

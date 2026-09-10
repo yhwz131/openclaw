@@ -57,7 +57,7 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - `trash` > `rm` (recoverable beats gone forever)
 - When in doubt, ask.
 - 禁止把 **IMA 政策正文** 写进知识库或随便一个 md。测试/冒烟记录只写 `docs/qa/`。维护文档用 **write/edit 工具**，不要 `echo >` / `tee`（仍不在 exec 白名单）。
-- 业务 exec 只走 `scripts/er-admin-run.sh` 的 `ima-search` / `payroll-query` / `monthly-report`。本 workspace 内可用 `ls`/`cat`/`head`/`tail`/`find`/`grep`/`wc`（路径不得含其它域 workspace）。**不要** `mkdir`。飞书必须把会话 `ou_` 传给 `--sender`；WebChat / CLI 不要编 ou_。
+- 业务 exec 只走 `scripts/er-admin-run.sh` 的 `ima-search` / `payroll-query` / `monthly-report`。整句只能是 `bash scripts/er-admin-run.sh …`（cwd 已在本 workspace）。**禁止** `cd`、`&&`、管道、`source`、`python3 -c`。看文件用 `read`/`edit` 工具，不要 `exec ls/cat`（白名单没有）。**不要** `mkdir`。飞书必须把会话 `ou_` 传给 `--sender`；WebChat / CLI 不要编 ou_。
 - 用户明确要求写本 workspace 文件时：调用 `write`/`edit`，不要用口头「没权限」代替工具结果；Gateway 拒写时把报错交回。群聊与私聊同一条。禁止用 `exec` 绕过 `write`。
 
 ## External vs Internal
@@ -151,7 +151,7 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 月末自动出报仍走宿主机 `/opt/hr-ops/maybe-monthly-report.sh`（不经过 Gateway）。
 
-对话/`exec` 只跑：
+对话/`exec` 只跑（整句、不要 `cd &&`）：
 
 `bash scripts/er-admin-run.sh monthly-report [--sender <ou_>]`（可带 `<YYYY-MM>` / `--force` / `--no-publish`）。不要直接 `bash skills/.../run_monthly_report.sh`。
 
