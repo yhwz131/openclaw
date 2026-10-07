@@ -23,8 +23,9 @@ WebChat / CLI（无飞书 `ou_`）时，`task` 末尾加：
 
 ## 乐奇眼镜
 
-- image：`image` 读本地绝对路径，禁止 `web_fetch` / OSS。不 spawn。
-- audio / video：只确认已收到，不转写、不 spawn。
+- text：按原文判域。
+- video：只确认已收到，不转写。
+- image / audio：已直达招聘；若仍落到本域，`sessions_spawn` `recruitment`。
 
 ## 工具面（yaml Per-Agent）
 

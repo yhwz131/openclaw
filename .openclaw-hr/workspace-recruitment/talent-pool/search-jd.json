@@ -1,0 +1,46 @@
+{
+  "query": "/opt/openclaw-hr/.openclaw-hr/workspace-recruitment/jds/jd-bigtech-后端开发工程师.md",
+  "query_type": "jd",
+  "topn": 3,
+  "insufficient": false,
+  "matchable": 8,
+  "pool_names": [
+    "员工5",
+    "员工7",
+    "员工1",
+    "员工2",
+    "员工3",
+    "员工4",
+    "员工6",
+    "面试者1"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "id": "resume-tech-员工2-后端开发",
+      "name": "员工2",
+      "category": "tech",
+      "target_position": "后端开发工程师（Java/Go）",
+      "similarity": 0.7907,
+      "dim_similarity": {}
+    },
+    {
+      "rank": 2,
+      "id": "resume-tech-员工1-后端开发",
+      "name": "员工1",
+      "category": "tech",
+      "target_position": "后端技术专家 / 后端架构师",
+      "similarity": 0.7326,
+      "dim_similarity": {}
+    },
+    {
+      "rank": 3,
+      "id": "resume-tech-员工3-后端开发",
+      "name": "员工3",
+      "category": "tech",
+      "target_position": "后端开发工程师",
+      "similarity": 0.6992,
+      "dim_similarity": {}
+    }
+  ]
+}

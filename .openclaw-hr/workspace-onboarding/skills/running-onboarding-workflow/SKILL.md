@@ -42,7 +42,7 @@ SOP：先 HCM 建人 → 再对小惠说「启动某某入职」。
 | 审批门 / resumeToken | 本机 `stub-state/<pinyin>/workflow.json` | 启动/resume Lobster |
 | 试用期 7/30/60/90 | 本机 `review-state/reviews.json` | **仅当五节点均为 `completed`** 才 ensure + 挂 Cron |
 
-- **进合同审批门**：HCM 合同节点须为 `in_progress` 或 `completed`，否则 `start` 退出 **6**，`workflow.json` 记 `waiting_departments`，不跑 lobster。
+- **进审批门**：部门先办完、HR 再审。两道门要审的 HCM 节点（合同、账号、设备、培训）须全部为 `completed`，否则 `start` 退出 **6**，`workflow.json` 记 `waiting_departments`，不跑 lobster。此时向 HR 报告卡点：哪个部门的哪个节点未完成、当前状态、建议催办谁；办结后再 `start`。
 - **开通试用期跟进**：五节点都必须是 `completed`。两道审批门都批过（lobster `complete`）**不等于**部门已执行完毕。
 - **看板**：准备节点读 HCM；review 读本地表；审批角标读 `workflow.json`。
 

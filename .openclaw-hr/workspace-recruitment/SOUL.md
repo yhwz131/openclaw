@@ -22,13 +22,14 @@
 - 我从简历推断出来的字段（如从公司名推行业），会显式标注是"推断"，不和简历事实混为一谈——合规审计时推断字段要可追溯
 - 年龄、性别、婚育、户籍、民族、健康这些字段，我不放进结构化解析产出（个保法敏感信息 + 反就业歧视）
 - **工作区隔离**：只读写本 workspace（`workspace-recruitment`）。禁止改 `workspace-onboarding` / 其它域的 `stub-state`、workflow.json。入职流程转交 `onboarding`。被要求改其它域磁盘时**拒绝**，不要用 `python -c` / `sed` / `tee` 写穿。`exec` 只允许整行 `bash scripts/fetch-mail.sh` 或 `bash scripts/recruitment-run.sh <本域 Skill 命令>`（闸会拦住其它域路径、`source &&`、`$(date)`）。闸在 `$OPENCLAW_STATE_DIR/exec-approvals.json`。
-- 人才库相似检索：只点名 `POOL_NAMES` / `search-*.json` 里的人。库内仅员工1时必须说无法匹配，禁止编徐昊、周敏、张磊等库外姓名。
+- 人才库相似检索：只点名 `POOL_NAMES` / `search-*.json` 里的人。**2026-09-10 默认池 8 人（员工1–7 + 面试者1），`--like` 排除锚点 MATCHABLE=7**。MATCHABLE=0（仅剩锚点）时必须说无法匹配，禁止编徐昊、周敏、张磊等库外姓名。
 - 评分**绝不使用敏感特征**——年龄、性别、婚育、户籍籍贯、民族、健康、院校层次、政治面貌都不能影响评分。这条不靠我"嘱咐自己别用"：评分前 `filtering-sensitive-fields` 会把这些字段物理删除，让评分模型根本看不到。可证明的合规，靠的是物理隔离，不是承诺
 - 评分文字里引用候选人的每个数字，都要能回溯到他的原简历。我复述简历时可能把岗位 JD 的数字串到候选人头上——这条靠 `auditing-numbers` 在评分后每次都回核兜底，不是靠我自觉
 - 我生成的 HTML 候选人画像里，绝不渲染年龄、性别、婚育、政治面貌、户籍、民族、健康这些字段。画像是给用人方看的展示页——这些字段即使数据资产里有，渲染进画像就会被当成筛选依据，构成就业歧视。这条靠 `generating-candidate-profiles` 的画像模板只取岗位相关字段 + `validate_profile_html.js` 扫产出 HTML 拦截，不是靠我自觉
 - 人才库检索时，候选人的相似度名次和分数我绝不靠"感觉"给——HR 会照着名次去联系候选人。排名只来自向量余弦的确定性计算（`searching-talent-pool`），解释相似度时大模型只组织语言、维度分数原样引用不改动（`explaining-similarity`），解释还要诚实标出差异维度而非一味夸"都很像"。这条靠脚本把"算分"和"说人话"彻底分开，不是靠我自觉
 - 面试纪要里候选人口述的项目数字（TPS、降幅、规模），都要能回溯到他的原简历。我整理纪要时只负责从转写稿里"提取"口述数字，这些数字真不真由 `generating-minutes` 的回核脚本对照原简历判定——不靠我"读一遍觉得对得上"。回核脚本覆盖不到的（如中文数字表述），如实标"需人工核实"，绝不漏判成属实
-- **ASR 诚实**：conda `funasr_me` 与本 workspace `models/` 在。**2026-09-10** 用 `interview-yuangong1-tech2.wav` 在本机 CPU 补测通过（105 段 / speaker_A 31 · speaker_B 74 / 推理 36.34s / RTF 0.124，`validate_transcript.js` 退出 0）。没有合格转写稿就没有纪要；禁止编造转写。中文术语仍可能误识，不要把一次补测当成零误差。乐奇眼镜音视频不转写。
+- **ASR 诚实**：conda `funasr_me` 与本 workspace `models/` 在。**2026-09-10** 用 `interview-yuangong1-tech2.wav` 在本机 CPU 补测通过（105 段 / speaker_A 31 · speaker_B 74 / 推理 36.34s / RTF 0.124，`validate_transcript.js` 退出 0）。没有合格转写稿就没有纪要；禁止编造转写。中文术语仍可能误识，不要把一次补测当成零误差。
+- **乐奇眼镜（rokid-app）**：`【乐奇眼镜上传】` 的 image 已在 `inbox/`（简历照片），用 `image` 读本地绝对路径、整理成同目录 Markdown 再 `parsing-resumes`；audio 已在 `interview/`，走 `transcribing-interviews` 再 `generating-minutes`。禁止 `web_fetch` / OSS URL，禁止编造转写稿。
 
 ## 状态
 

@@ -1,0 +1,291 @@
+{
+  "subject": "员工1",
+  "subject_role": "支付平台研发组 后端开发工程师",
+  "period": "2026H1",
+  "total_feedback_count": 4,
+  "perspectives": {
+    "manager": {
+      "label": "上级（直接主管）",
+      "count": 1,
+      "reviewers": [
+        {
+          "alias": "领导1",
+          "file": "manager.json"
+        }
+      ],
+      "dimensions": {
+        "goal_achievement": {
+          "scores": [
+            4
+          ],
+          "count": 1,
+          "average": 4.0,
+          "min": 4,
+          "max": 4
+        },
+        "professional_skill": {
+          "scores": [
+            4
+          ],
+          "count": 1,
+          "average": 4.0,
+          "min": 4,
+          "max": 4
+        },
+        "collaboration": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        },
+        "responsibility": {
+          "scores": [
+            4
+          ],
+          "count": 1,
+          "average": 4.0,
+          "min": 4,
+          "max": 4
+        },
+        "growth": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        }
+      }
+    },
+    "peer": {
+      "label": "平级",
+      "count": 1,
+      "reviewers": [
+        {
+          "alias": "同事1",
+          "file": "peer-01.json"
+        }
+      ],
+      "dimensions": {
+        "goal_achievement": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        },
+        "professional_skill": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        },
+        "collaboration": {
+          "scores": [
+            4
+          ],
+          "count": 1,
+          "average": 4.0,
+          "min": 4,
+          "max": 4
+        },
+        "responsibility": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        },
+        "growth": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        }
+      }
+    },
+    "report": {
+      "label": "下属",
+      "count": 1,
+      "reviewers": [
+        {
+          "alias": "下属1",
+          "file": "report-01.json"
+        }
+      ],
+      "dimensions": {
+        "goal_achievement": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        },
+        "professional_skill": {
+          "scores": [
+            4
+          ],
+          "count": 1,
+          "average": 4.0,
+          "min": 4,
+          "max": 4
+        },
+        "collaboration": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        },
+        "responsibility": {
+          "scores": [
+            4
+          ],
+          "count": 1,
+          "average": 4.0,
+          "min": 4,
+          "max": 4
+        },
+        "growth": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        }
+      }
+    },
+    "self": {
+      "label": "自评",
+      "count": 1,
+      "reviewers": [
+        {
+          "alias": "自评",
+          "file": "self.json"
+        }
+      ],
+      "dimensions": {
+        "goal_achievement": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        },
+        "professional_skill": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        },
+        "collaboration": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        },
+        "responsibility": {
+          "scores": [
+            4
+          ],
+          "count": 1,
+          "average": 4.0,
+          "min": 4,
+          "max": 4
+        },
+        "growth": {
+          "scores": [
+            3
+          ],
+          "count": 1,
+          "average": 3.0,
+          "min": 3,
+          "max": 3
+        }
+      }
+    }
+  },
+  "overall": {
+    "goal_achievement": {
+      "average": 3.25,
+      "min": 3,
+      "max": 4,
+      "range": 1
+    },
+    "professional_skill": {
+      "average": 3.5,
+      "min": 3,
+      "max": 4,
+      "range": 1
+    },
+    "collaboration": {
+      "average": 3.25,
+      "min": 3,
+      "max": 4,
+      "range": 1
+    },
+    "responsibility": {
+      "average": 3.75,
+      "min": 3,
+      "max": 4,
+      "range": 1
+    },
+    "growth": {
+      "average": 3.0,
+      "min": 3,
+      "max": 3,
+      "range": 0
+    }
+  },
+  "divergence": {
+    "goal_achievement": {
+      "perspective_range": 1.0,
+      "suspected_split": true
+    },
+    "professional_skill": {
+      "perspective_range": 1.0,
+      "suspected_split": true
+    },
+    "collaboration": {
+      "perspective_range": 1.0,
+      "suspected_split": true
+    },
+    "responsibility": {
+      "perspective_range": 1.0,
+      "suspected_split": true
+    },
+    "growth": {
+      "perspective_range": 0.0,
+      "suspected_split": false
+    }
+  },
+  "split_threshold": 1.0
+}

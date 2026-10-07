@@ -116,7 +116,7 @@
 
 - **做什么**：把面试录音转成按发言人标注的转写稿。FunASR Paraformer-zh + CAM++ 一次推理同输出。不做纪要、不评分。
 - **什么时候用**：有面试录音、需要按发言人组织的文字稿时。纪要链路第一段。
-- **本机状态（必须诚实）**：conda `funasr_me` 与本 workspace `models/` 环境存在。**2026-09-10 本机 CPU 已补测通过**：`interview-yuangong1-tech2.wav`（282.84 s）→ 105 段 / speaker_A 31 · speaker_B 74 / 推理 wall 36.34s / RTF 0.124（含加载约 64s）；`validate_transcript.js` 退出 0。产物 `interview/transcript-yuangong1-tech2-20260910.json`。未做三跑。专业术语仍可能误识。乐奇眼镜音视频不走本 Skill。
+- **本机状态（必须诚实）**：conda `funasr_me` 与本 workspace `models/` 环境存在。**2026-09-10 本机 CPU 已补测通过**：`interview-yuangong1-tech2.wav`（282.84 s）→ 105 段 / speaker_A 31 · speaker_B 74 / 推理 wall 36.34s / RTF 0.124（含加载约 64s）；`validate_transcript.js` 退出 0。产物 `interview/transcript-yuangong1-tech2-20260910.json`。未做三跑。专业术语仍可能误识。乐奇眼镜面试录音落在 `interview/interview-rokid-*`，走本 Skill。
 - **调用要点**（仅当用户明确要求且接受未验收风险时）：
   - `bash scripts/recruitment-run.sh python3 skills/transcribing-interviews/scripts/transcribe_diarize.py <音频文件> interview/<转写名>.json`
   - 校验：`bash scripts/recruitment-run.sh node skills/transcribing-interviews/scripts/validate_transcript.js interview/<转写名>.json`

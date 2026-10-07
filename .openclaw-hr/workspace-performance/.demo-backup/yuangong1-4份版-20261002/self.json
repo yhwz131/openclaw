@@ -1,0 +1,25 @@
+{
+  "subject": "员工1",
+  "subject_role": "支付平台研发组 后端开发工程师",
+  "period": "2026H1",
+  "reviewer_relation": "self",
+  "reviewer_alias": "自评",
+  "submitted_at": "2026-06-28",
+  "scores": {
+    "goal_achievement": 3,
+    "professional_skill": 3,
+    "collaboration": 3,
+    "responsibility": 4,
+    "growth": 3
+  },
+  "comments": {
+    "goal_achievement": "完成本周期既定 4 项工作任务，核心指标达成预期标准。多项任务并行时优先级把控不足，次要工作占用较多精力，部分增值型任务未落地。",
+    "professional_skill": "熟练掌握岗位所需工具与业务流程，常规问题处理稳定。面对跨领域业务需求，知识储备存在短板，方案深度不足。",
+    "collaboration": "能够及时响应各方需求，主动同步工作进展。在意见存在分歧时，有时急于推进自己方案，倾听不同意见不够充分。",
+    "responsibility": "接到紧急任务主动加班保障落地，对交付成果反复自查。对于职责边界模糊的潜在问题，主动介入跟进的意识不强。",
+    "growth": "完成既定课程学习，解决工作痛点后简单记录心得。缺少系统性学习规划，输出总结文档数量偏少。"
+  },
+  "strengths": "执行力稳定，紧急任务可靠，对待交付成果严谨，能够保质保量完成岗位核心工作",
+  "improvements": "建立工作优先级清单，合理分配精力；系统性补齐跨领域知识，多输出复盘文档，持续沉淀个人经验",
+  "feedback_id": "fb-360-yuangong1-2026h1-self"
+}

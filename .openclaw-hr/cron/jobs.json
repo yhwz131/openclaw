@@ -25,22 +25,22 @@
       "state": {}
     },
     {
-      "id": "91cbb3a6-3e82-4df8-9f2d-737a72f8c167",
+      "id": "bb8816ec-e2a4-4fec-ae0c-4d85a145426f",
       "agentId": "onboarding",
-      "name": "onboard-review-yuangong1-day30",
-      "description": "员工1入职第30天试用期跟进催办",
+      "name": "onboard-review-yuangong-day30",
+      "description": "员工2入职第30天试用期跟进催办",
       "enabled": true,
       "deleteAfterRun": true,
-      "createdAtMs": 1788440050420,
+      "createdAtMs": 1789370519208,
       "schedule": {
         "kind": "at",
-        "at": "2026-10-03T01:00:00.000Z"
+        "at": "2026-10-14T01:00:00.000Z"
       },
       "sessionTarget": "isolated",
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "【飞书催办】请只 exec 下面命令，把输出整理成催办（谁、第几天、重点、尚未回填/未开通原因）。不要 record / mark-done，不要 spawn，不要改表。\nbash /opt/openclaw-hr/.openclaw-hr/workspace-onboarding/skills/running-onboarding-review/scripts/onboarding-review.sh 员工1 30 yuangong1",
+        "message": "【飞书催办】请只 exec 下面命令，把输出整理成催办（谁、第几天、重点、尚未回填/未开通原因）。不要 record / mark-done，不要 spawn，不要改表。\nbash /opt/openclaw-hr/.openclaw-hr/workspace-onboarding/skills/running-onboarding-review/scripts/onboarding-review.sh 员工2 30 yuangong",
         "timeoutSeconds": 180,
         "toolsAllow": [
           "exec"
@@ -55,13 +55,74 @@
       "state": {}
     },
     {
-      "id": "65e13866-3067-4d55-bb5f-660d131dee49",
+      "id": "847039b9-c71a-4c2f-bae2-fc81feeacb7f",
+      "agentId": "onboarding",
+      "name": "onboard-review-yuangong-day60",
+      "description": "员工2入职第60天试用期跟进催办",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1789370523813,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-11-13T01:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "【飞书催办】请只 exec 下面命令，把输出整理成催办（谁、第几天、重点、尚未回填/未开通原因）。不要 record / mark-done，不要 spawn，不要改表。\nbash /opt/openclaw-hr/.openclaw-hr/workspace-onboarding/skills/running-onboarding-review/scripts/onboarding-review.sh 员工2 60 yuangong",
+        "timeoutSeconds": 180,
+        "toolsAllow": [
+          "exec"
+        ]
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_2f67ed66e57e214e72c318a57c60d1c4",
+        "bestEffort": true
+      },
+      "state": {}
+    },
+    {
+      "id": "32155948-66b8-4a86-aa19-91a7f7c133e4",
+      "agentId": "onboarding",
+      "sessionKey": "agent:onboarding:main",
+      "name": "onboard-review-yuangong-day90",
+      "description": "员工2入职第90天试用期跟进催办",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1789370553594,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-12-13T01:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "【飞书催办】请只 exec 下面命令，把输出整理成催办（谁、第几天、重点、尚未回填/未开通原因）。不要 record / mark-done，不要 spawn，不要改表。\nbash /opt/openclaw-hr/.openclaw-hr/workspace-onboarding/skills/running-onboarding-review/scripts/onboarding-review.sh 员工2 90 yuangong",
+        "timeoutSeconds": 180,
+        "toolsAllow": [
+          "exec"
+        ]
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_2f67ed66e57e214e72c318a57c60d1c4",
+        "bestEffort": true
+      },
+      "state": {}
+    },
+    {
+      "id": "099d4240-e26b-4f41-9162-148b7be0c75e",
       "agentId": "onboarding",
       "name": "onboard-review-yuangong1-day60",
       "description": "员工1入职第60天试用期跟进催办",
       "enabled": true,
       "deleteAfterRun": true,
-      "createdAtMs": 1788440054450,
+      "createdAtMs": 1790998680722,
       "schedule": {
         "kind": "at",
         "at": "2026-11-02T01:00:00.000Z"
@@ -85,13 +146,13 @@
       "state": {}
     },
     {
-      "id": "202be843-7acd-41bf-a4e1-65456f045be2",
+      "id": "b04f0c42-edb9-4f85-8f74-81eaf34f3c5e",
       "agentId": "onboarding",
       "name": "onboard-review-yuangong1-day90",
       "description": "员工1入职第90天试用期跟进催办",
       "enabled": true,
       "deleteAfterRun": true,
-      "createdAtMs": 1788440058361,
+      "createdAtMs": 1790998685467,
       "schedule": {
         "kind": "at",
         "at": "2026-12-02T01:00:00.000Z"
@@ -101,6 +162,126 @@
       "payload": {
         "kind": "agentTurn",
         "message": "【飞书催办】请只 exec 下面命令，把输出整理成催办（谁、第几天、重点、尚未回填/未开通原因）。不要 record / mark-done，不要 spawn，不要改表。\nbash /opt/openclaw-hr/.openclaw-hr/workspace-onboarding/skills/running-onboarding-review/scripts/onboarding-review.sh 员工1 90 yuangong1",
+        "timeoutSeconds": 180,
+        "toolsAllow": [
+          "exec"
+        ]
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_2f67ed66e57e214e72c318a57c60d1c4",
+        "bestEffort": true
+      },
+      "state": {}
+    },
+    {
+      "id": "3a774b06-051e-4911-ac60-9e3ae06c4fae",
+      "agentId": "onboarding",
+      "name": "onboard-review-yaungong3-day7",
+      "description": "员工3入职第7天试用期跟进催办",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1791296364093,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-10-13T01:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "【飞书催办】请只 exec 下面命令，把输出整理成催办（谁、第几天、重点、尚未回填/未开通原因）。不要 record / mark-done，不要 spawn，不要改表。\nbash /opt/openclaw-hr/.openclaw-hr/workspace-onboarding/skills/running-onboarding-review/scripts/onboarding-review.sh 员工3 7 yaungong3",
+        "timeoutSeconds": 180,
+        "toolsAllow": [
+          "exec"
+        ]
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_2f67ed66e57e214e72c318a57c60d1c4",
+        "bestEffort": true
+      },
+      "state": {}
+    },
+    {
+      "id": "08b585a9-8a74-4a36-9315-dbb5e9bdc92e",
+      "agentId": "onboarding",
+      "name": "onboard-review-yaungong3-day30",
+      "description": "员工3入职第30天试用期跟进催办",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1791296368448,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-11-05T01:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "【飞书催办】请只 exec 下面命令，把输出整理成催办（谁、第几天、重点、尚未回填/未开通原因）。不要 record / mark-done，不要 spawn，不要改表。\nbash /opt/openclaw-hr/.openclaw-hr/workspace-onboarding/skills/running-onboarding-review/scripts/onboarding-review.sh 员工3 30 yaungong3",
+        "timeoutSeconds": 180,
+        "toolsAllow": [
+          "exec"
+        ]
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_2f67ed66e57e214e72c318a57c60d1c4",
+        "bestEffort": true
+      },
+      "state": {}
+    },
+    {
+      "id": "9ce22ac7-e4dc-42a1-a697-ee2fe2891e04",
+      "agentId": "onboarding",
+      "name": "onboard-review-yaungong3-day60",
+      "description": "员工3入职第60天试用期跟进催办",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1791296373510,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-12-05T01:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "【飞书催办】请只 exec 下面命令，把输出整理成催办（谁、第几天、重点、尚未回填/未开通原因）。不要 record / mark-done，不要 spawn，不要改表。\nbash /opt/openclaw-hr/.openclaw-hr/workspace-onboarding/skills/running-onboarding-review/scripts/onboarding-review.sh 员工3 60 yaungong3",
+        "timeoutSeconds": 180,
+        "toolsAllow": [
+          "exec"
+        ]
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_2f67ed66e57e214e72c318a57c60d1c4",
+        "bestEffort": true
+      },
+      "state": {}
+    },
+    {
+      "id": "e6c367cc-3510-4865-b392-452fafe1ddbf",
+      "agentId": "onboarding",
+      "name": "onboard-review-yaungong3-day90",
+      "description": "员工3入职第90天试用期跟进催办",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1791296378081,
+      "schedule": {
+        "kind": "at",
+        "at": "2027-01-04T01:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "【飞书催办】请只 exec 下面命令，把输出整理成催办（谁、第几天、重点、尚未回填/未开通原因）。不要 record / mark-done，不要 spawn，不要改表。\nbash /opt/openclaw-hr/.openclaw-hr/workspace-onboarding/skills/running-onboarding-review/scripts/onboarding-review.sh 员工3 90 yaungong3",
         "timeoutSeconds": 180,
         "toolsAllow": [
           "exec"

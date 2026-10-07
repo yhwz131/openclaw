@@ -36,7 +36,7 @@ import urllib.request
 
 
 def resolve_llm():
-    model = os.environ.get("LLM_MODEL") or "mimo-v2.5-pro"
+    model = os.environ.get("LLM_MODEL") or "mimo-v2.6-pro"
     is_mimo = "mimo" in model or "xiaomi" in (os.environ.get("LLM_BASE_URL") or "")
     base = os.environ.get("LLM_BASE_URL") or (
         "https://token-plan-cn.xiaomimimo.com/v1" if is_mimo else "https://api.deepseek.com/v1"
@@ -89,7 +89,11 @@ def call_deepseek(system_prompt, user_prompt, max_tokens=1500,
             )
             with urllib.request.urlopen(req, timeout=120) as resp:
                 result = json.loads(resp.read().decode("utf-8"))
-            return result["choices"][0]["message"]["content"]
+            choice = result["choices"][0]
+            # 推理模型的思考 token 也计入 max_tokens，额度不够时正文会被截断或为空
+            if choice.get("finish_reason") == "length":
+                raise RuntimeError(f"输出被截断（max_tokens={max_tokens} 不足，含推理 token）")
+            return choice["message"]["content"]
         except Exception as e:
             last_err = e
             if attempt < retries:
@@ -132,6 +136,8 @@ def verify_in_resume(token, resume_norm):
         # 纯数字命中，但带的单位/量级不同——可能是改写，标为"数字命中单位存疑"
         return None  # 三态：None = 数字在但需 LLM 看是不是改了量级
     return False
+
+
 
 
 def collect_outputs(score):
@@ -230,9 +236,11 @@ def audit_candidate(name, resume_md, score, verbose=True):
   ]
 }}
 只输出 JSON。"""
-    raw = call_deepseek(sys_p, user_p, max_tokens=2000, json_mode=True)
-    m = re.search(r"\{.*\}", raw, re.S)
-    verdicts = json.loads(m.group())["verdicts"] if m else []
+    raw = call_deepseek(sys_p, user_p, max_tokens=8000, json_mode=True)
+    m = re.search(r"\{.*\}", raw or "", re.S)
+    if not m:
+        raise RuntimeError("判定阶段模型未返回 JSON")
+    verdicts = json.loads(m.group())["verdicts"]
     # 把 suspect 原信息并进 verdict
     for v in verdicts:
         sid = v.get("id")

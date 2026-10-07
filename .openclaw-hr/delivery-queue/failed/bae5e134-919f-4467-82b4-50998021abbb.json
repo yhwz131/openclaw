@@ -1,0 +1,49 @@
+{
+  "id": "bae5e134-919f-4467-82b4-50998021abbb",
+  "enqueuedAt": 1788501378133,
+  "channel": "rokid-openclaw-bridge",
+  "to": "rokid-openclaw-bridge:5906",
+  "accountId": "5906",
+  "payloads": [
+    {
+      "text": "你好，\"主节点\"这个说法我这边不太明确是指什么。能具体说说你问的是哪个系统或服务吗？比如：\n\n- 是指某个 HR 系统的部署位置？\n- 还是指某个审批流程的状态？\n- 或者是其他技术相关的？\n\n这样我好帮你判断～",
+      "replyToTag": false
+    }
+  ],
+  "renderedBatchPlan": {
+    "payloadCount": 1,
+    "textCount": 1,
+    "mediaCount": 0,
+    "voiceCount": 0,
+    "presentationCount": 0,
+    "interactiveCount": 0,
+    "channelDataCount": 0,
+    "items": [
+      {
+        "index": 0,
+        "kinds": [
+          "text"
+        ],
+        "text": "你好，\"主节点\"这个说法我这边不太明确是指什么。能具体说说你问的是哪个系统或服务吗？比如：\n\n- 是指某个 HR 系统的部署位置？\n- 还是指某个审批流程的状态？\n- 或者是其他技术相关的？\n\n这样我好帮你判断～",
+        "mediaUrls": []
+      }
+    ]
+  },
+  "threadId": null,
+  "replyToId": null,
+  "mirror": {
+    "sessionKey": "agent:router:rokid-openclaw-bridge:direct:5906",
+    "agentId": "router",
+    "text": "你好，\"主节点\"这个说法我这边不太明确是指什么。能具体说说你问的是哪个系统或服务吗？比如：\n\n- 是指某个 HR 系统的部署位置？\n- 还是指某个审批流程的状态？\n- 或者是其他技术相关的？\n\n这样我好帮你判断～",
+    "mediaUrls": []
+  },
+  "session": {
+    "key": "agent:router:rokid-openclaw-bridge:direct:5906",
+    "agentId": "router",
+    "requesterSenderId": "5906",
+    "requesterSenderName": "5906"
+  },
+  "retryCount": 1,
+  "lastAttemptAt": 1788501378137,
+  "lastError": "Outbound not configured for channel: rokid-openclaw-bridge"
+}

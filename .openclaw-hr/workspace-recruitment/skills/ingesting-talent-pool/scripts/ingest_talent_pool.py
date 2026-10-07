@@ -42,7 +42,7 @@ OUT = os.path.join(POOL_DIR, "talent-pool.json")
 
 
 def resolve_llm():
-    model = os.environ.get("LLM_MODEL") or "mimo-v2.5-pro"
+    model = os.environ.get("LLM_MODEL") or "mimo-v2.6-pro"
     is_mimo = "mimo" in model or "xiaomi" in (os.environ.get("LLM_BASE_URL") or "")
     base = os.environ.get("LLM_BASE_URL") or (
         "https://token-plan-cn.xiaomimimo.com/v1" if is_mimo else "https://api.deepseek.com"

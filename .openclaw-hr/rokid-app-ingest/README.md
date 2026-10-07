@@ -6,13 +6,24 @@
 - `POST /rokid-app/v1/inbound`：`multipart/form-data`（`device_id`、`type`、可选 `text` / `file` / `client_msg_id`）
 - 契约以 `server.py` 与 `test_server.py` 为准
 
-落盘后通知 Gateway：
+落盘后通知 Gateway（按 type 分 Agent）：
 
 ```bash
+# image / audio → 招聘
+openclaw agent --agent recruitment --session-id rokid-app-<device_id> --json --timeout 300 -m "..."
+# text / video → 总控
 openclaw agent --agent router --session-id rokid-app-<device_id> --json --timeout 180 -m "..."
 ```
 
-会话键 `agent:router:explicit:rokid-app-<device_id>`，与龙虾桥通道分开。媒体在 `workspace-router/media/rokid-app/`（gitignore）。Gateway 未起时文件仍会留下，回复「已存、Agent 未达」。
+会话键带 Agent 名，与龙虾桥通道分开。
+
+| type | 落盘 |
+|------|------|
+| image（简历照片） | `workspace-recruitment/inbox/rokid-<device>-<stamp>-<id>.<ext>` |
+| audio（面试录音） | `workspace-recruitment/interview/interview-rokid-<device>-<stamp>-<id>.<ext>` |
+| video / 其它 | `workspace-router/media/rokid-app/<device>/` |
+
+Gateway 未起时文件仍会留下，回复「已存、Agent 未达」。
 
 ```bash
 source "$PROFILE/env.sh"

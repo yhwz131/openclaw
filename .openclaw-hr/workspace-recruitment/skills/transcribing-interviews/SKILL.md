@@ -75,7 +75,7 @@ bash scripts/recruitment-run.sh node skills/transcribing-interviews/scripts/vali
 
 ## 本机状态（必须诚实）
 
-conda `funasr_me` 与本 workspace `models/` 环境存在。**2026-09-10 本机 CPU 已补测通过**：夹具 `interview/interview-yuangong1-tech2.wav`（282.84 s / 16 kHz 单声道）→ 105 段 / speaker_A 31 · speaker_B 74 / 推理 wall **36.34s** / RTF **0.124**（进程含加载约 64s）；`validate_transcript.js` 退出 0。落盘 `interview/transcript-yuangong1-tech2-20260910.json`。未做三跑。禁止编造转写稿。中文术语仍可能误识。乐奇眼镜音视频不走本 Skill。
+conda `funasr_me` 与本 workspace `models/` 环境存在。**2026-09-10 本机 CPU 已补测通过**：夹具 `interview/interview-yuangong1-tech2.wav`（282.84 s / 16 kHz 单声道）→ 105 段 / speaker_A 31 · speaker_B 74 / 推理 wall **36.34s** / RTF **0.124**（进程含加载约 64s）；`validate_transcript.js` 退出 0。落盘 `interview/transcript-yuangong1-tech2-20260910.json`。未做三跑。禁止编造转写稿。中文术语仍可能误识。乐奇眼镜面试录音落在 `interview/interview-rokid-*`，走本 Skill。
 
 ## 课程 playground 与本机对照
 

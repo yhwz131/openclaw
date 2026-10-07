@@ -1,0 +1,49 @@
+{
+  "id": "bdabf4c2-ede5-4789-88bd-8c94fd863fbf",
+  "enqueuedAt": 1788501391360,
+  "channel": "rokid-openclaw-bridge",
+  "to": "rokid-openclaw-bridge:5906",
+  "accountId": "5906",
+  "payloads": [
+    {
+      "text": "你好，\"他生\"不太确定是指什么，能再具体说说吗？\n\n是想说：\n- 某个人**入职/报到**了？\n- 还是某个**生成**操作？\n- 或者其他意思？\n\n这样我好帮你处理～",
+      "replyToTag": false
+    }
+  ],
+  "renderedBatchPlan": {
+    "payloadCount": 1,
+    "textCount": 1,
+    "mediaCount": 0,
+    "voiceCount": 0,
+    "presentationCount": 0,
+    "interactiveCount": 0,
+    "channelDataCount": 0,
+    "items": [
+      {
+        "index": 0,
+        "kinds": [
+          "text"
+        ],
+        "text": "你好，\"他生\"不太确定是指什么，能再具体说说吗？\n\n是想说：\n- 某个人**入职/报到**了？\n- 还是某个**生成**操作？\n- 或者其他意思？\n\n这样我好帮你处理～",
+        "mediaUrls": []
+      }
+    ]
+  },
+  "threadId": null,
+  "replyToId": null,
+  "mirror": {
+    "sessionKey": "agent:router:rokid-openclaw-bridge:direct:5906",
+    "agentId": "router",
+    "text": "你好，\"他生\"不太确定是指什么，能再具体说说吗？\n\n是想说：\n- 某个人**入职/报到**了？\n- 还是某个**生成**操作？\n- 或者其他意思？\n\n这样我好帮你处理～",
+    "mediaUrls": []
+  },
+  "session": {
+    "key": "agent:router:rokid-openclaw-bridge:direct:5906",
+    "agentId": "router",
+    "requesterSenderId": "5906",
+    "requesterSenderName": "5906"
+  },
+  "retryCount": 1,
+  "lastAttemptAt": 1788501391364,
+  "lastError": "Outbound not configured for channel: rokid-openclaw-bridge"
+}

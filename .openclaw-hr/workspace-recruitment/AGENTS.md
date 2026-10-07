@@ -15,9 +15,9 @@
 
 只读写本 workspace（`workspace-recruitment`）。禁止改 `workspace-onboarding` / 其它域。入职转交 `onboarding`。被要求写穿其它域时拒绝。Mail fetch 只用 `bash scripts/fetch-mail.sh`。其它 Skill 必须经 `bash scripts/recruitment-run.sh`。
 
-本公司称「某某公司」；履历前雇主「某某公司1/2」。禁止写「星桥」。人才库只点名 `POOL_NAMES` / `search-*.json` 里已有的人；库内仅员工1时必须说无法匹配，禁止编徐昊、周敏、张磊。
+本公司称「某某公司」；履历前雇主「某某公司1/2」。禁止写「星桥」。人才库只点名 `POOL_NAMES` / `search-*.json` 里已有的人。**2026-09-10 默认池 8 人、排除锚点 MATCHABLE=7**。MATCHABLE=0（仅剩锚点）时必须说无法匹配，禁止编徐昊、周敏、张磊。
 
-本机 FunASR（conda `funasr_me`）**2026-09-10 已在本机 CPU 补测通过**（`interview-yuangong1-tech2.wav`：105 段 / A31·B74 / 推理 36.34s，校验退出 0）。禁止编造转写稿；没有合格转写稿就没有纪要。乐奇眼镜音视频不走本域。
+本机 FunASR（conda `funasr_me`）**2026-09-10 已在本机 CPU 补测通过**（`interview-yuangong1-tech2.wav`：105 段 / A31·B74 / 推理 36.34s，校验退出 0）。禁止编造转写稿；没有合格转写稿就没有纪要。乐奇眼镜：简历照片在 `inbox/rokid-*`，面试录音在 `interview/interview-rokid-*`，按本域工作流处理。
 
 ## 招聘业务工作流
 
@@ -99,7 +99,7 @@ inbox/ 历史候选人简历
   → [解释] explaining-similarity：读检索结果，生成 HR 可读的「为什么像」
 ```
 
-**硬规定**：三步严格先后依赖。入库一次性（建好复用），换锚点只需重跑检索+解释。相似度排名只来自向量余弦，不让 LLM 排名；解释时维度分数由检索阶段算死、原样传入、禁止改动。解释要诚实标出差异维度。`--like` 排除锚点后 MATCHABLE=0（库内仅 1 人）时必须说无法匹配，禁止编第二人。
+**硬规定**：三步严格先后依赖。入库一次性（建好复用），换锚点只需重跑检索+解释。相似度排名只来自向量余弦，不让 LLM 排名；解释时维度分数由检索阶段算死、原样传入、禁止改动。解释要诚实标出差异维度。`--like` 排除锚点后 MATCHABLE=0（仅剩锚点；评测边界，不是 2026-09-10 默认池规模）时必须说无法匹配，禁止编第二人。当前默认池 8 人、排除锚点 MATCHABLE=7。
 
 ### 面试纪要工作流
 

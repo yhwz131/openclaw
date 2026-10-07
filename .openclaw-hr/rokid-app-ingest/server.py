@@ -43,7 +43,7 @@ EXT_BY_MIME = {
     "audio/mp3": ".mp3",
     "video/mp4": ".mp4",
 }
-NOTIFY_TIMEOUT_SECONDS = 180
+NOTIFY_TIMEOUT_SECONDS = 300
 GATEWAY_UNREACHABLE = "已存、Agent 未达"
 
 
@@ -172,19 +172,30 @@ def build_agent_message(
     if kind == "image":
         lines.extend(
             [
+                "已落到招聘 workspace inbox（简历照片）。",
                 "用 image 工具读取上面的本地文件。不要 web_fetch，不要填任何 OSS URL。",
-                "这不是招聘/入职/培训/绩效/行政任务，不要 sessions_spawn。",
-                "用简短中文回复眼镜用户。",
+                "整理成同目录 Markdown 后走 parsing-resumes；不要编造字段。",
             ]
         )
         if text:
             lines.append("用户附言：")
             lines.append(text)
-    elif kind in {"audio", "video"}:
+    elif kind == "audio":
         lines.extend(
             [
-                "本机 ASR 尚未开通。只确认已收到该文件。",
-                "不要转写、不要抽帧、不要编造纪要，不要 sessions_spawn。",
+                "已落到招聘 workspace interview/（面试录音）。",
+                "用 transcribing-interviews 转写（FunASR + CAM++），再 generating-minutes。",
+                "禁止编造转写稿。",
+            ]
+        )
+        if text:
+            lines.append("用户附言：")
+            lines.append(text)
+    elif kind == "video":
+        lines.extend(
+            [
+                "本机对乐奇视频不转写。只确认已收到该文件。",
+                "不要抽帧、不要编造纪要。",
             ]
         )
         if text:
@@ -227,12 +238,19 @@ def extract_agent_text(blob: str) -> str:
     return ""
 
 
+def agent_for_kind(kind: str) -> str:
+    if kind in {"image", "audio"}:
+        return "recruitment"
+    return "router"
+
+
 def notify_via_openclaw_agent(
     message: str,
     *,
     device_id: str,
     timeout_seconds: int = NOTIFY_TIMEOUT_SECONDS,
     env: Mapping[str, str] | None = None,
+    agent: str = "router",
 ) -> tuple[bool, str]:
     binary = shutil.which("openclaw")
     if not binary:
@@ -242,7 +260,7 @@ def notify_via_openclaw_agent(
         binary,
         "agent",
         "--agent",
-        "router",
+        agent,
         "--session-id",
         sid,
         "--json",
@@ -314,6 +332,8 @@ class IngestApp:
         secret: str,
         media_root: Path,
         state_path: Path,
+        inbox_dir: Path | None = None,
+        interview_dir: Path | None = None,
         notify: Callable[..., tuple[bool, str]] | None = None,
         timeout_seconds: int = NOTIFY_TIMEOUT_SECONDS,
         env: Mapping[str, str] | None = None,
@@ -322,6 +342,8 @@ class IngestApp:
             raise ValueError("ROKID_APP_INGEST_SECRET 未设置")
         self.secret = secret
         self.media_root = media_root
+        self.inbox_dir = Path(inbox_dir) if inbox_dir else None
+        self.interview_dir = Path(interview_dir) if interview_dir else None
         self.store = IdempotencyStore(state_path)
         self.notify = notify or notify_via_openclaw_agent
         self.timeout_seconds = timeout_seconds
@@ -398,6 +420,7 @@ class IngestApp:
         notify_kw: dict[str, Any] = {
             "device_id": device_id,
             "timeout_seconds": self.timeout_seconds,
+            "agent": agent_for_kind(kind),
         }
         if self.env is not None:
             notify_kw["env"] = self.env
@@ -409,6 +432,22 @@ class IngestApp:
         if idem_key:
             self.store.put(idem_key, reply)
         return reply
+
+    def _dest_dir(self, device_id: str, kind: str) -> Path:
+        if kind == "image" and self.inbox_dir is not None:
+            return self.inbox_dir
+        if kind == "audio" and self.interview_dir is not None:
+            return self.interview_dir
+        return self.media_root / device_id
+
+    def _dest_name(self, device_id: str, kind: str, ext: str) -> str:
+        stamp = datetime.now(timezone.utc).astimezone().strftime("%Y%m%d-%H%M%S")
+        short = uuid.uuid4().hex[:8]
+        if kind == "image":
+            return f"rokid-{device_id}-{stamp}-{short}{ext}"
+        if kind == "audio":
+            return f"interview-rokid-{device_id}-{stamp}-{short}{ext}"
+        return f"{stamp}-{uuid.uuid4().hex}{ext}"
 
     def _save_file(
         self,
@@ -422,10 +461,9 @@ class IngestApp:
         if not ext:
             suffix = Path(filename or "").suffix.lower()
             ext = suffix if suffix in {".jpg", ".jpeg", ".png", ".webp", ".m4a", ".aac", ".mp3", ".mp4"} else f".{kind}"
-        stamp = datetime.now(timezone.utc).astimezone().strftime("%Y%m%d-%H%M%S")
-        dest_dir = self.media_root / device_id
+        dest_dir = self._dest_dir(device_id, kind)
         dest_dir.mkdir(parents=True, exist_ok=True)
-        dest = dest_dir / f"{stamp}-{uuid.uuid4().hex}{ext}"
+        dest = dest_dir / self._dest_name(device_id, kind, ext)
         tmp = dest.with_suffix(dest.suffix + ".part")
         tmp.write_bytes(data)
         tmp.replace(dest)
@@ -499,6 +537,7 @@ def main() -> int:
     host = os.environ.get("ROKID_APP_INGEST_HOST", "0.0.0.0")
     port = int(os.environ.get("ROKID_APP_INGEST_PORT", "18791"))
     profile = profile_dir()
+    rec = profile / "workspace-recruitment"
     media_root = profile / "workspace-router" / "media" / "rokid-app"
     state_path = media_root / "_state" / "idempotency.json"
     timeout = int(os.environ.get("ROKID_APP_NOTIFY_TIMEOUT_SECONDS", str(NOTIFY_TIMEOUT_SECONDS)))
@@ -506,6 +545,8 @@ def main() -> int:
         secret=secret,
         media_root=media_root,
         state_path=state_path,
+        inbox_dir=rec / "inbox",
+        interview_dir=rec / "interview",
         timeout_seconds=timeout,
     )
     httpd = ThreadingHTTPServer((host, port), make_handler(app))

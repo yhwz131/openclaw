@@ -33,6 +33,9 @@ if not s.get("hcm_up"):
     sys.exit(5)
 if not s.get("found"):
     sys.exit(4)
+if str(s.get("candidate_status") or "").lower() == "cancelled":
+    print("[sync-reviews] 员工总体状态为 cancelled，不开通或追加跟进", file=sys.stderr)
+    sys.exit(7)
 if not s.get("all_completed"):
     pending = ",".join(s.get("pending") or [])
     print(f"[sync-reviews] 五节点未全绿，不挂跟进（pending={pending}）", file=sys.stderr)
@@ -50,6 +53,9 @@ if [ "$rc" = "4" ]; then
   exit 4
 fi
 if [ "$rc" = "3" ]; then
+  exit 0
+fi
+if [ "$rc" = "7" ]; then
   exit 0
 fi
 

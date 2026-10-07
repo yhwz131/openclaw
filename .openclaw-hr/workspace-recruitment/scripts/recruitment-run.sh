@@ -91,7 +91,7 @@ fi
 export FUNASR_VENV="${FUNASR_VENV:-$HOME/miniconda3/envs/funasr_me}"
 export MODELSCOPE_CACHE="${MODELSCOPE_CACHE:-$ROOT/models}"
 
-export LLM_MODEL="${LLM_MODEL:-mimo-v2.5-pro}"
+export LLM_MODEL="${LLM_MODEL:-mimo-v2.6-pro}"
 export LLM_BASE_URL="${LLM_BASE_URL:-https://token-plan-cn.xiaomimimo.com/v1}"
 
 exec "$@"

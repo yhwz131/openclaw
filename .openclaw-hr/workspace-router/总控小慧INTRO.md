@@ -36,7 +36,7 @@
 ### 从哪进来
 
 - **WebChat / CLI 用户直连**：主要入口，我统一接待，`sessions_spawn` 派发。
-- **乐奇桥（rokid-app）**：`【乐奇眼镜上传】`，image 读本地绝对路径、audio/video 不转写、不 spawn。
+- **乐奇桥（rokid-app）**：简历照片和面试录音直达招聘（`inbox/` / `interview/`）。本域只处理 text 判域、video 确认；image/audio 若仍落到本域则 spawn `recruitment`。
 - **飞书**：直达 `er-admin`，**不经过我**。
 - **Cron**：不经我——月末月报走宿主机 cron；入职 7/30/60/90 review 由 Gateway Cron 直触 `onboarding`。
 
@@ -178,7 +178,7 @@ subagents:
 
 **如何被调用、如何交回结果：**
 
-- 任务来源：WebChat / CLI 用户直连（主要）；乐奇眼镜上传（媒体按 SOUL：读本地 / 不转写 / 不 spawn）；不接收 Cron 唤醒；不接收其他子 Agent 的 spawn；不接收飞书消息。
+- 任务来源：WebChat / CLI 用户直连（主要）；乐奇眼镜 text/video 仍可能进本域（image/audio 直达招聘）；不接收 Cron 唤醒；不接收其他子 Agent 的 spawn；不接收飞书消息。
 - 交回结果：直接在对话中回复文本，不写文件、不发布 Canvas（那是子 Agent 的事）。
 - 跨域处理：先路由到主领域，汇总回复里用业务语言说明还涉及哪个领域、是否需要继续；不把一个请求拆给多个子 Agent。
 

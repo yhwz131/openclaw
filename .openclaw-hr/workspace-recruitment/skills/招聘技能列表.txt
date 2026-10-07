@@ -1,0 +1,212 @@
+招聘 skills
+
+以下中文名与简介取自各目录 SKILL.md 的 `#` 标题段和「何时用」段（`office-to-md-v2` 为「何时用」）。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+auditing-extraction（抽取真实性核对）
+
+# auditing-extraction
+
+把 `parsing-resumes` 抽取出的候选人 JSON，逐字段回溯到简历原文，核对它真不真。
+
+## 何时用这个 Skill
+
+`parsing-resumes` 产出一份候选人 JSON 之后、这份数据进入评分或画像之前，用这个 Skill 做一道真实性核对。
+
+它和 `parsing-resumes` 内置的 `validate_profile.js` 是两件不同的事——`validate_profile.js` 核对 schema 和合规**结构**（字段组齐不齐、有没有混进红线字段），回答「形状对不对」；这个 Skill 核对抽取值**逐字段回溯简历原文**，回答「内容真不真」。两道闸都要过：先 `validate_profile.js`，再这个 Skill。
+
+为什么需要它：LLM 抽取结构化数据时有「补全」倾向，原文没有的字段可能被它填一个看似合理的值。简历解析产出是招聘子 Agent 整条链的地基，地基有假数据会一路传下去——评分基于假数据给分、画像展示假经历。所以解析之后必须有一道事后核对闸。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+auditing-numbers（评分数字回核）
+
+# auditing-numbers
+
+对一份评分产出做数字回核——评分文字（亮点、顾虑、评分理由、各维度理由）里凡是引用候选人简历的数字，必须能在该候选人的原简历里找到对应值。对不上的判为虚构，修正回原简历真实值。这是评分 Pipeline 的第三层、也是最后一层。
+
+## 何时用这个 Skill
+
+评分产出经 `scoring-candidates` 生成之后用。它是评分 Pipeline 三层里的第三层，前面两层是合规过滤、8 维评分。任何一份要交到 HR 手里的评分结果，都要先过这一层。
+
+它和相邻的几个 Skill 边界清楚：
+
+- 它**不评分**——8 维度打分是 `scoring-candidates` 的事。本 Skill 的输入是评分产出，不是简历。
+- 它**不做合规过滤**——剥离敏感字段是 `filtering-sensitive-fields` 的事。
+- 它**不核简历本身真不真**——这是 `auditing-extraction`（简历解析的真实性核对）的事。本 Skill 回核的是"评分模型有没有如实复述简历"，不是"候选人有没有如实写简历"。如果候选人自己在简历里把数字吹大了，以简历为基准是核不出来的——那属于硬伤识别和面试环节的范畴。
+
+本 Skill 只负责一件事：抓出评分文字里被大模型写错、串台的数字。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+explaining-similarity（相似度解释）
+
+# explaining-similarity
+
+把 `searching-talent-pool` 的检索结果，翻译成 HR 能读懂的「为什么这个人像锚点」维度级解释。
+
+## 何时用这个 Skill
+
+`searching-talent-pool` 检索出 Top N 之后、要把结果交给 HR 之前用。检索结果只是「排名 + 分数」——候选人D综合相似度 0.6761、经历 0.772——HR 还是不知道「凭什么说像」。这个 Skill 把分数翻译成人话：「两人都在互联网核心业务线长期深耕，技能栈高度重叠……教育背景差异略大」。
+
+它是人才库流水线的第三环、也是最后一环：
+- 建库是 `ingesting-talent-pool` 的事。
+- 检索、算相似度分数是 `searching-talent-pool` 的事。
+- 这个 Skill 只把检索结果**讲成人话**——它自己不做检索、不算分。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+fetching-resumes-by-mail（邮件收取简历）
+
+# fetching-resumes-by-mail
+
+从企业邮箱（IMAP）自动收取简历附件，落盘到 `inbox/`，交给下游 `parsing-resumes`。
+
+## 何时用这个 Skill
+
+- 要从 QQ / 企业邮箱拉投递简历
+- 要把未读邮件里的 PDF/DOCX 简历落到 `inbox/`
+- 收完后需要把已处理邮件标为已读（`\Seen`）
+
+下游解析 / 画像 / 评分是别的 Skill 的事；本 Skill 只管「收信 → 落盘 →（可选）标已读」。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+filtering-sensitive-fields（敏感字段脱敏）
+
+# filtering-sensitive-fields
+
+把候选人画像 JSON 里受法律和政策约束的敏感字段物理删除，产出一份可以安全进评分的脱敏数据。这是评分 Pipeline 的第一层。
+
+## 何时用这个 Skill
+
+一份候选人画像 JSON 准备进入评分之前用。它是评分 Pipeline 三层里的第一层，固定排在 `scoring-candidates` 之前——评分模型一旦在 prompt 里看到了候选人的年龄和性别，合规边界就破了，所以脱敏必须发生在评分之前。
+
+它和 `auditing-extraction`（简历解析的真实性核对）是两件不同的事：`auditing-extraction` 核对"字段真不真"，这个 Skill 做的是"把不能用于评分的字段删掉"。它也不评分——评分是 `scoring-candidates` 的事。这个 Skill 只负责评分 Pipeline 第一层的合规过滤。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+generating-candidate-profiles（生成候选人画像）
+
+# generating-candidate-profiles
+
+把 ranking JSON 里某个候选人的解析数据 + 评分数据，渲染成一张图文并茂的单文件 HTML 候选人画像。
+
+## 何时用这个 Skill
+
+`scoring-candidates` 评完分、产出 ranking JSON 之后，需要把某个候选人的数据变成 HR 真正能看的可视化页面时用。HR 看不懂一堆 JSON 字段——画像把这些字段组织成「信息卡 + 雷达图 + 时间线 + 词云 + 三栏」，HR 扫一眼就有判断。
+
+这个 Skill 只做「数据 → 可视化画像」这一件事。它**不解析简历**（那是 `parsing-resumes`）、**不评分**（那是 `scoring-candidates`）、**不核对数字真实性**（那是 `auditing-numbers`）。它只忠实呈现 ranking JSON 里**已经存在**的数据。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+generating-minutes（生成面试纪要）
+
+# generating-minutes
+
+把 `transcribing-interviews` 产出的"按发言人标注的转写稿"，整理成一份结构化的面试纪要——关键问答、候选人优势、待考察点、高亮时刻、评分建议。这是面试纪要链路的第二段、也是最后一段。
+
+## 何时用这个 Skill
+
+收到一份按发言人组织的面试转写稿（`transcribing-interviews` 的产物），需要把它变成 HR 能直接用的结构化纪要时用。没有合格转写稿就不要编一份再跑纪要。本机招聘面试 ASR 已于 2026-09-10 补测通过，仍禁止伪造转写稿。
+
+它和纪要链路里另一个 Skill 边界清楚：本 Skill 的输入是**转写稿**，不是音频——录音转文字、分说话人是 `transcribing-interviews` 的事。本 Skill 只做"转写稿 → 结构化纪要"，不做转写、不做合规过滤。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ingesting-talent-pool（人才库入库）
+
+# ingesting-talent-pool
+
+把候选人简历批量向量化，建成一个本地人才库向量库 `talent-pool.json`——让躺在简历里的候选人变成可按语义相似度检索的「活数据」。
+
+## 何时用这个 Skill
+
+收到一批候选人简历、需要建人才库时用。典型场景：业务部门以后会问「再来一个像员工1的」，但要回答这个问题，得先有一个「库」。这个 Skill 就是建库的第一步。只点名库内已有姓名。
+
+它是人才库流水线的第一环。建好库之后：
+- 检索「像某人的人」是另一个 Skill `searching-talent-pool` 的事。
+- 解释「为什么像」是另一个 Skill `explaining-similarity` 的事。
+
+这个 Skill 只管「入库」——把简历变成向量库。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+office-to-md-v2（办公文档转 Markdown）
+
+# office-to-md
+
+把 PDF / DOC / DOCX / PPTX 转成 Markdown。这是简历处理流水线的格式转换环，不做结构化抽取。
+
+## 何时用
+
+收到的简历是办公文档，需要先变成 Markdown 再交给 `parsing-resumes`。本来就是 `.md` 则跳过。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+parsing-resumes（简历解析）
+
+# parsing-resumes
+
+把一份已转成 Markdown 的简历，抽取成对齐候选人画像 schema 的结构化 JSON。
+
+## 何时用这个 Skill
+
+收到一份简历 Markdown，需要把它变成结构化候选人数据时用。简历可能来自：
+- office-to-md 从 PDF 转出的（标题层级丢失，缩进纯文本）
+- office-to-md 从 DOCX 转出的（保留表格、标题结构）
+- 原本就是 Markdown 写的
+
+下游的评分、画像、人才库检索都依赖这一步的产出，所以这一步的产出必须对齐 schema、可校验。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+scoring-candidates（候选人评分）
+
+# scoring-candidates
+
+对一份脱敏后的候选人数据 + 岗位 JD，按 8 个固定维度评分，产出综合匹配分、评级、评分理由、亮点、顾虑、硬伤。这是评分 Pipeline 的第二层。
+
+## 何时用这个 Skill
+
+候选人数据经 `filtering-sensitive-fields` 脱敏之后用。它是评分 Pipeline 三层的第二层，前面是合规过滤、后面是数字回核。
+
+它和相邻的几个 Skill 边界清楚：
+- 它**不做合规过滤**——剥离敏感字段是 `filtering-sensitive-fields` 的事，本 Skill 的输入必须已经是脱敏数据。
+- 它**不做简历解析**——把简历变结构化数据是 `parsing-resumes` 的事。
+- 它的产出（评分文字里的数字）需要 `auditing-numbers` 回核，但回核不是它自己做。
+
+本 Skill 只负责"评分"这一件事。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+searching-talent-pool（人才库检索）
+
+# searching-talent-pool
+
+从人才库 `talent-pool.json` 检索出与锚点最相似的 Top N 候选人——回答业务部门那句「再找几个像员工1的」。
+
+## 何时用这个 Skill
+
+业务部门提出「再来一个像某某的人」「按这份 JD 找候选人」时用。前提是人才库已经建好——没有库先用 `ingesting-talent-pool` 建。
+
+它是人才库流水线的第二环：
+- 建库是 `ingesting-talent-pool` 的事。
+- 检索出结果之后，解释「为什么这些人像」是 `explaining-similarity` 的事。
+
+这个 Skill 只管「检索」——按语义相似度捞出 Top N，给出相似度分数，但不负责生成 HR 可读的解释文字。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+transcribing-interviews（面试转写）
+
+# transcribing-interviews
+
+把一段面试录音转成"按发言人标注的转写稿"——每个片段都标了"是谁说的"。这是面试纪要链路的第一段，下游 `generating-minutes` 拿这份转写稿整理成结构化纪要。
+
+## 何时用这个 Skill
+
+收到一段面试录音（WAV 等音频文件），需要把它变成文字、并且分清每句话是谁说的时用。本机招聘面试 ASR 已于 2026-09-10 CPU 补测通过（interview-yuangong1-tech2.wav：105 段 / A31·B74 / 36.34s）；没有合格转写稿仍禁止编造。乐奇眼镜音视频不走本 Skill。
+
+它和纪要链路里另一个 Skill 边界清楚：本 Skill 只做"录音 → 按发言人组织的转写稿"，**不做纪要整理、不做评分**——把转写稿整理成关键问答 / 优劣势 / 评分建议是 `generating-minutes` 的事。

@@ -1,0 +1,25 @@
+{
+  "subject": "员工1",
+  "subject_role": "支付平台研发组 后端开发工程师",
+  "period": "2026-H1",
+  "reviewer_relation": "self",
+  "reviewer_alias": "自评",
+  "submitted_at": "2026-06-23",
+  "scores": {
+    "goal_achievement": 4,
+    "professional_skill": 5,
+    "collaboration": 4,
+    "responsibility": 5,
+    "growth": 5
+  },
+  "comments": {
+    "goal_achievement": "上半年两个 OKR 我都完成了。支付网关重构是我最满意的产出，P99 延迟降了接近一半。对账系统优化还差一点边界场景的收尾，下半年第一时间补上。",
+    "professional_skill": "我对自己的技术比较有信心。支付链路的限流、熔断、对账这些核心环节我都吃得比较透，组里有难题我基本能扛。",
+    "collaboration": "组内协作我觉得做得不错，也带新人、做分享。跨组对接上，我在风控和前端的方案讨论里确实坚持得多一些——但我是基于支付系统稳定性的硬要求，支付出问题是要赔钱的，我不能为了配合就放松底线。我认为我的坚持是对的。",
+    "responsibility": "这块我给自己打满分。我对负责的模块零容忍线上事故，大促主动盯夜，这是我的职业底线。",
+    "growth": "我觉得这半年成长很大，技术深度、新中间件、带教能力都有提升。"
+  },
+  "strengths": "技术扎实、对结果负责、关键时刻顶得住、愿意把经验传给新人。",
+  "improvements": "想下半年在系统架构层面再往上走一走，从模块负责人往支付平台的整体设计靠。",
+  "feedback_id": "fb-360-yuangong1-2026h1-self"
+}

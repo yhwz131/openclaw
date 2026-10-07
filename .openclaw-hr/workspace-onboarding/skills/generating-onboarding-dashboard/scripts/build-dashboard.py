@@ -534,7 +534,7 @@ def main():
   <div class="page-head">
     <div>
       <h1>某某公司 · 新员工入职进度看板</h1>
-      <div class="sub">HCM 五节点到岗 · 试用期跟进读本地表 · 审批门单独标记</div>
+      <div class="sub">HCM 五节点到岗 · 试用期跟进可见 · 审批门单独标记</div>
     </div>
     <div class="meta">
       在职新员工 <b>{total_emp}</b> 人 · 平均进度 <b>{avg}%</b><br>
@@ -552,8 +552,7 @@ def main():
     <span><i class="dot done"></i>已回填 · 正常</span>
   </div>
   <div class="foot">
-    到岗角标按 HCM 5 个准备节点 · 试用期跟进读本机 review-state/reviews.json（CLI 回填） ·
-    审批门标记来自 stub-state/&lt;pinyin&gt;/workflow.json（halted 满 3 天催办）
+    到岗进度按人事系统五个准备节点 · 试用期跟进由人事回填后更新 · 审批超过三日只催办、不自动放行
   </div>
 </body>
 </html>"""

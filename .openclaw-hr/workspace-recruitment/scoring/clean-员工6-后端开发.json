@@ -1,0 +1,35 @@
+{
+  "name": "员工6",
+  "phone": "138**6606",
+  "email": "yg**06@example.com",
+  "target_position": "后端开发工程师",
+  "expected_salary": "22K-32K（月薪）",
+  "expected_city": "杭州",
+  "available_date": "一个月内",
+  "education": {
+    "school": "某某大学5",
+    "major": "计算机科学与技术",
+    "degree": "本科",
+    "graduation_year": "2020"
+  },
+  "work_experience": [
+    {
+      "company": "某某公司7",
+      "position": "后端开发工程师",
+      "start_date": "2020-07",
+      "end_date": "至今",
+      "industry": "出行/网约车",
+      "industry_inferred": true
+    }
+  ],
+  "total_experience_years": 6.3,
+  "job_count": 1,
+  "skills": [
+    "Java",
+    "Spring Boot",
+    "MySQL",
+    "Redis",
+    "Kafka",
+    "基础容量评估"
+  ]
+}

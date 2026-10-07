@@ -88,7 +88,7 @@ def main() -> int:
     parser.add_argument(
         "--require-gate",
         default="",
-        help="逗号分隔；这些节点须 in_progress 或 completed，否则 exit 6",
+        help="逗号分隔；这些节点须 completed，否则 exit 6",
     )
     parser.add_argument(
         "--json",
@@ -112,7 +112,7 @@ def main() -> int:
     if missing:
         names = [hcm_api.NODE_LABELS.get(t, t) for t in missing]
         print(
-            f"[snapshot-hcm] 审批材料未齐（HCM 仍为 pending）：{', '.join(names)}。"
+            f"[snapshot-hcm] 部门尚未办完（HCM 未 completed）：{', '.join(names)}。"
             "请催对应部门在 HCM 填写后再启动/继续审批。入职小慧不代替部门执行。",
             file=sys.stderr,
         )

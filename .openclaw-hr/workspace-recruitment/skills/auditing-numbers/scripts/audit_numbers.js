@@ -42,7 +42,7 @@ const fs = require('fs');
 const https = require('https');
 
 function resolveLlm() {
-  const model = process.env.LLM_MODEL || 'mimo-v2.5-pro';
+  const model = process.env.LLM_MODEL || 'mimo-v2.6-pro';
   const isMimo =
     String(model).includes('mimo') ||
     String(process.env.LLM_BASE_URL || '').includes('xiaomi');
@@ -125,7 +125,12 @@ function callDeepseek(systemPrompt, userPrompt, opts = {}) {
             try {
               const j = JSON.parse(body);
               if (j.error) return reject(new Error(j.error.message || body));
-              resolve(j.choices[0].message.content);
+              const choice = j.choices[0];
+              // 推理模型的思考 token 也计入 max_tokens，额度不够时正文会被截断或为空
+              if (choice.finish_reason === 'length') {
+                return reject(new Error(`输出被截断（max_tokens=${maxTokens} 不足，含推理 token）`));
+              }
+              resolve(choice.message.content);
             } catch (e) {
               reject(new Error(`响应解析失败: ${e.message}`));
             }
@@ -389,7 +394,7 @@ async function auditNumbers(score, resumeMd, name) {
   let lastErr;
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const raw = await callDeepseek(sysP, userP, { maxTokens: 2500 });
+      const raw = await callDeepseek(sysP, userP, { maxTokens: 8000 });
       verdicts = extractJson(raw).verdicts || [];
       break;
     } catch (e) {

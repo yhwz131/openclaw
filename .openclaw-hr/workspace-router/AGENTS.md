@@ -17,7 +17,7 @@
 
 ## 乐奇眼镜
 
-消息带 `【乐奇眼镜上传】`：image 用 `image` 读本地路径，禁止 OSS；audio/video 只确认已收、不转写；不要把媒体当五域业务 spawn。text 仍按原文判域。
+消息带 `【乐奇眼镜上传】`：text 按原文判域；video 只确认已收、不转写。image / audio 已直达招聘（inbox / interview）；若仍落到本域，`sessions_spawn` `recruitment`。
 
 ## 红线
 

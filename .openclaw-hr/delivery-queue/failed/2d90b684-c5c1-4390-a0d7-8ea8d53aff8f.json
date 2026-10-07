@@ -1,0 +1,42 @@
+{
+  "id": "2d90b684-c5c1-4390-a0d7-8ea8d53aff8f",
+  "enqueuedAt": 1788501307184,
+  "channel": "rokid-openclaw-bridge",
+  "to": "rokid-openclaw-bridge:5906",
+  "accountId": "5906",
+  "payloads": [
+    {
+      "text": "我叫**小慧**，是公司的 HR 数字员工。我帮你处理招聘、入职、培训、绩效、行政政策这些 HR 相关事务。有需要随时找我～",
+      "mediaUrls": []
+    }
+  ],
+  "renderedBatchPlan": {
+    "payloadCount": 1,
+    "textCount": 1,
+    "mediaCount": 0,
+    "voiceCount": 0,
+    "presentationCount": 0,
+    "interactiveCount": 0,
+    "channelDataCount": 0,
+    "items": [
+      {
+        "index": 0,
+        "kinds": [
+          "text"
+        ],
+        "text": "我叫**小慧**，是公司的 HR 数字员工。我帮你处理招聘、入职、培训、绩效、行政政策这些 HR 相关事务。有需要随时找我～",
+        "mediaUrls": []
+      }
+    ]
+  },
+  "threadId": null,
+  "replyToId": null,
+  "bestEffort": false,
+  "session": {
+    "key": "agent:router:rokid-openclaw-bridge:direct:5906",
+    "agentId": "router"
+  },
+  "retryCount": 1,
+  "lastAttemptAt": 1788501307189,
+  "lastError": "Outbound not configured for channel: rokid-openclaw-bridge"
+}

@@ -23,7 +23,7 @@ UNSEEN + (可选) SINCE <date>
 | 邮件正文 | ❌ |
 | 附件文件名 | ❌ |
 
-流程：抽文本（截断约 2000 字）→ 对话模型（默认 `mimo-v2.5-pro`）→ JSON `{name, position}`。  
+流程：抽文本（截断约 2000 字）→ 对话模型（默认 `mimo-v2.6-pro`）→ JSON `{name, position}`。  
 缓存 key = 文件内容 sha256；失败结果不缓存。
 
 `--no-llm` 仅离线兜底，生产不要开。
@@ -55,7 +55,7 @@ QQ 网页端/客户端常把简历标成 **`Content-Disposition: inline`**，有
 | `IMAP_HOST` / `IMAP_PORT` | 默认 qq 993 |
 | `MAIL_FOLDER` | 默认 INBOX |
 | `XIAOMI_API_KEY` / `LLM_API_KEY` | 收信改名用对话模型 |
-| `FETCH_LLM_MODEL` / `FETCH_LLM_BASE_URL` | 可选覆盖（默认 mimo-v2.5-pro） |
+| `FETCH_LLM_MODEL` / `FETCH_LLM_BASE_URL` | 可选覆盖（默认 mimo-v2.6-pro） |
 
 凭证由 `recruitment-run.sh` / Gateway 注入。本机 profile：`/opt/openclaw-hr/.openclaw-hr/env.sh`（`$OPENCLAW_STATE_DIR`）。不要写成 `~/.openclaw-hr`。exec 里不要再 `source`。
 

@@ -1,8 +1,8 @@
 {
   "system": "合同文件",
   "candidate": "员工1",
-  "hcm_status": "completed",
-  "status": "已完成",
+  "hcm_status": "in_progress",
+  "status": "进行中",
   "source": "hcm",
   "updated_at": "2026-08-03T10:53:55+08:00",
   "role": "后端工程师",

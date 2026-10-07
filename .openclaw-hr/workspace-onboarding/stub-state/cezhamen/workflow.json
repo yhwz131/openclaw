@@ -1,0 +1,52 @@
+{
+  "candidate": "测闸门",
+  "pinyin": "cezhamen",
+  "role": "测试岗",
+  "salary": "面议",
+  "status": "cancelled",
+  "current_step": "account_gate",
+  "started_at": "2026-09-23T15:48:30+08:00",
+  "updated_at": "2026-09-23T15:48:34+08:00",
+  "halted_at": null,
+  "completed_at": null,
+  "approval_id": null,
+  "resume_token": null,
+  "events": [
+    {
+      "at": "2026-09-23T15:48:30+08:00",
+      "step": "prep",
+      "action": "started",
+      "note": "入职流程启动：测闸门（测试岗, 面议）"
+    },
+    {
+      "at": "2026-09-23T15:48:30+08:00",
+      "step": "prep",
+      "action": "completed",
+      "note": "已快照 HCM 四部门节点（未代替部门执行）"
+    },
+    {
+      "at": "2026-09-23T15:48:31+08:00",
+      "step": "contract_gate",
+      "action": "halted",
+      "note": "等待 HR 主管审批合同"
+    },
+    {
+      "at": "2026-09-23T15:48:32+08:00",
+      "step": "contract_gate",
+      "action": "approved",
+      "note": "合同审批已通过"
+    },
+    {
+      "at": "2026-09-23T15:48:32+08:00",
+      "step": "account_gate",
+      "action": "halted",
+      "note": "等待 IT 安全审批账号"
+    },
+    {
+      "at": "2026-09-23T15:48:34+08:00",
+      "step": "account_gate",
+      "action": "rejected",
+      "note": "审批已拒绝，工作流取消"
+    }
+  ]
+}

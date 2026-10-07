@@ -1,0 +1,49 @@
+{
+  "id": "83fbd58d-9843-4b8d-879f-21d05e603591",
+  "enqueuedAt": 1788500166925,
+  "channel": "rokid-openclaw-bridge",
+  "to": "rokid-openclaw-bridge:5906",
+  "accountId": "5906",
+  "payloads": [
+    {
+      "text": "我是小慧，主要帮你处理以下五大 HR 业务：\n\n1. **招聘** - 简历批量解析/评分排序、人才库检索、面试录音转纪要、JD 文案生成\n\n2. **入职** - 新员工入职流程编排、入职审批工作流、30/60/90 天入职 review 跟进\n\n3. **培训** - 按需生成培训物料（PPT 大纲、手册、测试题等）\n\n4. **绩效** - 360 度反馈多源聚合、季度绩效评估调度、绩效数据可视化\n\n5. **行政/员工关系** - 年假、病假、报销、社保公积金、加班调休、入离职等政策咨询\n\n有需要直接说，我来帮你安排～",
+      "replyToTag": false
+    }
+  ],
+  "renderedBatchPlan": {
+    "payloadCount": 1,
+    "textCount": 1,
+    "mediaCount": 0,
+    "voiceCount": 0,
+    "presentationCount": 0,
+    "interactiveCount": 0,
+    "channelDataCount": 0,
+    "items": [
+      {
+        "index": 0,
+        "kinds": [
+          "text"
+        ],
+        "text": "我是小慧，主要帮你处理以下五大 HR 业务：\n\n1. **招聘** - 简历批量解析/评分排序、人才库检索、面试录音转纪要、JD 文案生成\n\n2. **入职** - 新员工入职流程编排、入职审批工作流、30/60/90 天入职 review 跟进\n\n3. **培训** - 按需生成培训物料（PPT 大纲、手册、测试题等）\n\n4. **绩效** - 360 度反馈多源聚合、季度绩效评估调度、绩效数据可视化\n\n5. **行政/员工关系** - 年假、病假、报销、社保公积金、加班调休、入离职等政策咨询\n\n有需要直接说，我来帮你安排～",
+        "mediaUrls": []
+      }
+    ]
+  },
+  "threadId": null,
+  "replyToId": null,
+  "mirror": {
+    "sessionKey": "agent:router:rokid-openclaw-bridge:direct:5906",
+    "agentId": "router",
+    "text": "我是小慧，主要帮你处理以下五大 HR 业务：\n\n1. **招聘** - 简历批量解析/评分排序、人才库检索、面试录音转纪要、JD 文案生成\n\n2. **入职** - 新员工入职流程编排、入职审批工作流、30/60/90 天入职 review 跟进\n\n3. **培训** - 按需生成培训物料（PPT 大纲、手册、测试题等）\n\n4. **绩效** - 360 度反馈多源聚合、季度绩效评估调度、绩效数据可视化\n\n5. **行政/员工关系** - 年假、病假、报销、社保公积金、加班调休、入离职等政策咨询\n\n有需要直接说，我来帮你安排～",
+    "mediaUrls": []
+  },
+  "session": {
+    "key": "agent:router:rokid-openclaw-bridge:direct:5906",
+    "agentId": "router",
+    "requesterSenderId": "5906",
+    "requesterSenderName": "5906"
+  },
+  "retryCount": 1,
+  "lastAttemptAt": 1788500166939,
+  "lastError": "Outbound not configured for channel: rokid-openclaw-bridge"
+}

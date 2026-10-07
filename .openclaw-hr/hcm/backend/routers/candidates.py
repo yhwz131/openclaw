@@ -92,9 +92,16 @@ def create_candidate(body: CandidateCreate, db: Session = Depends(get_db)):
     db.add(candidate)
     db.flush()  # get candidate.id
 
-    # Auto-create 5 prep nodes
+    # Auto-create 5 prep nodes. 合同节点带上花名册岗位/薪资，与员工1 stub 字段对齐。
     for nt in NODE_TYPES:
-        db.add(PrepNode(candidate_id=candidate.id, node_type=nt, status="pending", data="{}"))
+        if nt == "contract":
+            data_str = json.dumps(
+                {"role": body.role, "salary": body.salary},
+                ensure_ascii=False,
+            )
+        else:
+            data_str = "{}"
+        db.add(PrepNode(candidate_id=candidate.id, node_type=nt, status="pending", data=data_str))
 
     db.commit()
     db.refresh(candidate)

@@ -7,4 +7,4 @@
 **已收严（2026-08-30）：** 李娜/王强/赵敏/刘洋/陈芳的 inbox 简历与人才库 `self_evaluation` 已含「测试夹具，非真实候选人」。默认 `--like 员工1` 只剩员工1；复测相似检索加 `--include-fixtures`。
 
 A1 结果：`scoring/a1-frontend-batch/ranking-高级前端.json`  
-A3 结果：`interview/minutes/chenfang.md`（对话模型 mimo-v2.5-pro）
+A3 结果：`interview/minutes/chenfang.md`（对话模型 mimo-v2.6-pro）

@@ -103,7 +103,8 @@ for key in ("contract", "account", "device", "training", "buddy"):
 # Cron 才把 pending → due；未开通时不 stamp triggered_at。
 review_rec = review_store.get(pinyin, day) or {}
 armed = review_store.is_armed(pinyin)
-if review_rec and armed:
+candidate_cancelled = str(hcm_status or "").lower() == "cancelled"
+if review_rec and armed and not candidate_cancelled:
     review_store.touch_triggered(pinyin, day)
     review_rec = review_store.get(pinyin, day) or review_rec
 review_status = review_rec.get("status", "pending")
@@ -138,7 +139,10 @@ result = {
 
 needs_attention = []
 pending_nodes = [k for k, v in prep.items() if v["status"] != "completed"]
-if not armed:
+if candidate_cancelled:
+    result["action"] = "cancelled"
+    result["message"] = "员工总体状态为 cancelled，停止入职跟进，不催办、不回填"
+elif not armed:
     result["action"] = "not_armed"
     result["message"] = "试用期跟进尚未开通：HCM 五节点须全部 completed"
     if pending_nodes:
@@ -203,7 +207,9 @@ if data.get("review_next_action"):
     print(f"下一步：{data['review_next_action']}{extra}")
 print("-" * 40)
 action = data.get("action", "")
-if action == "already_reviewed":
+if action == "cancelled":
+    print(f"⛔ {data['message']}")
+elif action == "already_reviewed":
     print(f"✅ {data['message']}")
 elif action == "not_armed":
     print(f"⏸  {data['message']}")

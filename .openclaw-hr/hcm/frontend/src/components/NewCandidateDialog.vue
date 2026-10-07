@@ -17,7 +17,8 @@ function validate(): boolean {
   errors.value = {}
   if (!name.value.trim()) errors.value.name = '请输入姓名'
   if (!pinyin.value.trim()) errors.value.pinyin = '请输入拼音'
-  else if (!/^[a-z]+$/.test(pinyin.value)) errors.value.pinyin = '拼音只能用小写字母'
+  else if (!/^[a-z][a-z0-9]*$/.test(pinyin.value))
+    errors.value.pinyin = '拼音须小写字母开头，可含数字（如 yuangong2）'
   if (!role.value.trim()) errors.value.role = '请输入岗位'
   return Object.keys(errors.value).length === 0
 }
@@ -46,7 +47,7 @@ function handleSubmit() {
 
       <div class="form-field">
         <label>拼音标识 <span class="required">*</span></label>
-        <input v-model="pinyin" placeholder="如：yuangong1（小写字母）" />
+        <input v-model="pinyin" placeholder="如：yuangong2（小写字母，可含数字）" />
         <span v-if="errors.pinyin" class="error">{{ errors.pinyin }}</span>
       </div>
 

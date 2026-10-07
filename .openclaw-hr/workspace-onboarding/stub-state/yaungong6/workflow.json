@@ -1,0 +1,46 @@
+{
+  "candidate": "员工6",
+  "pinyin": "yaungong6",
+  "role": "产品经理",
+  "salary": "44K",
+  "status": "halted",
+  "current_step": "account_gate",
+  "started_at": "2026-10-07T17:21:08+08:00",
+  "updated_at": "2026-10-07T17:22:23+08:00",
+  "halted_at": "2026-10-07T17:22:22+08:00",
+  "completed_at": null,
+  "approval_id": "94a79de7",
+  "resume_token": "eyJwcm90b2NvbFZlcnNpb24iOjEsInYiOjEsImtpbmQiOiJ3b3JrZmxvdy1maWxlIiwic3RhdGVLZXkiOiJ3b3JrZmxvd19yZXN1bWVfMGViYzI2ODktYzQyYS00ZmIzLThhNzctMzllMzExMTI3OTQ4In0",
+  "events": [
+    {
+      "at": "2026-10-07T17:21:08+08:00",
+      "step": "prep",
+      "action": "started",
+      "note": "入职流程启动：员工6（产品经理, 44K）"
+    },
+    {
+      "at": "2026-10-07T17:21:08+08:00",
+      "step": "prep",
+      "action": "completed",
+      "note": "已快照 HCM 四部门节点（未代替部门执行）"
+    },
+    {
+      "at": "2026-10-07T17:21:08+08:00",
+      "step": "contract_gate",
+      "action": "halted",
+      "note": "等待 HR 主管审批合同"
+    },
+    {
+      "at": "2026-10-07T17:22:22+08:00",
+      "step": "contract_gate",
+      "action": "approved",
+      "note": "合同审批已通过"
+    },
+    {
+      "at": "2026-10-07T17:22:22+08:00",
+      "step": "account_gate",
+      "action": "halted",
+      "note": "等待 IT 安全审批账号"
+    }
+  ]
+}

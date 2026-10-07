@@ -1,0 +1,25 @@
+简历原文
+  │
+  ▼
+[解析模型] 抽取结构化字段
+  │
+  ▼
+候选人JSON ─【闸1·结构校验 validate_profile.js】──【闸2·真实性核对 audit_extraction.js】
+  │               （形状：schema/合规结构）          （内容：字段逐字回溯原文）
+  ▼
+【闸3·合规过滤 filter_sensitive.js】← 物理删除年龄/性别/院校层次等敏感字段
+  │
+  ▼
+脱敏JSON ──► [评分模型] 8维评分+评级+硬伤识别
+  │
+  ▼
+评分文字 ─【闸4·数字回核 audit_numbers.js】← 修正大模型串台的数字
+  │
+  ▼
+ranking ──► [画像渲染] generating-candidate-profiles
+  │
+  ▼
+画像HTML ─【闸5·画像校验 validate_profile_html.js】← 合规零渲染 + 数字与数据源一致
+  │
+  ▼
+HR

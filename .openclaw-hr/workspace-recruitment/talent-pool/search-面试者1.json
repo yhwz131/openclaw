@@ -1,0 +1,89 @@
+{
+  "query": "面试者1",
+  "query_type": "candidate",
+  "topn": 5,
+  "insufficient": false,
+  "matchable": 7,
+  "pool_names": [
+    "员工5",
+    "员工7",
+    "员工1",
+    "员工2",
+    "员工3",
+    "员工4",
+    "员工6",
+    "面试者1"
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "id": "resume-tech-员工4-前端开发",
+      "name": "员工4",
+      "category": "tech",
+      "target_position": "前端开发工程师",
+      "similarity": 0.7434,
+      "dim_similarity": {
+        "education": 0.5715,
+        "experience": 0.5706,
+        "skills": 0.4511,
+        "industry": 0.6027
+      }
+    },
+    {
+      "rank": 2,
+      "id": "resume-tech-员工6-后端开发",
+      "name": "员工6",
+      "category": "tech",
+      "target_position": "后端开发工程师",
+      "similarity": 0.6286,
+      "dim_similarity": {
+        "education": 0.6773,
+        "experience": 0.5575,
+        "skills": 0.4315,
+        "industry": 0.5695
+      }
+    },
+    {
+      "rank": 3,
+      "id": "resume-tech-员工1-后端开发",
+      "name": "员工1",
+      "category": "tech",
+      "target_position": "后端技术专家 / 后端架构师",
+      "similarity": 0.6131,
+      "dim_similarity": {
+        "education": 0.5185,
+        "experience": 0.5022,
+        "skills": 0.6078,
+        "industry": 0.5129
+      }
+    },
+    {
+      "rank": 4,
+      "id": "resume-tech-员工2-后端开发",
+      "name": "员工2",
+      "category": "tech",
+      "target_position": "后端开发工程师（Java/Go）",
+      "similarity": 0.6113,
+      "dim_similarity": {
+        "education": 0.6871,
+        "experience": 0.5559,
+        "skills": 0.434,
+        "industry": 0.6597
+      }
+    },
+    {
+      "rank": 5,
+      "id": "resume-product-员工7-产品经理",
+      "name": "员工7",
+      "category": "product",
+      "target_position": "产品经理",
+      "similarity": 0.6076,
+      "dim_similarity": {
+        "education": 0.5254,
+        "experience": 0.5453,
+        "skills": 0.5261,
+        "industry": 0.6774
+      }
+    }
+  ]
+}

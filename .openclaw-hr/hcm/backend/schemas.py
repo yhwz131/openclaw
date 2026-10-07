@@ -42,7 +42,13 @@ class PrepNodeOut(PrepNodeBase):
 
 class CandidateCreate(BaseModel):
     name: str = Field(..., min_length=1, max_length=50)
-    pinyin: str = Field(..., min_length=1, max_length=50)
+    pinyin: str = Field(
+        ...,
+        min_length=1,
+        max_length=50,
+        pattern=r"^[a-z][a-z0-9]*$",
+        description="小写字母开头，可含数字，如 yuangong2",
+    )
     role: str = Field(..., min_length=1, max_length=100)
     salary: str = Field(default="面议", max_length=20)
     started_at: Optional[datetime] = None

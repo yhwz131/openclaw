@@ -9,7 +9,8 @@
         "id": "OPENCLAW_GATEWAY_TOKEN"
       },
       "mode": "token"
-    }
+    },
+    "bind": "lan"
   },
   "meta": {
     "lastTouchedVersion": "2026.5.12",
@@ -200,7 +201,7 @@
         "enabled": true,
         "config": {
           "linkCode": "5906",
-          "linkSecret": ""
+          "linkSecret": "7e67a507144445e3a31dedf07738985e"
         }
       }
     },
@@ -262,7 +263,12 @@
               "sessions_spawn",
               "sessions_yield"
             ]
-          }
+          },
+          "allowFrom": [
+            "ou_2f67ed66e57e214e72c318a57c60d1c4",
+            "ou_66cfc2fa5b3142c6b232fc9114fc7b94",
+            "ou_85759e2571f33307b6fc7b265060d5c1"
+          ]
         }
       }
     },
@@ -271,7 +277,7 @@
       "accounts": {
         "5906": {
           "linkCode": "5906",
-          "linkSecret": ""
+          "linkSecret": "7e67a507144445e3a31dedf07738985e"
         }
       }
     }
@@ -637,6 +643,14 @@
         "name": "router",
         "workspace": "/opt/openclaw-hr/.openclaw-hr/workspace-router",
         "agentDir": "/opt/openclaw-hr/.openclaw-hr/agent-dirs/router",
+        "thinkingDefault": "off",
+        "params": {
+          "extra_body": {
+            "thinking": {
+              "type": "disabled"
+            }
+          }
+        },
         "tools": {
           "allow": [
             "sessions_spawn",
@@ -682,7 +696,7 @@
         }
       },
       "model": {
-        "primary": "xiaomi/mimo-v2.5-pro",
+        "primary": "xiaomi/mimo-v2.6-pro",
         "fallbacks": []
       },
       "imageModel": {
@@ -697,8 +711,8 @@
         "runTimeoutSeconds": 1800
       },
       "models": {
-        "volcengine/deepseek-v4-flash-ark": {},
-        "xiaomi/mimo-v2.5-pro": {}
+        "volcengine/deepseek-v4.1-flash": {},
+        "xiaomi/mimo-v2.6-pro": {}
       }
     }
   },
@@ -793,8 +807,8 @@
         },
         "models": [
           {
-            "id": "mimo-v2.5-pro",
-            "name": "Xiaomi MiMo V2.5 Pro",
+            "id": "mimo-v2.6-pro",
+            "name": "Xiaomi MiMo V2.6 Pro",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
@@ -814,8 +828,8 @@
         },
         "models": [
           {
-            "id": "deepseek-v4-flash-ark",
-            "name": "火山方舟 DeepSeek V4 Flash",
+            "id": "deepseek-v4.1-flash",
+            "name": "火山方舟 DeepSeek V4.1 Flash",
             "api": "openai-completions",
             "reasoning": false,
             "input": [

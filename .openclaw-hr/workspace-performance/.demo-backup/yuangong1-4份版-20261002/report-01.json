@@ -1,0 +1,25 @@
+{
+  "subject": "员工1",
+  "subject_role": "支付平台研发组 后端开发工程师",
+  "period": "2026H1",
+  "reviewer_relation": "report",
+  "reviewer_alias": "下属1",
+  "submitted_at": "2026-06-28",
+  "scores": {
+    "goal_achievement": 3,
+    "professional_skill": 4,
+    "collaboration": 3,
+    "responsibility": 4,
+    "growth": 3
+  },
+  "comments": {
+    "goal_achievement": "本季度带领小组完成 3 轮需求迭代，整体节点可控，核心功能按期上线。阶段性目标拆解粒度较粗，中间缺少小节点跟进，临近截止期工作量集中。",
+    "professional_skill": "技术功底扎实，复杂难题可以给出可行解决思路，多次指导成员攻克技术卡点。方案设计时更多考虑短期交付，中长期架构规划思考不足。",
+    "collaboration": "日常能够回复成员疑问，同步项目大方向。任务分配时背景信息交代简略，成员经常需要二次确认需求初衷。",
+    "responsibility": "项目重大问题会牵头负责跟进，出现风险不会向下甩锅，主动协调资源保障交付。日常对成员阶段性成长反馈偏少。",
+    "growth": "持续跟进领域内技术更新，并在遇到问题时学以致用。较少组织小组内部专题复盘，没有形成常态化知识传递。"
+  },
+  "strengths": "技术判断力强，危机时刻能牵头解决问题，对小组交付结果负责，可有效处理项目突发故障",
+  "improvements": "细化阶段目标与过程跟进，分配任务补充业务背景；增加定期一对一反馈，带动小组成员共同成长",
+  "feedback_id": "fb-360-yuangong1-2026h1-report"
+}

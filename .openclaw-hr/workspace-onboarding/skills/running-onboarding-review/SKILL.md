@@ -22,6 +22,7 @@ metadata:
 
 - **花名册与五部门准备节点**：HCM `GET /api/candidates`（只读）
 - **review 状态**：本机 `review-state/reviews.json`（入职小慧经 `review-store.sh` 维护）
+- **员工总体状态守卫**：HCM 顶层 `status=cancelled` 时不开通跟进；已存在的到期任务触发时也只报告停止，不催办、不回填
 - **不向 HCM 写入**；到点只催办，**不自动标 completed**
 - **飞书只通知**；回填只走 CLI，不走飞书 spawn / 行政 exec
 
@@ -78,6 +79,7 @@ bash skills/running-onboarding-review/scripts/review-store.sh ensure <姓名> <p
 ## 关键规则
 
 - review 天数只允许 7/30/60/90。
+- **员工总体状态为 `cancelled` 时停止跟进。** 即使五部门节点历史上都为 `completed`，也不能新挂 Cron，触发脚本也不得输出 `needs_review`。
 - **查询脚本不标完成、不偷偷 ensure。** 只有五节点全绿才开通；只有 CLI `record` 成功后才变 `completed` / `skipped`。Cron 只把 `pending` 打成 `due` 并写 `triggered_at`。
 - 准备节点未就绪时如实报告，不编造。
 - 入职跟进的天数节点说明见 → `references/review-milestones.md`。

@@ -37,7 +37,7 @@ NODE_LABELS = {
     "buddy": "Buddy匹配",
 }
 # 审批门：部门已开始填或已完成即可读材料。试用期跟进：必须五节点 completed。
-GATE_READY_STATUSES = frozenset({"completed", "in_progress"})
+GATE_READY_STATUSES = frozenset({"completed"})
 DONE_STATUSES = frozenset({"completed"})
 
 
@@ -116,6 +116,7 @@ def summarize_prep(pinyin):
             "ok": False,
             "hcm_up": False,
             "found": False,
+            "candidate_status": None,
             "nodes": {},
             "pending": list(PREP_NODE_TYPES),
             "all_completed": False,
@@ -127,6 +128,7 @@ def summarize_prep(pinyin):
             "ok": False,
             "hcm_up": True,
             "found": False,
+            "candidate_status": None,
             "nodes": {},
             "pending": list(PREP_NODE_TYPES),
             "all_completed": False,
@@ -153,6 +155,7 @@ def summarize_prep(pinyin):
         "found": True,
         "name": candidate.get("name"),
         "pinyin": candidate.get("pinyin", pinyin),
+        "candidate_status": candidate.get("status", ""),
         "nodes": nodes,
         "pending": pending,
         "all_completed": len(pending) == 0,

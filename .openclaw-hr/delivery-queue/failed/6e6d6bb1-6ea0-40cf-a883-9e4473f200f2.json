@@ -1,0 +1,42 @@
+{
+  "id": "6e6d6bb1-6ea0-40cf-a883-9e4473f200f2",
+  "enqueuedAt": 1788508538867,
+  "channel": "rokid-openclaw-bridge",
+  "to": "rokid-openclaw-bridge:5906",
+  "accountId": "5906",
+  "payloads": [
+    {
+      "text": "查好了！招聘 Agent 的面试录音转写功能**完全可用** ✅\n\n---\n\n### 功能状态\n\n| 检查项 | 结果 |\n|---|---|\n| 转写脚本 | ✅ 正常 |\n| 校验脚本 | ✅ 正常 |\n| 转写引擎 | FunASR 1.4.11 |\n| 模型 | 4 个模型已本地缓存（约 1.3GB），无需重新下载 |\n| 端到端测试 | ✅ 已跑通，282 秒音频处理完成，校验通过 |\n\n### 支持的音频格式\n- **最佳**：16 kHz 单声道 WAV\n- **其他**：其他采样率的音频也能自动处理，无需手动转换\n\n### 性能\n- CPU 模式下，33.85 秒处理 282 秒音频，性能正常\n- 如果有 GPU，速度还能再提升约 4 倍\n\n---\n\n可以直接把面试录音文件发给我，我帮你转写～",
+      "mediaUrls": []
+    }
+  ],
+  "renderedBatchPlan": {
+    "payloadCount": 1,
+    "textCount": 1,
+    "mediaCount": 0,
+    "voiceCount": 0,
+    "presentationCount": 0,
+    "interactiveCount": 0,
+    "channelDataCount": 0,
+    "items": [
+      {
+        "index": 0,
+        "kinds": [
+          "text"
+        ],
+        "text": "查好了！招聘 Agent 的面试录音转写功能**完全可用** ✅\n\n---\n\n### 功能状态\n\n| 检查项 | 结果 |\n|---|---|\n| 转写脚本 | ✅ 正常 |\n| 校验脚本 | ✅ 正常 |\n| 转写引擎 | FunASR 1.4.11 |\n| 模型 | 4 个模型已本地缓存（约 1.3GB），无需重新下载 |\n| 端到端测试 | ✅ 已跑通，282 秒音频处理完成，校验通过 |\n\n### 支持的音频格式\n- **最佳**：16 kHz 单声道 WAV\n- **其他**：其他采样率的音频也能自动处理，无需手动转换\n\n### 性能\n- CPU 模式下，33.85 秒处理 282 秒音频，性能正常\n- 如果有 GPU，速度还能再提升约 4 倍\n\n---\n\n可以直接把面试录音文件发给我，我帮你转写～",
+        "mediaUrls": []
+      }
+    ]
+  },
+  "threadId": null,
+  "replyToId": null,
+  "bestEffort": false,
+  "session": {
+    "key": "agent:router:rokid-openclaw-bridge:direct:5906",
+    "agentId": "router"
+  },
+  "retryCount": 1,
+  "lastAttemptAt": 1788508538873,
+  "lastError": "Outbound not configured for channel: rokid-openclaw-bridge"
+}

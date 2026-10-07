@@ -3,7 +3,7 @@
 骨架来自 OpenClaw 课程 profile，**现行配置以 2026-08 为准**（详见仓库 [`docs/项目说明.md`](../docs/项目说明.md)）。
 
 - OpenClaw **2026.5.12**
-- Gateway 主模型 **`xiaomi/mimo-v2.5-pro`**（部分招聘脚本仍调 DeepSeek API，那不是默认对话模型）
+- Gateway 主模型 **`xiaomi/mimo-v2.6-pro`**（部分招聘脚本仍调 DeepSeek API，那不是默认对话模型）
 - Profile 在**本仓库** `.openclaw-hr/`，不是课程里的 `~/.openclaw-hr`
 - 飞书绑定 **`er-admin`**；WebChat 绑定 **`router`**
 - 月末自动月报走宿主机脚本；飞书 **HR**、WebChat、CLI 可以对话补跑。飞书非 HR 不能出月报、不能查他人工资。

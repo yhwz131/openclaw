@@ -110,6 +110,7 @@ const nodeDots = computed(() =>
       <NodeStatus
         :node="currentNode"
         :editable="true"
+        :defaults="{ role: candidate.role, salary: candidate.salary }"
         @update="handleNodeUpdate"
       />
     </div>

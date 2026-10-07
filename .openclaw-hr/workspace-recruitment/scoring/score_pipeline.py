@@ -38,7 +38,7 @@ from number_audit import audit_candidate
 
 
 def resolve_llm():
-    model = os.environ.get("LLM_MODEL") or "mimo-v2.5-pro"
+    model = os.environ.get("LLM_MODEL") or "mimo-v2.6-pro"
     is_mimo = "mimo" in model or "xiaomi" in (os.environ.get("LLM_BASE_URL") or "")
     base = os.environ.get("LLM_BASE_URL") or (
         "https://token-plan-cn.xiaomimimo.com/v1" if is_mimo else "https://api.deepseek.com/v1"
@@ -95,7 +95,11 @@ def call_deepseek(system_prompt, user_prompt, max_tokens=2000,
             )
             with urllib.request.urlopen(req, timeout=120) as resp:
                 result = json.loads(resp.read().decode("utf-8"))
-            return result["choices"][0]["message"]["content"]
+            choice = result["choices"][0]
+            # 推理模型的思考 token 也计入 max_tokens，额度不够时正文会被截断或为空
+            if choice.get("finish_reason") == "length":
+                raise RuntimeError(f"输出被截断（max_tokens={max_tokens} 不足，含推理 token）")
+            return choice["message"]["content"]
         except Exception as e:  # IncompleteRead / timeout / 5xx
             last_err = e
             if attempt < retries:
@@ -120,7 +124,7 @@ def extract_json(text):
         return json.loads(fixed)
 
 
-def call_and_parse(system_prompt, user_prompt, max_tokens=2500,
+def call_and_parse(system_prompt, user_prompt, max_tokens=8000,
                    temperature=0.2, parse_retries=3):
     """调 LLM 并解析 JSON。解析失败（LLM 漏逗号等正则补不了的瑕疵）时
     重新调用 LLM 生成——比硬修字符串可靠。"""
@@ -166,7 +170,7 @@ def stage1_parse(resume_md, resume_name):
 {resume_md}
 ---
 只输出 JSON，不要解释。"""
-    parsed = call_and_parse(sys_p, user_p, max_tokens=2500)
+    parsed = call_and_parse(sys_p, user_p, max_tokens=8000)
     parsed["_resume_file"] = resume_name
     return parsed
 
@@ -251,7 +255,7 @@ def stage3_score(clean_candidate, jd_text, jd_name):
   ③ 简历内容自相矛盾（如工作年限与经历明显对不上）
   薪资高、城市不符、岗位不匹配【不是硬伤】，不要放进 hard_issues。
 只输出 JSON。"""
-    return call_and_parse(sys_p, user_p, max_tokens=2500, temperature=0.2)
+    return call_and_parse(sys_p, user_p, max_tokens=8000, temperature=0.2)
 
 
 # ══ 阶段 4 · 数字回核（关键 · 独立一层 · 不可绕过） ═══════════════

@@ -2,7 +2,7 @@
 
 > 总控补测：把此前未接线的能力 **先启用再冒烟**。  
 > 不替代组员连本机四域表：[验收清单/README.md](./验收清单/README.md)。  
-> 模型 **Xiaomi / `mimo-v2.5-pro`**。邮箱/解释脚本文档若写 DeepSeek，启用时走 `env.sh` 里 Xiaomi，不要双 Key。  
+> 模型 **Xiaomi / `mimo-v2.6-pro`**。邮箱/解释脚本文档若写 DeepSeek，启用时走 `env.sh` 里 Xiaomi，不要双 Key。  
 > 结果只填：`未测` / `通过` / `未通过` / `跳过` / `环境缺` / `已回滚`。  
 > **禁止**把 API Key、IMAP 密码、飞书 secret、exec token 写进本文件。
 

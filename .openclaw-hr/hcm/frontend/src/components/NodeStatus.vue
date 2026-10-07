@@ -6,6 +6,7 @@ import { STATUS_COLORS, STATUS_LABELS, NODE_LABELS } from '../types'
 const props = defineProps<{
   node: PrepNode
   editable: boolean
+  defaults?: Record<string, string>
 }>()
 
 const emit = defineEmits<{
@@ -28,36 +29,59 @@ const statusIcon = computed(() => {
 
 // Editable fields — filtered data entries
 const EDITABLE_KEYS: Record<string, string[]> = {
-  contract: ['contract', 'files', 'probation', 'salary'],
+  contract: ['role', 'salary', 'contract', 'files', 'probation'],
   account: ['workno', 'email', 'wecom', 'vpn'],
   device: ['laptop', 'badge', 'desk'],
   training: ['course', 'date', 'content'],
   buddy: ['buddy', 'mentor'],
 }
 
-const dataEntries = computed(() => {
-  if (!props.node.data || typeof props.node.data !== 'object') return []
-  return Object.entries(props.node.data).filter(
-    ([k]) => !['system', 'candidate', 'status', 'prepared_at', 'updated_at'].includes(k)
-  )
-})
+const HIDDEN_DATA_KEYS = [
+  'system', 'candidate', 'status', 'hcm_status', 'source', 'prepared_at', 'updated_at',
+]
 
 const editableKeys = computed(() => EDITABLE_KEYS[props.node.node_type] ?? [])
+
+function fieldValue(key: string): string {
+  const fromNode = props.node.data?.[key]
+  if (fromNode != null && String(fromNode).trim() !== '') return String(fromNode)
+  const fromDefaults = props.defaults?.[key]
+  if (fromDefaults != null && String(fromDefaults).trim() !== '') return String(fromDefaults)
+  return ''
+}
+
+const dataEntries = computed(() => {
+  const keys = editableKeys.value
+  const seen = new Set(keys)
+  const ordered: [string, string][] = keys
+    .map(k => [k, fieldValue(k)] as [string, string])
+    .filter(([, v]) => v !== '')
+  if (props.node.data && typeof props.node.data === 'object') {
+    for (const [k, v] of Object.entries(props.node.data)) {
+      if (seen.has(k) || HIDDEN_DATA_KEYS.includes(k)) continue
+      if (v == null || String(v).trim() === '') continue
+      ordered.push([k, String(v)])
+    }
+  }
+  return ordered
+})
 
 const editData = ref<Record<string, string>>({})
 const editStatus = ref(props.node.status)
 const showForm = ref(false)
 
 // Sync editData when node data changes
-watch(() => props.node.data, (d) => {
-  if (d) {
+watch(
+  () => [props.node.data, props.defaults, editableKeys.value] as const,
+  () => {
     const entries: Record<string, string> = {}
     for (const k of editableKeys.value) {
-      entries[k] = String(d[k] ?? '')
+      entries[k] = fieldValue(k)
     }
     editData.value = entries
-  }
-}, { immediate: true })
+  },
+  { immediate: true, deep: true },
+)
 
 function startEdit() {
   editStatus.value = props.node.status
@@ -67,9 +91,8 @@ function startEdit() {
 function cancelEdit() {
   showForm.value = false
   // Reset to original
-  const d = props.node.data
   for (const k of editableKeys.value) {
-    editData.value[k] = String(d?.[k] ?? '')
+    editData.value[k] = fieldValue(k)
   }
 }
 
@@ -84,7 +107,7 @@ function changeStatus(newStatus: string) {
 
 function fieldLabel(key: string): string {
   const labels: Record<string, string> = {
-    contract: '合同内容', files: '附件文件', probation: '试用期', salary: '薪资',
+    role: '岗位', contract: '合同内容', files: '附件文件', probation: '试用期', salary: '薪资',
     workno: '工号', email: '企业邮箱', wecom: '企业微信', vpn: 'VPN',
     laptop: '笔记本电脑', badge: '门禁卡', desk: '工位',
     course: '培训课程', date: '培训时间', content: '培训内容',

@@ -113,21 +113,22 @@ sys.exit(0 if ok else 1)
   echo "[run-onboarding] HCM 已有候选人拼音=${pinyin}，继续" >&2
 }
 
-# 进审批门前：合同节点须在 HCM 为 in_progress/completed。未齐则只记 waiting，不跑 lobster。
+# 进审批门前：两道门要审的部门节点（合同 / 账号 / 设备 / 培训）须在 HCM 为 completed。
+# 部门先办完，HR 再审；未齐则只记 waiting、报卡点，不跑 lobster。
 require_contract_gate_ready() {
   local name="$1"
   local pinyin="$2"
   set +e
   python3 "$SCRIPT_DIR/snapshot_hcm_prep.py" "$pinyin" --name "$name" \
     --nodes contract,account,device,training,buddy \
-    --require-gate contract
+    --require-gate contract,account,device,training
   local rc=$?
   set -e
   if [ "$rc" = "6" ]; then
     python3 "$SCRIPT_DIR/update-workflow.py" init "$pinyin" "$name" "$ROLE" "$SALARY" >/dev/null || true
     python3 "$SCRIPT_DIR/update-workflow.py" event "$pinyin" prep waiting \
-      "HCM 合同节点未齐，未启动审批。请催 HR 在 HCM 填写后再 start。" >/dev/null || true
-    echo "[run-onboarding] 未进入审批：HCM 合同尚未开始/完成。入职小慧不代替部门填写。请催办后再次 start。" >&2
+      "部门尚未办完，未进入审批门。请催对应部门在 HCM 办结后再 start。" >/dev/null || true
+    echo "[run-onboarding] 未进入审批：部门尚未在 HCM 办结（见上方未完成节点）。入职小慧不代替部门填写。请催办后再次 start。" >&2
     return 6
   fi
   if [ "$rc" != "0" ]; then

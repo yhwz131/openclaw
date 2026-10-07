@@ -64,11 +64,11 @@
 
 ## 乐奇眼镜独立上传（rokid-app）
 
-来自 `openclaw agent --session-id rokid-app-<device_id>` 的消息会带 `【乐奇眼镜上传】`，与龙虾桥会话分开。
+图片（简历）和面试录音已直达招聘 Agent（`inbox/` / `interview/`）。本会话若仍收到 `【乐奇眼镜上传】`：
 
-- **image**：用 `image` 工具读消息里的**本地绝对路径**。禁止 `web_fetch` / OSS URL。不是五域业务，不要 `sessions_spawn`。
-- **audio / video**：只确认已收到。禁止转写、抽帧、编造纪要，不要 spawn。招聘面试 ASR 已补测，**乐奇通道仍不转写**。
-- **text**：按原文判域；明确是五域 HR 才 spawn，否则直接答。
+- **text**：按原文判域；明确是五域 HR 才 `sessions_spawn`。
+- **video**：只确认已收到。禁止转写、抽帧、编造纪要。
+- **image / audio**（不应再落到本域）：`sessions_spawn` `recruitment`，不要自己处理。
 
 ## 状态
 

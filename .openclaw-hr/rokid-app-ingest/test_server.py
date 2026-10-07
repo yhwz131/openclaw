@@ -14,6 +14,7 @@ from server import (
     GATEWAY_UNREACHABLE,
     HttpError,
     IngestApp,
+    agent_for_kind,
     build_agent_message,
     extract_agent_text,
     make_handler,
@@ -136,7 +137,7 @@ class AppTests(unittest.TestCase):
         self.assertEqual(len(saved), 1)
         self.assertEqual(saved[0].read_bytes(), PNG_1X1)
         self.assertIn(str(saved[0].resolve()), self.calls[0])
-        self.assertIn("不要 sessions_spawn", self.calls[0])
+        self.assertIn("inbox", self.calls[0])
 
     def test_audio_saves_and_stays_unwritten(self) -> None:
         st, _, body = self._post(
@@ -150,9 +151,36 @@ class AppTests(unittest.TestCase):
         self.assertEqual(saved[0].read_bytes(), M4A_STUB)
         message = self.calls[0]
         self.assertIn(str(saved[0].resolve()), message)
-        self.assertIn("只确认已收到该文件", message)
-        self.assertIn("不要转写", message)
+        self.assertIn("interview/", message)
+        self.assertIn("transcribing-interviews", message)
         self.assertNotIn("用 image 工具", message)
+
+    def test_recruitment_dirs(self) -> None:
+        inbox = Path(self.tmp.name) / "inbox"
+        interview = Path(self.tmp.name) / "interview"
+        self.app.inbox_dir = inbox
+        self.app.interview_dir = interview
+        st, _, _ = self._post(
+            {"device_id": "dev-1", "type": "image"},
+            {"file": ("shot.png", "image/png", PNG_1X1)},
+        )
+        self.assertEqual(st, 200)
+        shots = list(inbox.glob("rokid-dev-1-*.png"))
+        self.assertEqual(len(shots), 1)
+        self.assertFalse(list((Path(self.tmp.name) / "media" / "dev-1").glob("*.png")))
+        st, _, _ = self._post(
+            {"device_id": "dev-1", "type": "audio"},
+            {"file": ("rec.m4a", "audio/mp4", M4A_STUB)},
+        )
+        self.assertEqual(st, 200)
+        recs = list(interview.glob("interview-rokid-dev-1-*.m4a"))
+        self.assertEqual(len(recs), 1)
+
+    def test_agent_for_kind(self) -> None:
+        self.assertEqual(agent_for_kind("image"), "recruitment")
+        self.assertEqual(agent_for_kind("audio"), "recruitment")
+        self.assertEqual(agent_for_kind("text"), "router")
+        self.assertEqual(agent_for_kind("video"), "router")
 
     def test_unknown_type(self) -> None:
         st, _, body = self._post({"device_id": "dev-1", "type": "pdf", "text": "x"})
@@ -226,7 +254,7 @@ class ExtractTests(unittest.TestCase):
             text="",
             path="/tmp/a.m4a",
         )
-        self.assertIn("不要转写", msg)
+        self.assertIn("transcribing-interviews", msg)
         self.assertIn("/tmp/a.m4a", msg)
 
 
