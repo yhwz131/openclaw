@@ -1,0 +1,34 @@
+{
+  "candidate_pinyin": "yaungong6",
+  "gate": "account",
+  "halted_at": "2026-10-07T17:22:22+08:00",
+  "stub_prepared_at": null,
+  "stub_updated_at_pre_halt": "2026-10-07T17:22:22+08:00",
+  "resume_token": "eyJwcm90b2NvbFZlcnNpb24iOjEsInYiOjEsImtpbmQiOiJ3b3JrZmxvdy1maWxlIiwic3RhdGVLZXkiOiJ3b3JrZmxvd19yZXN1bWVfMGViYzI2ODktYzQyYS00ZmIzLThhNzctMzllMzExMTI3OTQ4In0",
+  "pre_halt_snapshot": {
+    "account": {
+      "system": "IT账号",
+      "candidate": "员工6",
+      "hcm_status": "completed",
+      "status": "已完成",
+      "source": "hcm",
+      "updated_at": "2026-10-07T17:22:22+08:00"
+    },
+    "device": {
+      "system": "行政设备",
+      "candidate": "员工6",
+      "hcm_status": "completed",
+      "status": "已完成",
+      "source": "hcm",
+      "updated_at": "2026-10-07T17:22:22+08:00"
+    },
+    "training": {
+      "system": "培训安排",
+      "candidate": "员工6",
+      "hcm_status": "completed",
+      "status": "已完成",
+      "source": "hcm",
+      "updated_at": "2026-10-07T17:22:22+08:00"
+    }
+  }
+}

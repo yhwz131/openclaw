@@ -2,7 +2,7 @@
   "providers": {
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
-      "apiKey": "DEEPSEEK_API_KEY",
+      "api": "openai-completions",
       "models": [
         {
           "id": "deepseek-v4-pro",
@@ -38,11 +38,12 @@
             "cacheWrite": 0
           }
         }
-      ]
+      ],
+      "apiKey": "DEEPSEEK_API_KEY"
     },
     "qwen": {
       "baseUrl": "https://llm-5ipvwnjovosmatzx.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
-      "apiKey": "DASHSCOPE_API_KEY",
+      "api": "openai-completions",
       "models": [
         {
           "id": "qwen-max",
@@ -62,11 +63,12 @@
           ],
           "contextWindow": 131072
         }
-      ]
+      ],
+      "apiKey": "DASHSCOPE_API_KEY"
     },
     "volcengine": {
       "baseUrl": "https://ark.cn-beijing.volces.com/api/plan/v3",
-      "apiKey": "VOLCANO_DEEPSEEK_API_KEY",
+      "api": "openai-completions",
       "models": [
         {
           "id": "deepseek-v4.1-flash",
@@ -91,7 +93,8 @@
           "contextWindow": 256000,
           "maxTokens": 32000
         }
-      ]
+      ],
+      "apiKey": "VOLCANO_DEEPSEEK_API_KEY"
     },
     "volcengine-plan": {
       "baseUrl": "https://ark.cn-beijing.volces.com/api/coding/v3",
@@ -129,7 +132,7 @@
     },
     "xiaomi": {
       "baseUrl": "https://token-plan-cn.xiaomimimo.com/v1",
-      "apiKey": "XIAOMI_API_KEY",
+      "api": "openai-completions",
       "models": [
         {
           "id": "mimo-v2.6-pro",
@@ -142,7 +145,8 @@
           "contextWindow": 1048576,
           "maxTokens": 32000
         }
-      ]
+      ],
+      "apiKey": "XIAOMI_API_KEY"
     }
   }
 }

@@ -1,0 +1,41 @@
+{
+  "name": "员工4",
+  "phone": "138****7913",
+  "email": "yg**04@example.com",
+  "target_position": "前端开发工程师",
+  "expected_salary": "12K-18K/月",
+  "expected_city": "杭州",
+  "available_date": "2周内",
+  "education": {
+    "school": "某某大学4",
+    "major": "数字媒体技术",
+    "degree": "本科",
+    "graduation_year": "2022"
+  },
+  "work_experience": [
+    {
+      "company": "某某公司3",
+      "position": "前端开发工程师",
+      "start_date": "2022-07",
+      "end_date": "至今",
+      "industry": ""
+    }
+  ],
+  "total_experience_years": 4.25,
+  "job_count": 1,
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "Vue2",
+    "Vue3",
+    "ElementPlus",
+    "Vant",
+    "Vite",
+    "Webpack",
+    "HTTP"
+  ],
+  "self_evaluation": "2年前端开发经验，熟悉O2O、营销类前端业务开发流程，能够独立完成常规⻚面开发与迭代需求。\n• 学习能力良好，工作踏实细致，能够快速理解产品需求，配合团队完成项目交付与问题修复。\n• 具备基础的前端工程化思维，持续积累⻚面优化与兼容性处理经验，愿意持续深耕前端技术。",
+  "_resume_file": "员工4-待确认.md"
+}

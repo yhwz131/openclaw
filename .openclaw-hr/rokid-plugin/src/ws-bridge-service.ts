@@ -125,6 +125,35 @@ function normalizeTextPayload(payload: ReplyPayload): string {
   return typeof payload.text === "string" ? payload.text : "";
 }
 
+type RokidBridge = {
+  accountId: string;
+  deliverText: (text: string) => string;
+};
+
+const bridges = new Map<string, RokidBridge>();
+
+/** 把总控稍后生成的回复送回眼镜。子任务完成时走这条，不走当次入站流。 */
+export function deliverRokidText(params: {
+  accountId?: string | null;
+  to?: string;
+  text: string;
+}): string {
+  const text = params.text?.trim() ?? "";
+  if (!text || text === "NO_REPLY") return "skipped";
+
+  const candidates = [params.accountId?.trim(), params.to?.split(":").pop()?.trim()].filter(
+    (id): id is string => Boolean(id)
+  );
+  let bridge: RokidBridge | undefined;
+  for (const id of candidates) {
+    bridge = bridges.get(id);
+    if (bridge) break;
+  }
+  if (!bridge && bridges.size === 1) bridge = [...bridges.values()][0];
+  if (!bridge) throw new Error("rokid bridge is not running");
+  return bridge.deliverText(text);
+}
+
 /**
  * 创建并返回 WebSocket Bridge 服务实例
  */
@@ -142,6 +171,9 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
   const latestInternalIdByRequestId = new Map<string, number>();
   /** 正在执行的 dispatch Promise，key 为 internalId，用于等待旧请求真正结束 */
   const pendingDispatches = new Map<number, Promise<void>>();
+  /** 入站回合没有当场说出内容时留着，等子任务结果经 outbound 送回同一条眼镜请求。 */
+  let pendingReply: { requestId: string; agentId: string } | null = null;
+  let pingTimer: ReturnType<typeof setInterval> | null = null;
 
   const accountId = normalizeAccountId(config.openclaw.accountId, config.linkCode);
   const rt = config.openclaw.channelRuntime;
@@ -169,6 +201,25 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
         type: "answer",
       },
     });
+  }
+
+  function stopPing() {
+    if (pingTimer) {
+      clearInterval(pingTimer);
+      pingTimer = null;
+    }
+  }
+
+  function deliverText(text: string): string {
+    if (ws?.readyState !== WebSocket.OPEN) {
+      throw new Error("rokid websocket is not connected");
+    }
+    const requestId = pendingReply?.requestId ?? `outbound-${Date.now()}`;
+    const agentId = pendingReply?.agentId || "router";
+    sendStreamChunk(requestId, agentId, text);
+    sendDone(requestId, agentId);
+    pendingReply = null;
+    return requestId;
   }
 
   function sendDone(requestId: string, agentId: string) {
@@ -431,13 +482,20 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
       }
 
       if (!toolCallEmitted && !abortCtrl.signal.aborted && !isStaleRequest(request.requestId, internalId)) {
-        if (!partialStreamed && finalFallbackText) {
-          const cleaned = finalFallbackText.trim();
-          if (cleaned) {
-            sendStreamChunk(request.requestId, route.agentId, cleaned);
-          }
+        const cleaned = !partialStreamed ? finalFallbackText.trim() : "";
+        if (!partialStreamed && cleaned) {
+          sendStreamChunk(request.requestId, route.agentId, cleaned);
+          sendDone(request.requestId, route.agentId);
+          pendingReply = null;
+        } else if (partialStreamed) {
+          sendDone(request.requestId, route.agentId);
+          pendingReply = null;
+        } else {
+          pendingReply = { requestId: request.requestId, agentId: route.agentId };
+          logger.info(
+            `[rokid-openclaw-bridge] No inline reply for ${request.requestId}; holding the glasses turn open for outbound announce`
+          );
         }
-        sendDone(request.requestId, route.agentId);
       }
     } catch (err: unknown) {
       if (toolCallEmitted || abortCtrl.signal.aborted || isStaleRequest(request.requestId, internalId)) return;
@@ -471,12 +529,17 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
       `[rokid-openclaw-bridge] Connecting to ${fullWsUrl} (attempt ${reconnectAttempt + 1})`
     );
 
-    ws = new WebSocket(fullWsUrl);
+    // 握手卡住时不会触发 open/close，重连也就不会再走。超时后由 error+close 进入重连。
+    ws = new WebSocket(fullWsUrl, { handshakeTimeout: 15_000 });
 
     ws.on("open", () => {
       reconnectAttempt = 0;
       logger.info(`[rokid-openclaw-bridge] Connected to ${config.wsUrl}`);
       sendWs({ type: "status", connected: true });
+      stopPing();
+      pingTimer = setInterval(() => {
+        if (ws?.readyState === WebSocket.OPEN) ws.ping();
+      }, 20_000);
     });
 
     ws.on("message", (data) => {
@@ -486,6 +549,7 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
     });
 
     ws.on("close", (code, reason) => {
+      stopPing();
       logger.warn(
         `[rokid-openclaw-bridge] Disconnected (code=${code}, reason=${reason.toString()})`
       );
@@ -522,11 +586,14 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
 
     async start() {
       stopped = false;
+      bridges.set(accountId, { accountId, deliverText });
       connect();
     },
 
     async stop() {
       stopped = true;
+      if (bridges.get(accountId)?.deliverText === deliverText) bridges.delete(accountId);
+      stopPing();
 
       if (reconnectTimer) {
         clearTimeout(reconnectTimer);

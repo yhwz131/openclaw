@@ -1,0 +1,34 @@
+{
+  "name": "员工7",
+  "phone": "138**7707",
+  "email": "yg**07@example.com",
+  "target_position": "产品经理",
+  "expected_salary": "20K-30K（月薪）",
+  "expected_city": "杭州",
+  "available_date": "一个月内",
+  "education": {
+    "school": "某某大学1",
+    "major": "信息管理与信息系统",
+    "degree": "本科",
+    "graduation_year": "2019"
+  },
+  "work_experience": [
+    {
+      "company": "某某公司8",
+      "position": "产品经理",
+      "start_date": "2019-07",
+      "end_date": "至今",
+      "industry": ""
+    }
+  ],
+  "total_experience_years": 7.25,
+  "job_count": 1,
+  "skills": [
+    "需求文档",
+    "原型",
+    "数据分析（SQL 基础）",
+    "跨角色推动"
+  ],
+  "self_evaluation": "约 7 年偏商家/交易链路的产品经验，能把对账和工单类问题讲清楚并落地。",
+  "_resume_file": "resume-product-员工7-产品经理.md"
+}

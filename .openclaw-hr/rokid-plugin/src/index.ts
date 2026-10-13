@@ -2,7 +2,7 @@
 // OpenClaw WebSocket Bridge 插件入口
 // ============================================================
 
-import { createWsBridgeService, type WsBridgeConfig } from "./ws-bridge-service.js";
+import { createWsBridgeService, deliverRokidText, type WsBridgeConfig } from "./ws-bridge-service.js";
 import { createDeviceTools } from "./device-tools.js";
 
 const CHANNEL_ID = "rokid-openclaw-bridge";
@@ -210,6 +210,18 @@ function buildChannelPlugin(logger: any) {
             await service.stop();
           },
         };
+      },
+    },
+
+    outbound: {
+      deliveryMode: "direct" as const,
+      sendText: async (ctx: { accountId?: string | null; to?: string; text: string }) => {
+        const messageId = deliverRokidText({
+          accountId: ctx.accountId,
+          to: ctx.to,
+          text: ctx.text,
+        });
+        return { channel: CHANNEL_ID, messageId };
       },
     },
   };

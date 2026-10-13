@@ -1,4 +1,40 @@
 {
   "version": 2,
-  "runs": {}
+  "runs": {
+    "2c72cf86-ffd0-44f0-bc35-a30a5af0f426": {
+      "runId": "2c72cf86-ffd0-44f0-bc35-a30a5af0f426",
+      "childSessionKey": "agent:onboarding:subagent:0603ae5c-ba50-455e-a070-29ed5dce332c",
+      "controllerSessionKey": "agent:router:main",
+      "requesterSessionKey": "agent:router:main",
+      "requesterOrigin": {
+        "channel": "webchat"
+      },
+      "requesterDisplayKey": "agent:router:main",
+      "task": "用户反馈入职看板链接打不开（http://127.0.0.1:18999/__openclaw__/canvas/documents/onboarding-dashboard/index.html）。请排查原因：确认文件是否真实存在、路径是否正确、是否需要重新生成或提供正确的访问地址。给出可访问的正确链接或修复方案。通道=webchat，无飞书 ou_，按演示 HR 数据权限处理。",
+      "cleanup": "keep",
+      "expectsCompletionMessage": true,
+      "spawnMode": "run",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "agentDir": "/opt/openclaw-hr/.openclaw-hr/agent-dirs/onboarding",
+      "workspaceDir": "/opt/openclaw-hr/.openclaw-hr/workspace-onboarding",
+      "runTimeoutSeconds": 1800,
+      "createdAt": 1791859423217,
+      "startedAt": 1791859435278,
+      "sessionStartedAt": 1791859423217,
+      "accumulatedRuntimeMs": 0,
+      "cleanupHandled": true,
+      "retainAttachmentsOnKeep": false,
+      "endedAt": 1791859463086,
+      "outcome": {
+        "status": "error",
+        "error": "gateway closed (1012): service restart\nGateway target: ws://127.0.0.1:18790\nSource: local loopback\nConfig: /opt/openclaw-hr/.openclaw-hr/config/openclaw.yaml\nBind: lan",
+        "startedAt": 1791859435278,
+        "endedAt": 1791859463086,
+        "elapsedMs": 27808
+      },
+      "endedReason": "subagent-error",
+      "frozenResultText": null,
+      "frozenResultCapturedAt": 1791859463090
+    }
+  }
 }

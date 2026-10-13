@@ -387,7 +387,7 @@
   },
   "bindings": [
     {
-      "agentId": "er-admin",
+      "agentId": "router",
       "match": {
         "channel": "feishu",
         "accountId": "*"

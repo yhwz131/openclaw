@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'><title>360 · 员工9</title><style>
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: "Noto Sans CJK SC", "Noto Sans SC", sans-serif; color: #1c2430; font-size: 11pt; line-height: 1.45; }
+.sheet { page-break-after: always; }
+.sheet:last-child { page-break-after: auto; }
+h1 { font-size: 18pt; margin: 0; }
+.sub { color: #526070; font-size: 10pt; margin: 4px 0 0; }
+.banner { margin: 10px 0 12px; padding: 8px 12px; background: #eef4fb; border-left: 4px solid #2f5f93; font-size: 11pt; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; }
+th, td { border: 1px solid #d5dde6; padding: 5px 8px; text-align: left; vertical-align: top; }
+th { background: #f3f6f9; font-weight: 600; white-space: nowrap; font-size: 10pt; }
+td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; width: 72px; }
+.flag { font-weight: 700; }
+.split { color: #9a5b00; }
+.ok { color: #1d6b3a; }
+.meta { width: 100%; margin: 8px 0 10px; }
+.meta td { border: none; padding: 2px 8px 2px 0; }
+.score { font-size: 16pt; font-weight: 700; color: #2f5f93; }
+.block { margin: 8px 0; }
+.block b { display: block; margin-bottom: 2px; }
+.sign { margin-top: 16px; display: flex; gap: 28px; }
+.line { border-bottom: 1px solid #1c2430; min-width: 140px; display: inline-block; }
+.foot { margin-top: 14px; font-size: 8.5pt; color: #7b8794; }
+.note { font-size: 9.5pt; color: #526070; }
+</style></head><body>
+<section class="sheet">
+  <h1>360 反馈汇总 · 员工9</h1>
+  <p class="sub">某某公司6 · 库存服务　后端开发工程师　·　考核周期 2026-H1　·　反馈 4 份（上级 1、平级 2、自评 1）</p>
+  <div class="banner">不进行绩效评级。本页只汇总分数和评语，等级由直接主管初评、隔级主管复核、校准会确认。</div>
+  <table>
+    <tr><th>维度</th><th class="num">总均分</th><th class="num">上级</th><th class="num">平级</th><th class="num">自评</th><th class="num">极差</th><th>判定</th></tr>
+    <tr><td>目标达成</td><td class='num'>4.00</td><td class='num'>4</td><td class='num'>4.00</td><td class='num'>4</td><td class='num'>0.00</td><td class='flag ok'>共识</td></tr><tr><td>专业能力</td><td class='num'>5.00</td><td class='num'>5</td><td class='num'>5.00</td><td class='num'>5</td><td class='num'>0.00</td><td class='flag ok'>共识</td></tr><tr><td>协作沟通</td><td class='num'>4.00</td><td class='num'>4</td><td class='num'>4.00</td><td class='num'>4</td><td class='num'>0.00</td><td class='flag ok'>共识</td></tr><tr><td>责任心</td><td class='num'>4.25</td><td class='num'>4</td><td class='num'>4.50</td><td class='num'>4</td><td class='num'>0.50</td><td class='flag ok'>共识</td></tr><tr><td>学习成长</td><td class='num'>3.25</td><td class='num'>2</td><td class='num'>4.00</td><td class='num'>3</td><td class='num'>2.00</td><td class='flag split'>疑似分歧</td></tr>
+  </table>
+  <p>视角极差按「上级分、平级均分、自评分」三者的最大差计算，达到 1.00 记为疑似分歧。疑似分歧不是结论，面谈时读评语。</p>
+  <p><b>本页标出的疑似分歧：</b>学习成长。没有下属视角：简历里没有带人经历，不编下属评价。</p>
+  <p class="note">分数来自后附 4 张反馈表，表上的事实只引用对应简历里已写的数字和事件。</p>
+  <div class="sign"><div>汇总人签字 <span class="line"></span></div><div>日期 <span class="line"></span></div></div>
+  <p class="foot">演示道具 · 脱敏样本 · 不作为定级依据 · 评估人只用代号</p>
+</section>
+
+<section class="sheet">
+  <h1>360 反馈表</h1>
+  <p class="sub">某某公司 · 考核周期 2026-H1 · 不填写绩效等级</p>
+  <table class="meta">
+    <tr><td>被评估人</td><td><b>员工9</b></td><td>岗位</td><td>后端开发工程师</td></tr>
+    <tr><td>所在</td><td>某某公司6 · 库存服务</td><td>评估人</td><td><b>领导1</b>（上级）</td></tr>
+    <tr><td>提交日期</td><td>2026-06-26</td><td>分数</td><td>5 远超 / 4 超出 / 3 符合 / 2 部分未达 / 1 明显未达</td></tr>
+  </table>
+  <table>
+    <tr><th style="width:88px">维度</th><th class="num">分数</th><th>事实与观察</th></tr>
+    <tr><td>目标达成</td><td class='num'><span class='score'>4</span></td><td>库存预占本周期由他维护。超卖从每天数笔降到抽查周为 0；大促当天接口 P99 为 12ms。</td></tr><tr><td>专业能力</td><td class='num'><span class='score'>5</span></td><td>Redis 预扣、Lua 原子扣减、每 10 分钟对账，链路是他在看。回补遗漏他定位过 1 处，修完没有再出现。</td></tr><tr><td>协作沟通</td><td class='num'><span class='score'>4</span></td><td>演练和值班能对上人。方案评审他还过不了独立关，需要有人把关，这点和他自己说的一致。</td></tr><tr><td>责任心</td><td class='num'><span class='score'>4</span></td><td>机房演练切换耗时 4 分钟，切换期间拒绝写入，已预占的单没有丢。</td></tr><tr><td>学习成长</td><td class='num'><span class='score'>2</span></td><td>事情做深了，但还停在自己这条链路上。本周期没有一次方案是他独立过完评审的，也没有带人。</td></tr>
+  </table>
+  <div class="block"><b>主要亮点</b>超卖和 P99 有监控，演练没有丢单。</div>
+  <div class="block"><b>改进建议</b>方案评审仍要人把关。下个周期至少独立过完一次评审，再谈带人。</div>
+  <p class="note">本表不填写 S/A/B/C/D，也不建议晋升或淘汰。</p>
+  <div class="sign"><div>评估人签字 <span class="line"></span></div><div>日期 <span class="line"></span></div></div>
+  <p class="foot">演示道具 · 脱敏样本 · 员工9 · 领导1</p>
+</section>
+
+<section class="sheet">
+  <h1>360 反馈表</h1>
+  <p class="sub">某某公司 · 考核周期 2026-H1 · 不填写绩效等级</p>
+  <table class="meta">
+    <tr><td>被评估人</td><td><b>员工9</b></td><td>岗位</td><td>后端开发工程师</td></tr>
+    <tr><td>所在</td><td>某某公司6 · 库存服务</td><td>评估人</td><td><b>同事1</b>（平级同事）</td></tr>
+    <tr><td>提交日期</td><td>2026-06-27</td><td>分数</td><td>5 远超 / 4 超出 / 3 符合 / 2 部分未达 / 1 明显未达</td></tr>
+  </table>
+  <table>
+    <tr><th style="width:88px">维度</th><th class="num">分数</th><th>事实与观察</th></tr>
+    <tr><td>目标达成</td><td class='num'><span class='score'>4</span></td><td>预占和回补我一起看过对账。超卖抽查周为 0，不是只看了一天。</td></tr><tr><td>专业能力</td><td class='num'><span class='score'>5</span></td><td>回补那 1 处遗漏是他自己对出来的。P99 12ms 我看过大促当天的监控。</td></tr><tr><td>协作沟通</td><td class='num'><span class='score'>4</span></td><td>问他预占为什么没释放，他能指到 15 分钟那条任务，不绕。</td></tr><tr><td>责任心</td><td class='num'><span class='score'>4</span></td><td>释放任务每天约 2 万笔，失败他会重跑，不是等第二天别人发现。</td></tr><tr><td>学习成长</td><td class='num'><span class='score'>4</span></td><td>年初他还只改参数，这次遗漏是他自己定位的，我觉得这是成长。</td></tr>
+  </table>
+  <div class="block"><b>主要亮点</b>对账和释放任务靠得住，问题定位比以前快。</div>
+  <div class="block"><b>改进建议</b>评审材料还是要别人帮他收口，独立过会还差一截。</div>
+  <p class="note">本表不填写 S/A/B/C/D，也不建议晋升或淘汰。</p>
+  <div class="sign"><div>评估人签字 <span class="line"></span></div><div>日期 <span class="line"></span></div></div>
+  <p class="foot">演示道具 · 脱敏样本 · 员工9 · 同事1</p>
+</section>
+
+<section class="sheet">
+  <h1>360 反馈表</h1>
+  <p class="sub">某某公司 · 考核周期 2026-H1 · 不填写绩效等级</p>
+  <table class="meta">
+    <tr><td>被评估人</td><td><b>员工9</b></td><td>岗位</td><td>后端开发工程师</td></tr>
+    <tr><td>所在</td><td>某某公司6 · 库存服务</td><td>评估人</td><td><b>同事2</b>（平级同事）</td></tr>
+    <tr><td>提交日期</td><td>2026-06-27</td><td>分数</td><td>5 远超 / 4 超出 / 3 符合 / 2 部分未达 / 1 明显未达</td></tr>
+  </table>
+  <table>
+    <tr><th style="width:88px">维度</th><th class="num">分数</th><th>事实与观察</th></tr>
+    <tr><td>目标达成</td><td class='num'><span class='score'>4</span></td><td>平时 QPS 约 800，大促预热短时到 6000，服务没有因为预占把库打满。</td></tr><tr><td>专业能力</td><td class='num'><span class='score'>5</span></td><td>异步落库和 10 分钟对账我看过任务日志，差异能对上单号。</td></tr><tr><td>协作沟通</td><td class='num'><span class='score'>4</span></td><td>演练前他把拒绝写入的窗口说清楚了，切换时没有人误写。</td></tr><tr><td>责任心</td><td class='num'><span class='score'>5</span></td><td>切换 4 分钟他在。已预占的单切换后还在，我抽过。</td></tr><tr><td>学习成长</td><td class='num'><span class='score'>4</span></td><td>回补遗漏修完他写了原因。分享还只在库存这几个人里面。</td></tr>
+  </table>
+  <div class="block"><b>主要亮点</b>演练值守到位，预占单没有丢。</div>
+  <div class="block"><b>改进建议</b>经验还圈在库存组里，组外听过一次就没有下文。</div>
+  <p class="note">本表不填写 S/A/B/C/D，也不建议晋升或淘汰。</p>
+  <div class="sign"><div>评估人签字 <span class="line"></span></div><div>日期 <span class="line"></span></div></div>
+  <p class="foot">演示道具 · 脱敏样本 · 员工9 · 同事2</p>
+</section>
+
+<section class="sheet">
+  <h1>360 反馈表</h1>
+  <p class="sub">某某公司 · 考核周期 2026-H1 · 不填写绩效等级</p>
+  <table class="meta">
+    <tr><td>被评估人</td><td><b>员工9</b></td><td>岗位</td><td>后端开发工程师</td></tr>
+    <tr><td>所在</td><td>某某公司6 · 库存服务</td><td>评估人</td><td><b>自评</b>（本人自评）</td></tr>
+    <tr><td>提交日期</td><td>2026-06-28</td><td>分数</td><td>5 远超 / 4 超出 / 3 符合 / 2 部分未达 / 1 明显未达</td></tr>
+  </table>
+  <table>
+    <tr><th style="width:88px">维度</th><th class="num">分数</th><th>事实与观察</th></tr>
+    <tr><td>目标达成</td><td class='num'><span class='score'>4</span></td><td>超卖降到抽查周为 0，P99 12ms，都是这条预占链路的结果。</td></tr><tr><td>专业能力</td><td class='num'><span class='score'>5</span></td><td>预扣、15 分钟释放、10 分钟对账，是我在维护。回补修过 1 处。</td></tr><tr><td>协作沟通</td><td class='num'><span class='score'>4</span></td><td>演练窗口我提前说了。方案评审我仍然需要有人把关。</td></tr><tr><td>责任心</td><td class='num'><span class='score'>4</span></td><td>切换 4 分钟我在现场，已预占的单没有丢。</td></tr><tr><td>学习成长</td><td class='num'><span class='score'>3</span></td><td>遗漏能自己对出来。独立过评审、带人，这两件我这个周期都没做到。</td></tr>
+  </table>
+  <div class="block"><b>主要亮点</b>预占链路的数字和演练结果站得住。</div>
+  <div class="block"><b>改进建议</b>评审还要人把关，也还没有带人。这点不往高里写。</div>
+  <p class="note">本表不填写 S/A/B/C/D，也不建议晋升或淘汰。</p>
+  <div class="sign"><div>评估人签字 <span class="line"></span></div><div>日期 <span class="line"></span></div></div>
+  <p class="foot">演示道具 · 脱敏样本 · 员工9 · 自评</p>
+</section>
+</body></html>

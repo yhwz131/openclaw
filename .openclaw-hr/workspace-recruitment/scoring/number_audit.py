@@ -123,18 +123,27 @@ def extract_numbers(text):
     return found
 
 
+# def verify_in_resume(token, resume_norm):
+#    """数字 token 是否在原简历（已归一化）里出现。
+#    返回 True=简历里有，False=简历里没有。"""
+#    token_norm = _norm(token)
+#    if token_norm in resume_norm:
+#        return True
+#    # 数字部分单独再查一次：单位可能简历用 TPS、产出用"笔/秒"，
+#    # 先看纯数字在不在；纯数字都不在 → 基本确定虚构
+#    num_only = re.match(r"\d+(?:\.\d+)?", token_norm)
+#    if num_only and num_only.group() in resume_norm:
+#        # 纯数字命中，但带的单位/量级不同——可能是改写，标为"数字命中单位存疑"
+#        return None  # 三态：None = 数字在但需 LLM 看是不是改了量级
+#    return False
+
 def verify_in_resume(token, resume_norm):
-    """数字 token 是否在原简历（已归一化）里出现。
-    返回 True=简历里有，False=简历里没有。"""
     token_norm = _norm(token)
     if token_norm in resume_norm:
         return True
-    # 数字部分单独再查一次：单位可能简历用 TPS、产出用"笔/秒"，
-    # 先看纯数字在不在；纯数字都不在 → 基本确定虚构
     num_only = re.match(r"\d+(?:\.\d+)?", token_norm)
     if num_only and num_only.group() in resume_norm:
-        # 纯数字命中，但带的单位/量级不同——可能是改写，标为"数字命中单位存疑"
-        return None  # 三态：None = 数字在但需 LLM 看是不是改了量级
+        return None
     return False
 
 
