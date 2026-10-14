@@ -20,7 +20,7 @@ def main() -> int:
         text_b = "姓名：张伟\n电话：13900001111\n目标岗位：后端开发\n"
         text_upd = "姓名：张伟\n电话：13812345678\n目标岗位：后端开发\n更新了项目经历\n"
         text_no_phone = "姓名：张伟\n目标岗位：后端开发\n"
-        text_no_intent = "姓名：陈朝浩\n电话：13700000000\n专业：大数据技术\n自我评价：想做设计\n"
+        text_no_intent = "姓名：面试者3\n电话：13700000000\n专业：大数据技术\n自我评价：想做设计\n"
 
         s, k = fr._land_one_resume(
             data=b"%PDF-fake-a", ext=".pdf", orig_label="a.pdf",
@@ -61,7 +61,7 @@ def main() -> int:
 
         s5, k5 = fr._land_one_resume(
             data=b"%PDF-fake-ch", ext=".pdf", orig_label="ch.pdf",
-            resume_text_full=text_no_intent, name="陈朝浩", llm_position="设计师",
+            resume_text_full=text_no_intent, name="面试者3", llm_position="设计师",
             method="test", content_sha="eee", inbox_dir=inbox,
         )
         assert s5 and "待确认" in s5[0].saved_name

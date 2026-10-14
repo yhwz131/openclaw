@@ -3,7 +3,7 @@
   "query_type": "candidate",
   "topn": 5,
   "insufficient": false,
-  "matchable": 7,
+  "matchable": 6,
   "pool_names": [
     "员工5",
     "员工7",
@@ -11,8 +11,7 @@
     "员工2",
     "员工3",
     "员工4",
-    "员工6",
-    "面试者1"
+    "员工6"
   ],
   "results": [
     {

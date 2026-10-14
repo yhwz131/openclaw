@@ -17,8 +17,8 @@
 | # | 链路 | 测试内容 | 08-29 | 08-30 11:16 | 08-30 14:24 | 08-31 |
 |---|------|---------|-------|------------|------------|-------|
 | 1 | 邮件收取 | `fetch-mail.sh` IMAP连接+LLM识别+同姓名去重 | ✅ | ✅ | ✅ 881未读，3跳过，81s | — |
-| 2 | 简历解析 | `validate_profile.js` schema校验+合规红线检查 | ✅ | ✅ | ✅ 员工1/江政宾 | — |
-| 3 | 真实性核对 | `audit_extraction.js` 硬提取回溯+派生字段校验 | ✅ | ✅ | ✅ 员工122/22、陈朝浩6/6 | — |
+| 2 | 简历解析 | `validate_profile.js` schema校验+合规红线检查 | ✅ | ✅ | ✅ 员工1/面试者2 | — |
+| 3 | 真实性核对 | `audit_extraction.js` 硬提取回溯+派生字段校验 | ✅ | ✅ | ✅ 员工122/22、面试者36/6 | — |
 | 4 | 合规过滤 | `filter_sensitive.js` 敏感字段物理删除 | ✅ | ✅ | ✅ 3人均通过 | — |
 | 5 | 8维评分 | `score_candidate.js` 单份评分+硬伤识别 | ✅ | ✅ | ✅ 员工192/A | ✅ 员工192/A |
 | 6 | 数字回核 | `audit_numbers.js` 评分文字数字比对原简历 | ✅ | ✅ | ✅ 2处虚构(15→13年) | — |
@@ -50,7 +50,7 @@
 3. `validate_profile_html.js` → ✅ 通过
 
 **链路 B：批量评分 → 画像**
-1. `batch_rank.js` → `batch-score-陈朝浩-rerun2.json`（5/D）+ `ranking-画像测试2.json`
+1. `batch_rank.js` → `batch-score-面试者3-rerun2.json`（5/D）+ `ranking-画像测试2.json`
 2. `generate_profile.py` → `profile-批量测试.html`（5/D）
 3. `validate_profile_html.js` → ✅ 通过
 
@@ -74,7 +74,7 @@
 ### 测试 #1：邮件收取
 - IMAP 连接成功，881 封未读，5 封窗口内
 - 3 个附件跳过（已存在于 inbox）
-- LLM 识别：江政宾/Agent应用开发实习生 ✅、陈朝浩/大数据技术 ✅
+- LLM 识别：面试者2/Agent应用开发实习生 ✅、面试者3/大数据技术 ✅
 - 耗时 81.29s
 
 ### 测试 #5：8 维评分（员工1）

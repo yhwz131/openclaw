@@ -36,7 +36,7 @@
 
 ## 23:00 合并前勿自动 promote 的内容
 
-- 真名 PDF / 云南大学 / `xingqiao-tech` / `zhanglei`·张磊
+- 真名 PDF / 某某大学6 / `xingqiao-tech` / `zhanglei`·张磊
 - 员工1 矛盾口径（cancelled vs 五节点齐 + cron）
 - 面试者1 当花名册真人；HEARTBEAT_OK 若出现在日记
 
@@ -45,4 +45,4 @@
 - yaml `frequency`: `0 22 * * *`，`timezone`: `Asia/Shanghai`（2026-09-03 验证后 operator 定为 22:00）
 - 报告出现后：`memory-snapshot.sh` → `dream-report-gate.sh` → 人审 → 手工合并 `MEMORY.md`
 - **禁止** `memory promote --apply`
-- 22:00 首轮 dreaming：recruitment light 报告闸词已手工脱敏（详见 `ops/memory-open-items.md`）；`江政宾` / `云南大学` soft 残留改日处理
+- 22:00 首轮 dreaming：recruitment light 报告闸词已手工脱敏（详见 `ops/memory-open-items.md`）；`面试者2` / `某某大学6` soft 残留改日处理
