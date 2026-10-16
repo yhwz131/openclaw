@@ -1,0 +1,5 @@
+# 已知缺失、git 历史与男2 仓库里都没有的引用。补上文件后从这里删掉对应行。
+interview/scripts/asr-diarize.py   # 招聘：面试录音转写，可选功能
+interview/scripts/tts-say.sh       # 网关 messages.tts 本地 CLI 语音合成
+gateway-start.sh                   # 招聘画像 SKILL 里的旧启动说明，现用 oc 菜单
+maybe-monthly-report.sh            # 在仓库外 /opt/hr-ops/，系统 crontab 每晚 23:59 调用

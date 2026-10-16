@@ -1,0 +1,22 @@
+#!/bin/bash
+# 防误删：拦下删除 Agent 脚本/Skill/工作流的提交，并检查提示词和配置里引用的脚本都还在。
+# 确属有意删除时：ALLOW_DELETE=1 git commit ...
+set -uo pipefail
+cd "$(git rev-parse --show-toplevel)"
+
+PROTECTED='^\.openclaw-hr/(workspace[^/]*/(scripts|skills|workflows)/|workspace[^/]*/(AGENTS|SOUL|TOOLS)\.md$|scripts/|config/|hcm/backend/)'
+deleted="$(git diff --cached --diff-filter=D --name-only | grep -E "$PROTECTED" | grep -v '__pycache__' || true)"
+if [ -n "$deleted" ] && [ "${ALLOW_DELETE:-0}" != "1" ]; then
+  echo "✋ 本次提交会删除以下受保护文件：" >&2
+  echo "$deleted" | sed 's/^/   /' >&2
+  echo "   磁盘上丢了就先恢复：git checkout HEAD -- <路径>；确属有意删除：ALLOW_DELETE=1 git commit ..." >&2
+  exit 1
+fi
+
+if ! python3 .openclaw-hr/scripts/check-references.py >/tmp/check-references.out 2>&1; then
+  echo "✋ 提示词/配置引用的脚本不存在：" >&2
+  grep '^缺失' /tmp/check-references.out | head -20 >&2
+  echo "   详见 /tmp/check-references.out；修好或 SKIP_REFCHECK=1 git commit ..." >&2
+  [ "${SKIP_REFCHECK:-0}" = "1" ] || exit 1
+fi
+exit 0
