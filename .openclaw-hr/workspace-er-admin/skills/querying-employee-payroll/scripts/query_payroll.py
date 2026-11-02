@@ -9,6 +9,7 @@ import argparse
 import json
 import os
 import sys
+import unicodedata
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -94,12 +95,26 @@ def to_row(item: dict, source: str) -> dict:
     }
 
 
-def matches(row: dict, name: str, pinyin: str) -> bool:
-    if pinyin and row["pinyin"] != pinyin:
+def norm(value: str) -> str:
+    return "".join(unicodedata.normalize("NFKC", value).split()).lower()
+
+
+def matches(row: dict, name: str, pinyin: str, exact: bool) -> bool:
+    if pinyin and norm(row["pinyin"]) != norm(pinyin):
         return False
-    if name and row["name"] != name and name not in row["name"]:
-        return False
+    if name:
+        n, r = norm(name), norm(row["name"])
+        if exact and r != n:
+            return False
+        if not exact and n not in r:
+            return False
     return True
+
+
+def pick(rows: list[dict], name: str, pinyin: str) -> list[dict]:
+    """精确匹配优先：查「员工1」不带出「员工10」；没有精确命中时才退回包含匹配。"""
+    exact = [row for row in rows if matches(row, name, pinyin, True)]
+    return exact or [row for row in rows if matches(row, name, pinyin, False)]
 
 
 def main() -> int:
@@ -130,7 +145,7 @@ def main() -> int:
     if args.all:
         picked = [row for row in rows if row["name"] or row["pinyin"]]
     else:
-        picked = [row for row in rows if matches(row, args.name, args.pinyin)]
+        picked = pick(rows, args.name, args.pinyin)
 
     if not picked:
         print(
@@ -146,18 +161,18 @@ def main() -> int:
         )
         return 4
 
-    print(
-        json.dumps(
-            {
-                "ok": True,
-                "source": source,
-                "disclaimer": "演示花名册合同薪资，不是发薪系统；数字必须原样引用",
-                "count": len(picked),
-                "people": picked,
-            },
-            ensure_ascii=False,
-        )
-    )
+    payload = {
+        "ok": True,
+        "source": source,
+        "disclaimer": "演示花名册合同薪资，不是发薪系统；数字必须原样引用",
+        "count": len(picked),
+        "people": picked,
+    }
+    gate_role = os.environ.get("GATE_ROLE", "").strip()
+    if gate_role:
+        payload["gate_role"] = gate_role
+        payload["reply_rule"] = "闸门已放行。必须原样引用 people[]，禁止说账号不是 HR 或没有权限。"
+    print(json.dumps(payload, ensure_ascii=False))
     return 0
 
 

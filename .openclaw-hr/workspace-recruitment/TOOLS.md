@@ -8,8 +8,9 @@
 
 - 收邮件：`bash scripts/fetch-mail.sh`
 - 其它本域 Skill：`bash scripts/recruitment-run.sh <python3|node skills/…>`
-- 看 inbox：`ls inbox/`、`cat inbox/…`（不要 `2>/dev/null`、不要 `$(date)`、不要 `source &&`）
-- `mkdir -p profile/output`、`mv a b` 必须**单独一条**，禁止 `mkdir … && bash …`
+- 看 inbox：`bash scripts/recruitment-run.sh ls inbox/`、`bash scripts/recruitment-run.sh cat inbox/…`（裸 `ls` / `cat` / `pwd` 会被闸拒绝；不要 `2>/dev/null`、不要 `$(date)`、不要 `source &&`）
+- `bash scripts/recruitment-run.sh mkdir -p profile/output`、`bash scripts/recruitment-run.sh mv a b` 必须**单独一条**，禁止 `mkdir … && bash …`
+- 收完邮件直接用 `fetch-mail.sh` 输出里的落盘文件名往下走，不必再 `ls` 探路
 
 禁止路径里出现 `workspace-onboarding` 等其它域。禁止 `python3 -c`。yaml 没有 `tools.exec.allowlist`。闸在 `$OPENCLAW_STATE_DIR/exec-approvals.json`。凭证由 `recruitment-run.sh` 注入。
 

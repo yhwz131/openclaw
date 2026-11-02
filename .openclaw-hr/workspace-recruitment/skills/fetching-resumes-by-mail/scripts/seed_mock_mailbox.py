@@ -43,10 +43,10 @@ def guess_position(p: Path) -> str:
 def build_eml(attachment: Path, *, sender_name: str, sender_email: str, subject: str, sent_offset_min: int) -> bytes:
     msg = EmailMessage()
     msg["From"] = f"{sender_name} <{sender_email}>"
-    msg["To"] = "hr-recruit@xingqiao-tech.com"
+    msg["To"] = "hr-recruit@xxx.com"
     msg["Subject"] = subject
     msg["Date"] = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
-    msg["Message-ID"] = f"<{int(datetime.now().timestamp()*1000)}-{sender_email.replace('@', '.')}@xingqiao-recruit-bot>"
+    msg["Message-ID"] = f"<{int(datetime.now().timestamp()*1000)}-{sender_email.replace('@', '.')}@xxx>"
 
     body = (
         f"HR 您好：\n\n"

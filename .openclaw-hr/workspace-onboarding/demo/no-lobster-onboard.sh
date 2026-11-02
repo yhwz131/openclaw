@@ -17,7 +17,7 @@ echo "[入职] 已暂停：请等待 HR 主管审批合同，批准后再继续�
   echo '{"contract":"signed"}' > "$DIR/contract.json"
   sleep 1
   log "account_gate    （无人审批）直接通过"
-  echo '{"account":"XQ5453","email":"yuangong1@xingqiao-tech.com"}' > "$DIR/account.json"
+  echo '{"account":"YG0001","email":"yuangong1@xxx.com"}' > "$DIR/account.json"
   sleep 1
   log "buddy           导师已分配"
   echo '{"buddy":"导师1"}' > "$DIR/buddy.json"

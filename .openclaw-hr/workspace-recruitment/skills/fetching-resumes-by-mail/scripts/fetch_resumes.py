@@ -42,6 +42,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 import zipfile
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone, timedelta
@@ -278,6 +279,20 @@ def mail_on_or_after(date_value, cutoff: datetime) -> bool:
 # ============================================================
 # 后端：live — 走 imap-tools 连 QQ 邮箱
 # ============================================================
+def open_live_mailbox(host: str, port: int, user: str, password: str, folder: str = "INBOX"):
+    """登录并选中文件夹。网易系（163/126/yeah）在 SELECT 前必须发 IMAP ID，否则返回 Unsafe Login。"""
+    from imap_tools import MailBox
+
+    mb = MailBox(host, port=port).login(user, password, initial_folder=None)
+    if any(s in host for s in ("163.com", "126.com", "yeah.net")):
+        typ, _ = mb.client.xatom(
+            "ID", '("name" "openclaw-hr" "version" "1.0" "vendor" "openclaw")'
+        )
+        print(f"[live] 网易 IMAP ID {typ}", file=sys.stderr)
+    mb.folder.set(folder)
+    return mb
+
+
 class LiveImapBackend(MailBackend):
     name = "live"
 
@@ -304,7 +319,7 @@ class LiveImapBackend(MailBackend):
 
     def list_messages(self, folder: str, since: Optional[str] = None) -> Iterable[MailSummary]:
         try:
-            from imap_tools import MailBox, AND
+            from imap_tools import AND
         except ImportError:
             print("[live] imap-tools 未安装，跑 pip install imap-tools", file=sys.stderr)
             return
@@ -312,8 +327,7 @@ class LiveImapBackend(MailBackend):
         if not self.ssl:
             print("[live] WARN  imap-tools 默认走 SSL 993, --no-ssl 仅作语义标志, 实际仍用 SSL", file=sys.stderr)
         cutoff = since_cutoff_utc(since)
-        with MailBox(self.host, port=self.port).login(self.user, self.password) as mb:
-            mb.folder.set(folder)
+        with open_live_mailbox(self.host, self.port, self.user, self.password, folder) as mb:
             # QQ IMAP 的 SINCE / date_gte 经常被忽略，只搜 UNSEEN，日期在客户端滤。
             n_unseen = 0
             keep_uids: List[str] = []
@@ -638,6 +652,8 @@ def _extract_resume_text(raw_bytes: bytes, ext: str, *, max_chars: int = 2000) -
     except Exception as e:
         return "", f"extract-error: {type(e).__name__}: {e}"
 
+    # PDF 字体子集常把「目」「工」抽成康熙部首（⽬ U+2F6C），不归一则「目标岗位」等标签匹配不上
+    text = unicodedata.normalize("NFKC", text)
     # 清零宽/控制字符，压空白
     text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", text)
     text = re.sub(r"[ \t]+\n", "\n", text)
@@ -722,7 +738,7 @@ def _extract_with_llm(resume_text: str,
              "你是一个中文简历解析助手。用户只提供「简历文件正文」，不要参考任何邮件信息。"
              "从正文抽出 (name, position) 两个字段。仅输出 JSON, 格式: "
              "{\"name\": \"张三\", \"position\": \"后端开发\"}"
-             "。name=候选人真实中文姓名（2-4字，优先「姓名：」字段）；"
+             "。name=候选人姓名（优先「姓名：」字段；脱敏样本里的代号如「员工10」也算姓名，原样输出）；"
              "position=求职意向/目标岗位的简短称谓（≤10字，不要带'岗'后缀；"
              "若有多个岗位取第一个，如「后端技术专家 / 架构师」→「后端技术专家」）。"
              "抽不出填空字符串。禁止输出其它文字。"},

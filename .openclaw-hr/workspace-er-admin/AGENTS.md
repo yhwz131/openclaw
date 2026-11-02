@@ -143,7 +143,7 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 `bash scripts/er-admin-run.sh payroll-query [--sender <ou_>] --name 员工1`
 
-或 `--all`。飞书 HR 必须带 `--sender`。WebChat / CLI 省略。主管/员工的 ou_ 会被脚本拒绝。只念 JSON 里的人，花名册没有的人不要编。
+或 `--all`。飞书 HR 必须带 `--sender`。WebChat / CLI 省略。主管/员工的 ou_ 会被脚本拒绝。只念 JSON 里的人，花名册没有的人不要编。`ok: true` 就是已放行，必须报 `people[]`；只有退出码 3 才说没有权限。不要用飞书显示名自己判断是不是 HR。
 
 ### HR 月报
 

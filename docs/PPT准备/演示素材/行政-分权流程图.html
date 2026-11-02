@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>行政 · 分权流程</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; background: #061a38; color: #fff;
+    font-family: "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif; }
+  .page { width: 1600px; height: 900px; padding: 44px 56px; margin: 0 auto; position: relative; }
+  h1 { font-size: 40px; font-weight: 700; letter-spacing: 1px; }
+  h1 span { color: #ff6b8a; }
+  .sub { margin-top: 10px; font-size: 22px; color: #9fc3e8; }
+  .flow { display: flex; align-items: stretch; margin-top: 34px; height: 610px; }
+  .msg { width: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    font-size: 21px; line-height: 1.5; color: #cfe3f7; text-align: center; }
+  .msg b { display: block; font-size: 27px; color: #fff; margin-bottom: 6px; }
+  .arrow { width: 34px; display: flex; align-items: center; justify-content: center; font-size: 36px; color: #29b6f6; }
+  .box { flex: 1; border-radius: 20px; padding: 22px 22px 18px; display: flex; flex-direction: column;
+    transition: opacity .25s, transform .25s, box-shadow .25s; background: #0a2d5c; }
+  .hard { border: 4px solid #29b6f6; }
+  .soft { border: 4px dashed #ffb74d; background: #2a2440; }
+  .gate { border: 4px solid #ff6b8a; }
+  .head { display: flex; align-items: center; gap: 14px; }
+  .tag { font-size: 18px; font-weight: 700; padding: 3px 12px; border-radius: 8px; white-space: nowrap; }
+  .hard .tag { background: #29b6f6; color: #061a38; }
+  .soft .tag { background: #ffb74d; color: #2a2440; }
+  .gate .tag { background: #ff6b8a; color: #061a38; }
+  .title { font-size: 32px; font-weight: 700; }
+  .row { margin-top: 16px; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,.06); }
+  .row .t { font-size: 23px; font-weight: 700; }
+  .row .t em { font-style: normal; color: #ff6b8a; }
+  .row .f { margin-top: 4px; font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 15px; color: #8fb6dc; white-space: nowrap; }
+  .why { margin-top: auto; padding-top: 12px; border-top: 2px solid rgba(255,255,255,.15); font-size: 19px; white-space: nowrap; line-height: 1.5; color: #ffe0a6; }
+  .why b { color: #fff; }
+  .out { width: 204px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+  .res { border-radius: 16px; padding: 16px 18px; font-size: 21px; line-height: 1.5; }
+  .res b { display: block; font-size: 23px; white-space: nowrap; }
+  .ok { border: 3px solid #26d098; color: #c8f5e4; } .ok b { color: #26d098; }
+  .no { border: 3px solid #e94f4f; color: #ffd0d0; } .no b { color: #e94f4f; }
+  .bottom { position: absolute; left: 56px; right: 56px; bottom: 40px; display: flex; justify-content: flex-end; }
+  .audit { flex: 1; border: 3px solid #5c7fa8; border-radius: 14px; padding: 14px 24px; font-size: 22px; color: #cfe3f7;
+    transition: opacity .25s, box-shadow .25s; }
+  .audit b { color: #fff; }
+  .audit code { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 18px; color: #8fb6dc; }
+  .legend { font-size: 18px; color: #9fc3e8; line-height: 1.8; white-space: nowrap; }
+  .legend i { display: inline-block; width: 28px; height: 12px; margin-right: 8px; vertical-align: middle; border-radius: 3px; }
+  body.focus .box, body.focus .audit { opacity: .25; }
+  body.focus .on { opacity: 1 !important; transform: translateY(-4px); box-shadow: 0 0 36px rgba(41,182,246,.45); }
+  .hint { position: absolute; right: 56px; top: 52px; font-size: 15px; color: #4f6f94; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hint">按 1 2 3 高亮 · 0 全部</div>
+  <h1>同一句“查员工1的工资”：<span>两头硬，中间软</span></h1>
+  <div class="sub">前面用配置限死它能做什么，中间用提示词告诉它该怎么做，最后由脚本拍板放不放行</div>
+
+  <div class="flow">
+    <div class="msg"><b>飞书</b>员工 / HR<br>发同一句</div>
+    <div class="arrow">→</div>
+
+    <div class="box hard" data-k="1">
+      <div class="head"><span class="tag">① 配置 · 硬</span><span class="title">网关</span></div>
+      <div class="row"><div class="t">行政专用 bot，<em>直达</em></div><div class="f">openclaw.yaml › accounts.admin · bindings</div></div>
+      <div class="row"><div class="t">按人发工具</div><div class="f">yaml › toolsBySender</div></div>
+      <div class="row"><div class="t">exec 只准跑<em>一个</em>脚本，锚定路径</div><div class="f">exec-approvals.json</div></div>
+      <div class="why"><b>防什么：</b>发送人在转手中丢失；<br>模型绕开脚本直接查库</div>
+    </div>
+    <div class="arrow">→</div>
+
+    <div class="box soft" data-k="2">
+      <div class="head"><span class="tag">② 提示词 · 软</span><span class="title">Agent</span></div>
+      <div class="row"><div class="t">谁能看工资：一张表</div><div class="f">SOUL.md › 谁能看工资</div></div>
+      <div class="row"><div class="t">查别人 ≠ 我的工资不对</div><div class="f">AGENTS.md › 薪资 / 红线</div></div>
+      <div class="row"><div class="t">身份以网关记录为准</div><div class="f">SOUL.md · 查薪资 SKILL.md</div></div>
+      <div class="why"><b>管什么：</b>按规则办，拒绝说清理由<br>模型可能不听，<b>不靠它守门</b></div>
+    </div>
+    <div class="arrow">→</div>
+
+    <div class="box gate" data-k="3">
+      <div class="head"><span class="tag">③ 脚本 · 硬</span><span class="title">闸门</span></div>
+      <div class="row"><div class="t">身份<em>查网关</em>，不信模型</div><div class="f">resolve-sender.py</div></div>
+      <div class="row"><div class="t"><em>先判身份</em>，再读数据</div><div class="f">er-admin-run.sh</div></div>
+      <div class="row"><div class="t">只认 HR，其余默认拒</div><div class="f">hr-data-access.sh</div></div>
+            <div class="why"><b>为什么写死：</b>放不放行看退出码<br>不由模型决定</div>
+    </div>
+    <div class="arrow">→</div>
+
+    <div class="out">
+      <div class="res ok"><b>HR · exit 0</b>只读 HCM<br>员工1 · 32K</div>
+      <div class="res no"><b>员工 · exit 3</b>查询不运行<br>没有任何数据</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="legend"><i style="background:#29b6f6"></i>配置 / 脚本：模型改不了<br><i style="background:#ffb74d"></i>提示词：模型照做，但不靠它守门</div>
+  </div>
+</div>
+<script>
+  document.addEventListener('keydown', e => {
+    const k = e.key;
+    if (!'0123'.includes(k)) return;
+    document.querySelectorAll('[data-k]').forEach(el => el.classList.toggle('on', el.dataset.k === k));
+    document.body.classList.toggle('focus', k !== '0');
+  });
+</script>
+</body>
+</html>

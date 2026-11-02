@@ -38,7 +38,7 @@
       "name": "员工1",
       "pinyin": "yuangong1",
       "day": 30,
-      "status": "pending",
+      "status": "due",
       "focus": "部门岗位培训;HR 第一次新人关怀沟通",
       "content": null,
       "summary": null,
@@ -58,9 +58,9 @@
       "next_action": null,
       "next_action_due": null,
       "reviewer": null,
-      "triggered_at": null,
+      "triggered_at": "2026-10-11T01:00:00+00:00",
       "completed_at": null,
-      "display_status": "pending"
+      "display_status": "overdue"
     },
     {
       "name": "员工1",
@@ -120,7 +120,124 @@
     },
     {
       "name": "员工2",
-      "pinyin": "yuangong",
+      "pinyin": "yuangong2",
+      "day": 7,
+      "status": "completed",
+      "focus": "完成公司级 Onboarding;导师启动带教;融入团队",
+      "content": "公司级 Onboarding 已完成；导师带教已启动；团队融入情况良好",
+      "summary": "公司级 Onboarding 已完成；导师带教已启动；团队融入情况良好",
+      "outcome": "ok",
+      "checklist": [
+        {
+          "item": "完成公司级 Onboarding",
+          "state": "not_done",
+          "note": ""
+        },
+        {
+          "item": "导师启动带教",
+          "state": "not_done",
+          "note": ""
+        },
+        {
+          "item": "融入团队",
+          "state": "not_done",
+          "note": ""
+        }
+      ],
+      "next_action": null,
+      "next_action_due": null,
+      "reviewer": "HR",
+      "triggered_at": "2026-09-17T09:00:24+00:00",
+      "completed_at": "2026-10-26T03:31:49+00:00",
+      "display_status": "completed"
+    },
+    {
+      "name": "员工2",
+      "pinyin": "yuangong2",
+      "day": 30,
+      "status": "due",
+      "focus": "部门岗位培训;HR 第一次新人关怀沟通",
+      "content": null,
+      "summary": null,
+      "outcome": null,
+      "checklist": [
+        {
+          "item": "部门岗位培训",
+          "state": "not_done",
+          "note": ""
+        },
+        {
+          "item": "HR 第一次新人关怀沟通",
+          "state": "not_done",
+          "note": ""
+        }
+      ],
+      "next_action": null,
+      "next_action_due": null,
+      "reviewer": null,
+      "triggered_at": "2026-10-14T01:00:00+00:00",
+      "completed_at": null,
+      "display_status": "overdue"
+    },
+    {
+      "name": "员工2",
+      "pinyin": "yuangong2",
+      "day": 60,
+      "status": "pending",
+      "focus": "带教进展检查;岗位胜任度初评",
+      "content": null,
+      "summary": null,
+      "outcome": null,
+      "checklist": [
+        {
+          "item": "带教进展检查",
+          "state": "not_done",
+          "note": ""
+        },
+        {
+          "item": "岗位胜任度初评",
+          "state": "not_done",
+          "note": ""
+        }
+      ],
+      "next_action": null,
+      "next_action_due": null,
+      "reviewer": null,
+      "triggered_at": null,
+      "completed_at": null,
+      "display_status": "pending"
+    },
+    {
+      "name": "员工2",
+      "pinyin": "yuangong2",
+      "day": 90,
+      "status": "pending",
+      "focus": "导师带教结束;6 个月试用期者中期反馈",
+      "content": null,
+      "summary": null,
+      "outcome": null,
+      "checklist": [
+        {
+          "item": "导师带教结束",
+          "state": "not_done",
+          "note": ""
+        },
+        {
+          "item": "6 个月试用期者中期反馈",
+          "state": "not_done",
+          "note": ""
+        }
+      ],
+      "next_action": null,
+      "next_action_due": null,
+      "reviewer": null,
+      "triggered_at": null,
+      "completed_at": null,
+      "display_status": "pending"
+    },
+    {
+      "name": "员工3",
+      "pinyin": "yuangong3",
       "day": 7,
       "status": "due",
       "focus": "完成公司级 Onboarding;导师启动带教;融入团队",
@@ -147,13 +264,13 @@
       "next_action": null,
       "next_action_due": null,
       "reviewer": null,
-      "triggered_at": "2026-09-17T09:00:24+00:00",
+      "triggered_at": "2026-10-26T02:40:45+00:00",
       "completed_at": null,
-      "display_status": "overdue"
+      "display_status": "due"
     },
     {
-      "name": "员工2",
-      "pinyin": "yuangong",
+      "name": "员工3",
+      "pinyin": "yuangong3",
       "day": 30,
       "status": "pending",
       "focus": "部门岗位培训;HR 第一次新人关怀沟通",
@@ -180,8 +297,8 @@
       "display_status": "pending"
     },
     {
-      "name": "员工2",
-      "pinyin": "yuangong",
+      "name": "员工3",
+      "pinyin": "yuangong3",
       "day": 60,
       "status": "pending",
       "focus": "带教进展检查;岗位胜任度初评",
@@ -208,8 +325,8 @@
       "display_status": "pending"
     },
     {
-      "name": "员工2",
-      "pinyin": "yuangong",
+      "name": "员工3",
+      "pinyin": "yuangong3",
       "day": 90,
       "status": "pending",
       "focus": "导师带教结束;6 个月试用期者中期反馈",
@@ -236,14 +353,14 @@
       "display_status": "pending"
     },
     {
-      "name": "员工3",
-      "pinyin": "yaungong3",
+      "name": "员工10",
+      "pinyin": "yuangong10",
       "day": 7,
-      "status": "pending",
+      "status": "completed",
       "focus": "完成公司级 Onboarding;导师启动带教;融入团队",
-      "content": null,
-      "summary": null,
-      "outcome": null,
+      "content": "公司级 Onboarding 已完成；带教导师已启动带教；团队融入情况良好",
+      "summary": "公司级 Onboarding 已完成；带教导师已启动带教；团队融入情况良好",
+      "outcome": "ok",
       "checklist": [
         {
           "item": "完成公司级 Onboarding",
@@ -263,16 +380,16 @@
       ],
       "next_action": null,
       "next_action_due": null,
-      "reviewer": null,
-      "triggered_at": null,
-      "completed_at": null,
-      "display_status": "pending"
+      "reviewer": "HR",
+      "triggered_at": "2026-10-26T03:14:51+00:00",
+      "completed_at": "2026-10-26T03:28:12+00:00",
+      "display_status": "completed"
     },
     {
-      "name": "员工3",
-      "pinyin": "yaungong3",
+      "name": "员工10",
+      "pinyin": "yuangong10",
       "day": 30,
-      "status": "pending",
+      "status": "due",
       "focus": "部门岗位培训;HR 第一次新人关怀沟通",
       "content": null,
       "summary": null,
@@ -292,13 +409,13 @@
       "next_action": null,
       "next_action_due": null,
       "reviewer": null,
-      "triggered_at": null,
+      "triggered_at": "2026-10-26T03:37:05+00:00",
       "completed_at": null,
       "display_status": "pending"
     },
     {
-      "name": "员工3",
-      "pinyin": "yaungong3",
+      "name": "员工10",
+      "pinyin": "yuangong10",
       "day": 60,
       "status": "pending",
       "focus": "带教进展检查;岗位胜任度初评",
@@ -325,8 +442,8 @@
       "display_status": "pending"
     },
     {
-      "name": "员工3",
-      "pinyin": "yaungong3",
+      "name": "员工10",
+      "pinyin": "yuangong10",
       "day": 90,
       "status": "pending",
       "focus": "导师带教结束;6 个月试用期者中期反馈",
@@ -357,11 +474,14 @@
     "yuangong1": {
       "scheduled_at": "2026-09-03T12:54:18+00:00"
     },
-    "yuangong": {
+    "yuangong2": {
       "scheduled_at": "2026-09-14T07:22:38+00:00"
     },
-    "yaungong3": {
-      "scheduled_at": "2026-10-06T14:19:38+00:00"
+    "yuangong3": {
+      "scheduled_at": "2026-10-26T02:38:39+00:00"
+    },
+    "yuangong10": {
+      "scheduled_at": "2026-10-26T03:14:21+00:00"
     }
   }
 }

@@ -161,7 +161,13 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
   let ws: WebSocket | null = null;
   let reconnectAttempt = 0;
   let reconnectTimer: ReturnType<typeof setTimeout> | null = null;
+  let pingTimer: ReturnType<typeof setInterval> | null = null;
   let stopped = false;
+  let lastActivityAt = 0;
+
+  /** 乐奇服务端空闲约 4 小时会丢会话却不关 TCP，本端只能主动换新连接。 */
+  const PONG_TIMEOUT_MS = 60_000;
+  const IDLE_REFRESH_MS = 30 * 60_000;
 
   /** 内部请求自增 ID */
   let nextInternalId = 0;
@@ -173,7 +179,6 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
   const pendingDispatches = new Map<number, Promise<void>>();
   /** 入站回合没有当场说出内容时留着，等子任务结果经 outbound 送回同一条眼镜请求。 */
   let pendingReply: { requestId: string; agentId: string } | null = null;
-  let pingTimer: ReturnType<typeof setInterval> | null = null;
 
   const accountId = normalizeAccountId(config.openclaw.accountId, config.linkCode);
   const rt = config.openclaw.channelRuntime;
@@ -185,6 +190,7 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
       const raw = JSON.stringify(msg);
       logger.info(`[rokid-openclaw-bridge] >>> SEND: ${raw}`);
       ws.send(raw);
+      lastActivityAt = Date.now();
     }
   }
 
@@ -201,13 +207,6 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
         type: "answer",
       },
     });
-  }
-
-  function stopPing() {
-    if (pingTimer) {
-      clearInterval(pingTimer);
-      pingTimer = null;
-    }
   }
 
   function deliverText(text: string): string {
@@ -464,7 +463,6 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
             onPartialReply: async (payload) => {
               if (abortCtrl.signal.aborted) return;
               if (isStaleRequest(request.requestId, internalId)) return;
-              if (payload.isReasoning) return;
               const rawText = normalizeTextPayload(payload);
               if (!rawText) return;
               const text = rawText.trim();
@@ -526,23 +524,42 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
 
     const fullWsUrl = buildWsUrl(config);
     logger.info(
-      `[rokid-openclaw-bridge] Connecting to ${fullWsUrl} (attempt ${reconnectAttempt + 1})`
+      `[rokid-openclaw-bridge] Connecting to ${config.wsUrl} (attempt ${reconnectAttempt + 1})`
     );
 
     // 握手卡住时不会触发 open/close，重连也就不会再走。超时后由 error+close 进入重连。
     ws = new WebSocket(fullWsUrl, { handshakeTimeout: 15_000 });
 
-    ws.on("open", () => {
+    const sock = ws;
+    let lastPongAt = Date.now();
+    sock.on("pong", () => {
+      lastPongAt = Date.now();
+    });
+
+    sock.on("open", () => {
       reconnectAttempt = 0;
       logger.info(`[rokid-openclaw-bridge] Connected to ${config.wsUrl}`);
       sendWs({ type: "status", connected: true });
       stopPing();
       pingTimer = setInterval(() => {
-        if (ws?.readyState === WebSocket.OPEN) ws.ping();
+        if (sock.readyState !== WebSocket.OPEN) return;
+        const now = Date.now();
+        if (now - lastPongAt > PONG_TIMEOUT_MS) {
+          logger.warn(`[rokid-openclaw-bridge] No pong for ${PONG_TIMEOUT_MS}ms, dropping connection`);
+          sock.terminate();
+          return;
+        }
+        if (now - lastActivityAt > IDLE_REFRESH_MS && activeRequests.size === 0) {
+          logger.info(`[rokid-openclaw-bridge] Idle for ${IDLE_REFRESH_MS}ms, refreshing connection`);
+          sock.terminate();
+          return;
+        }
+        sock.ping();
       }, 20_000);
     });
 
     ws.on("message", (data) => {
+      lastActivityAt = Date.now();
       const raw = data.toString();
       logger.info(`[rokid-openclaw-bridge] <<< RECV: ${raw.slice(0, 500)}`);
       handleMessage(raw);
@@ -559,6 +576,12 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
     ws.on("error", (err) => {
       logger.error(`[rokid-openclaw-bridge] WebSocket error: ${err.message}`);
     });
+  }
+
+  function stopPing() {
+    if (!pingTimer) return;
+    clearInterval(pingTimer);
+    pingTimer = null;
   }
 
   function scheduleReconnect() {
@@ -592,8 +615,8 @@ export function createWsBridgeService(config: WsBridgeConfig, logger: Logger) {
 
     async stop() {
       stopped = true;
-      if (bridges.get(accountId)?.deliverText === deliverText) bridges.delete(accountId);
       stopPing();
+      if (bridges.get(accountId)?.deliverText === deliverText) bridges.delete(accountId);
 
       if (reconnectTimer) {
         clearTimeout(reconnectTimer);

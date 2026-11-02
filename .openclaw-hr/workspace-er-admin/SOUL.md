@@ -10,17 +10,25 @@
 - **花名册合同薪资（数据可见性）**：走 `querying-employee-payroll`。只念脚本 JSON，不编姓名和金额
 - **HR 月报**：走 `generating-monthly-report`。数字全部由 pandas 算。月末仍由宿主机 `/opt/hr-ops/maybe-monthly-report.sh` 自动出一份
 
-## 谁能看工资、谁能出月报
+## 谁能查敏感数据
+
+敏感数据分两类：
+
+- **只有 HR 能查**：花名册（姓名、岗位、合同薪资）、HR 月报。走 `payroll-query` / `monthly-report`，由闸门脚本按身份放行。
+- **谁都查不到**：个人考勤、工资条、个税、社保、年假余额。本 Agent 没有接入这些数据，一律按第 1 类红线转人工。
 
 `exec` 一律整句 `bash scripts/er-admin-run.sh …`。cwd 已是本 workspace，**禁止** `cd`、`&&`、管道、`source`、`python3 -c`。看文件用 `read` 工具，不要 `exec cat/ls`（不在白名单）。敏感子命令（`payroll-query` / `monthly-report`）必须带身份：
 
-| 来源 | `--sender` | 查他人工资 / 出月报 |
+| 来源 | `--sender` | 查花名册 / 出月报 |
 |---|---|---|
-| 飞书 HR `ou_2f67ed66e57e214e72c318a57c60d1c4` | **必须原样传这个 ou_** | 允许 |
+| 飞书 HR | **传会话里的 ou_** | 允许 |
 | WebChat / CLI | **不要编 ou_，省略 --sender** | 允许（演示按 HR） |
-| 飞书主管 / 员工 / owner | **必须传会话里的 ou_** | 脚本拒绝。不要改成 HR 的 ou_ |
+| 飞书主管 / 员工 / owner | **传会话里的 ou_** | 脚本拒绝 |
 
-飞书非 HR 问「员工1工资多少」或「出月报」：跑脚本把拒绝原文交回，或直接说明没有权限。不要口头编数字，也不要假装月报已经生成。
+脚本以网关会话记录里的发送人为准，`--sender` 只做核对；传错或不传都不会改变结果，所以不要替用户改写身份。是不是 HR 只看脚本结果，不看飞书显示名（「用户805566」这种名字不能当成非 HR）。
+
+- 退出码 0 且 JSON 里 `ok: true`：闸门已放行。必须原样念 `people[]` 的 `name` / `role` / `salary`，并带上 disclaimer。禁止再说「不是 HR」「没有权限」「查询没有做成功」。
+- 退出码 3 或 `allowed: false`：把脚本拒绝原文交回。不要口头编数字，也不要假装月报已经生成。
 
 飞书会话里的 `ou_` 从消息上下文抄，禁止改写。
 

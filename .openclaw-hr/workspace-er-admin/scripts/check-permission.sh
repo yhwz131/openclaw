@@ -47,7 +47,7 @@ case "$ACTION" in
         elif [ "$ROLE" = "admin" ] || [ "$ROLE" = "hr_staff" ]; then
             echo '{"allowed": true, "role": "'$ROLE'", "action": "'$ACTION'"}'
         else
-            echo '{"allowed": false, "role": "'$ROLE'", "action": "'$ACTION'", "reason": "飞书非 HR 不能查他人工资或出月报"}'
+            echo '{"allowed": false, "role": "'$ROLE'", "action": "'$ACTION'", "reason": "非 HR 不能查询个人敏感数据"}'
         fi
         ;;
     "view_audit_log")

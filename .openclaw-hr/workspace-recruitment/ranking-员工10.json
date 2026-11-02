@@ -1,0 +1,117 @@
+{
+  "jd": "jd-bigtech-后端开发工程师.md",
+  "scorer_version": 1,
+  "candidate_count": 1,
+  "llm_calls": 1,
+  "failed_candidates": [],
+  "pending_rescore": [],
+  "cached_skipped": [],
+  "ranking": [
+    {
+      "rank": 1,
+      "name": "员工10",
+      "resume_json": "scoring/clean-员工10-后端开发工程师.json",
+      "jd_match_score": 86,
+      "overall_rating": "A(强烈推荐)",
+      "hard_issues": [],
+      "suggested_action": "建议优先安排面试",
+      "score_reasoning": "硬技能与岗位几乎完全对口：Java + Spring Cloud 全家桶、MySQL 分库分表、Redis、Kafka/RocketMQ，外加 K8s 与可观测性体系命中加分项；行业背景为电商/交易与支付，正对订单履约组的核心链路。主要减分在于结构化数据缺少项目量化成果与软素质证据，且 8.3 年总经验超出 JD 的 3-6 年区间需定级确认。综合判断技术对口度与经验含金量高，属高匹配候选人，建议进入人工评估下一环节。"
+    }
+  ],
+  "details": [
+    {
+      "resume_json": "scoring/clean-员工10-后端开发工程师.json",
+      "name": "员工10",
+      "parsed": {
+        "name": "员工10",
+        "phone": "138****8010",
+        "email": "yg**10@example.com",
+        "target_position": "后端开发工程师",
+        "expected_salary": "25K-35K（月薪）",
+        "expected_city": "杭州",
+        "available_date": "一个月内（需办理工作交接）",
+        "education": {
+          "school": "某某大学3",
+          "major": "计算机科学与技术",
+          "degree": "本科",
+          "graduation_year": "2018"
+        },
+        "work_experience": [
+          {
+            "company": "某某公司9",
+            "position": "高级后端开发工程师",
+            "start_date": "2020-07",
+            "end_date": "至今",
+            "industry": "电商/交易与支付",
+            "industry_inferred": true
+          },
+          {
+            "company": "某某公司8",
+            "position": "后端开发工程师",
+            "start_date": "2018-07",
+            "end_date": "2020-06",
+            "industry": "互联网/会员权益",
+            "industry_inferred": true
+          }
+        ],
+        "total_experience_years": 8.3,
+        "job_count": 2,
+        "skills": [
+          "Java（熟练）",
+          "Go（了解）",
+          "SQL",
+          "Spring Boot / Spring Cloud",
+          "MyBatis",
+          "MySQL（索引优化 / 分库分表）",
+          "Redis",
+          "Kafka",
+          "RocketMQ",
+          "Docker",
+          "Kubernetes",
+          "Git",
+          "Jenkins",
+          "Prometheus",
+          "SkyWalking"
+        ]
+      },
+      "score": {
+        "candidate_name": "员工10",
+        "dimension_scores": {
+          "专业技能": 5,
+          "经验匹配": 5,
+          "逻辑能力": 3,
+          "学习力": 4,
+          "沟通能力": 3,
+          "协作能力": 3,
+          "抗压能力": 3,
+          "价值观": 3
+        },
+        "dimension_reasons": {
+          "专业技能": "技术栈与 JD 高度重合：Java 熟练 + Spring Boot/Spring Cloud、MyBatis、MySQL（含索引优化与分库分表）、Redis、Kafka、RocketMQ，覆盖 JD 硬性要求全部核心组件；另有 Docker/Kubernetes、Prometheus、SkyWalking，命中加分项中的 K8s 与可观测性体系（Metrics/Tracing）。MySQL 分库分表能力直接对应慢 SQL、热点 Key 等优化职责。Go 仅为\"了解\"，主语言 Java 已满足 JD（Java 或 Go）。",
+          "经验匹配": "2020-07 至今约 5.5 年在电商/交易与支付行业从事高级后端开发，与岗位\"交易中台-订单履约\"链路高度对口，命中加分项\"交易、支付、履约核心电商链路经验\"；此前 2 年互联网会员权益后端经验进一步补充服务端背景。总服务端经验 8.3 年，超过 JD 的 3-6 年区间，属资深而非硬性不符。简历未提供订单峰值、SLA、性能调优等量化成果，是唯一扣分点。",
+          "逻辑能力": "结构化数据未提供方案设计、架构拆分、复杂问题拆解的直接表述，缺乏可评分证据，按保守口径给中性分。学历为计算机科学与技术本科，具备岗位要求的计算机基础学科背景，但不足以单独支撑高分。",
+          "学习力": "技能面覆盖后端主链路（Java 生态、消息队列、分库分表）并延伸至云原生与可观测性（K8s、Prometheus、SkyWalking），显示技术栈持续外扩的学习轨迹；Go 标注为\"了解\"也反映在主动拓展新语言。但缺乏开源、博客、新技术落地等直接佐证，故未给满。",
+          "沟通能力": "结构化数据中无跨团队协作、技术方案评审、文档沉淀等表述，无直接证据，按中性分处理，建议面试验证。",
+          "协作能力": "同上，缺少跨团队推动、Code Review、团队协作的显性描述，仅能从中长期稳定在职推断团队融入度尚可，按中性分处理。",
+          "抗压能力": "长期在电商/交易与支付行业（含大促场景行业属性）任职且在职稳定，间接支持大促值班与高压交付场景，但简历无明确的大促保障、峰值处置经历描述，证据不足，按中性分处理。",
+          "价值观": "简历未包含 Owner 意识、结果导向、责任归属等表述，无直接证据，按中性分处理，建议面试中通过行为面试验证。"
+        },
+        "jd_match_score": 86,
+        "overall_rating": "A(强烈推荐)",
+        "score_reasoning": "硬技能与岗位几乎完全对口：Java + Spring Cloud 全家桶、MySQL 分库分表、Redis、Kafka/RocketMQ，外加 K8s 与可观测性体系命中加分项；行业背景为电商/交易与支付，正对订单履约组的核心链路。主要减分在于结构化数据缺少项目量化成果与软素质证据，且 8.3 年总经验超出 JD 的 3-6 年区间需定级确认。综合判断技术对口度与经验含金量高，属高匹配候选人，建议进入人工评估下一环节。",
+        "highlights": [
+          "电商/交易与支付行业高级后端 5 年+，与订单履约组业务链路高度对口",
+          "技术栈与 JD 硬性要求几乎逐条命中：Java/Spring Boot/Spring Cloud、MySQL（索引优化/分库分表）、Redis、Kafka、RocketMQ",
+          "具备 K8s、Prometheus、SkyWalking 等云原生与可观测性技能，命中 JD 加分项"
+        ],
+        "concerns": [
+          "总服务端经验 8.3 年，超出 JD 的 3-6 年区间，需确认定级（P6/P7）与薪资带宽（期望 25-35K 落在 P6-P7 区间内，但职级预期可能偏 P7）是否匹配",
+          "Go 仅为\"了解\"，若团队侧重构或新服务以 Go 为主，需评估上手成本",
+          "简历缺少可量化成果（订单峰值 QPS、SLA/RT、性能优化收益、架构拆分规模），难以判断是否具备\"日订单千万级\"系统设计经历"
+        ],
+        "hard_issues": []
+      },
+      "suggested_action": "建议优先安排面试"
+    }
+  ]
+}

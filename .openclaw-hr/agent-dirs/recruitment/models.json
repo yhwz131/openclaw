@@ -154,6 +154,17 @@
           ],
           "contextWindow": 1048576,
           "maxTokens": 32000
+        },
+        {
+          "id": "mimo-v2.6-flash",
+          "name": "Xiaomi MiMo V2.6 Flash",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 32000
         }
       ],
       "apiKey": "XIAOMI_API_KEY"
@@ -170,7 +181,7 @@
           "input": [
             "text"
           ],
-          "contextWindow": 128000,
+          "contextWindow": 1000000,
           "maxTokens": 32000
         },
         {
@@ -200,7 +211,7 @@
           "input": [
             "text"
           ],
-          "contextWindow": 128000,
+          "contextWindow": 1000000,
           "maxTokens": 32000
         },
         {

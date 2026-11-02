@@ -1,0 +1,204 @@
+{
+  "parsed_file": "员工1-后端开发-学校被改.json",
+  "resume_file": "resume-tech-员工1-后端开发.md",
+  "candidate": "员工1",
+  "audited_at": "2026-10-21T13:32:57.702Z",
+  "summary": {
+    "hard_fields": "21/22",
+    "soft_fields": "3/3",
+    "derived_fields": "2/2",
+    "hard_traceability_rate": "95.5%",
+    "passed": false
+  },
+  "checks": [
+    {
+      "field": "name",
+      "type": "hard",
+      "value": "员工1",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "phone",
+      "type": "hard",
+      "value": "138**6021",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "email",
+      "type": "hard",
+      "value": "yg**01@example.com",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "target_position",
+      "type": "hard",
+      "value": "后端技术专家 / 后端架构师",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "expected_salary",
+      "type": "hard",
+      "value": "60K-75K（月薪），可议年包",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "expected_city",
+      "type": "hard",
+      "value": "上海",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "available_date",
+      "type": "hard",
+      "value": "一个月内（需办理工作交接）",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "education.school",
+      "type": "hard",
+      "value": "清华大学",
+      "ok": false,
+      "note": "在简历原文找不到出处，需人工核实"
+    },
+    {
+      "field": "education.major",
+      "type": "hard",
+      "value": "软件工程",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "education.degree",
+      "type": "hard",
+      "value": "硕士",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "work_experience[0].company",
+      "type": "hard",
+      "value": "某某公司1",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "work_experience[0].position",
+      "type": "hard",
+      "value": "后端技术专家（P7→P8）",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "work_experience[0].start_date",
+      "type": "hard",
+      "value": "2018-04",
+      "ok": true,
+      "note": "起止时间回溯到原文"
+    },
+    {
+      "field": "work_experience[0].end_date",
+      "type": "hard",
+      "value": "至今",
+      "ok": true,
+      "note": "起止时间回溯到原文"
+    },
+    {
+      "field": "work_experience[0].industry",
+      "type": "soft",
+      "value": "互联网/电商",
+      "ok": true,
+      "note": "已标注 industry_inferred，推断依据（公司名）成立"
+    },
+    {
+      "field": "work_experience[1].company",
+      "type": "hard",
+      "value": "某某公司3",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "work_experience[1].position",
+      "type": "hard",
+      "value": "高级后端工程师 / 后端 Team Leader",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "work_experience[1].start_date",
+      "type": "hard",
+      "value": "2014-07",
+      "ok": true,
+      "note": "起止时间回溯到原文"
+    },
+    {
+      "field": "work_experience[1].end_date",
+      "type": "hard",
+      "value": "2018-03",
+      "ok": true,
+      "note": "起止时间回溯到原文"
+    },
+    {
+      "field": "work_experience[1].industry",
+      "type": "soft",
+      "value": "互联网/电商",
+      "ok": true,
+      "note": "已标注 industry_inferred，推断依据（公司名）成立"
+    },
+    {
+      "field": "work_experience[2].company",
+      "type": "hard",
+      "value": "某某公司2",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "work_experience[2].position",
+      "type": "hard",
+      "value": "后端开发工程师",
+      "ok": true,
+      "note": "逐字回溯到原文"
+    },
+    {
+      "field": "work_experience[2].start_date",
+      "type": "hard",
+      "value": "2011-07",
+      "ok": true,
+      "note": "起止时间回溯到原文"
+    },
+    {
+      "field": "work_experience[2].end_date",
+      "type": "hard",
+      "value": "2014-06",
+      "ok": true,
+      "note": "起止时间回溯到原文"
+    },
+    {
+      "field": "work_experience[2].industry",
+      "type": "soft",
+      "value": "金融科技",
+      "ok": true,
+      "note": "已标注 industry_inferred，推断依据（公司名）成立"
+    },
+    {
+      "field": "total_experience_years",
+      "type": "derived",
+      "value": "15",
+      "ok": true,
+      "note": "派生字段，计算依据为 3 段 work_experience，依据成立"
+    },
+    {
+      "field": "job_count",
+      "type": "derived",
+      "value": "3",
+      "ok": true,
+      "note": "派生字段，计算依据为 3 段 work_experience，依据成立"
+    }
+  ]
+}

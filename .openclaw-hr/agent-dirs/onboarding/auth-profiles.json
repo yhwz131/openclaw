@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "profiles": {
+    "volcengine:primary": {
+      "type": "api_key",
+      "provider": "volcengine",
+      "keyRef": {
+        "source": "env",
+        "provider": "default",
+        "id": "VOLCANO_DEEPSEEK_API_KEY"
+      }
+    },
+    "volcengine:backup": {
+      "type": "api_key",
+      "provider": "volcengine",
+      "keyRef": {
+        "source": "env",
+        "provider": "default",
+        "id": "VOLCANO_DEEPSEEK_API_KEY_BACKUP"
+      }
+    }
+  }
+}

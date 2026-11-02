@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#444;font-family:"Noto Sans CJK SC",sans-serif}
+.slide{width:1920px;height:1080px;position:relative;overflow:hidden;margin-bottom:40px;background:#081428;color:#eaf1fb}
+.abs{position:absolute}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:"DejaVu Sans Mono",monospace;letter-spacing:1px}
+.label{position:absolute;left:24px;bottom:16px;font-size:20px;color:#111;background:#fff;padding:4px 14px;border-radius:6px;font-weight:800;z-index:9;opacity:.9}
+/* 取自配图：全息蓝 = 模型，闸门绿 = 脚本，台灯琥珀 = 人 */
+.cM{color:#5aaeff}.cS{color:#3ddc97}.cH{color:#f5a524}.cR{color:#ff6b6b}
+.bM{background:#5aaeff}.bS{background:#3ddc97}.bH{background:#f5a524}
+.ink2{color:#a9b8cf}.ink3{color:#62748f}
+.rule{height:1px;background:rgba(140,170,210,.22)}
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:22px;font-weight:800}
+.tag i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(90,174,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(90,174,255,.06) 1px,transparent 1px);background-size:96px 96px}
+.hd{position:absolute;left:100px;right:100px;top:44px;display:flex;align-items:center;font-size:20px;color:#7d8fab;gap:14px}
+.hd b{color:#eaf1fb}
+.prog{position:absolute;left:0;top:0;height:4px;background:linear-gradient(90deg,#5aaeff,#3ddc97)}
+.progbg{position:absolute;left:0;right:0;top:0;height:4px;background:rgba(140,170,210,.15)}
+h1{font-weight:900;font-size:60px;letter-spacing:1px;line-height:1.25}
+.ph{position:absolute;overflow:hidden}
+.ph img{position:absolute}
+.on{position:absolute;font-size:20px;font-weight:800;padding:3px 12px;border-radius:4px;white-space:nowrap;border:1.5px solid}
+.exit{font-family:"DejaVu Sans Mono",monospace;font-size:19px;color:#ff8a8a;border:1.5px solid rgba(255,107,107,.6);border-radius:4px;padding:1px 8px;margin-left:8px;vertical-align:3px}
+</style></head><body>
+
+<!-- =================================== 封面 =================================== -->
+<section class="slide" id="d_cover">
+  <div class="ph" style="left:560px;top:0;width:1360px;height:1080px">
+    <img src="assets/s3_0.png" style="height:1080px;left:-560px;top:0"></div>
+  <div class="abs" style="left:560px;top:0;width:520px;height:1080px;background:linear-gradient(90deg,#081428,rgba(8,20,40,0))"></div>
+  <div class="abs" style="left:0;top:820px;width:1920px;height:260px;background:linear-gradient(0deg,#081428,rgba(8,20,40,0))"></div>
+  <div class="grid" style="right:auto;width:900px;-webkit-mask-image:linear-gradient(90deg,#000 50%,transparent)"></div>
+
+  <div class="abs mono" style="left:120px;top:92px;font-size:20px;color:#5aaeff">OPENCLAW-HR · ROUTER + 5 AGENTS</div>
+  <div class="abs" style="left:120px;top:128px;font-size:24px;color:#a9b8cf;letter-spacing:2px">2026 云南省职业院校技能大赛 · 人工智能赛道 · 高职组</div>
+
+  <div class="abs" style="left:110px;top:210px;font-size:236px;font-weight:900;line-height:1.05;letter-spacing:12px">小慧</div>
+  <div class="abs" style="left:122px;top:478px;font-size:50px;font-weight:800">企业 HR 数字员工</div>
+  <div class="abs ink2" style="left:122px;top:554px;font-size:30px">人工智能赋能人事部 · 一人决策 + 多 Agent 辅助</div>
+
+  <div class="abs" style="left:122px;top:650px;display:flex;gap:0;border:1px solid rgba(140,170,210,.28);border-radius:10px;overflow:hidden;background:rgba(8,20,40,.6)">
+    <div style="padding:18px 34px;border-right:1px solid rgba(140,170,210,.28)"><div class="tag cM"><i class="bM"></i>模型写</div><div class="ink2" style="font-size:22px;margin-top:6px">解析 · 评分</div></div>
+    <div style="padding:18px 34px;border-right:1px solid rgba(140,170,210,.28)"><div class="tag cS"><i class="bS"></i>脚本核</div><div class="ink2" style="font-size:22px;margin-top:6px">回溯 · 核数</div></div>
+    <div style="padding:18px 34px"><div class="tag cH"><i class="bH"></i>人决定</div><div class="ink2" style="font-size:22px;margin-top:6px">约面 · 审批</div></div>
+  </div>
+  <div class="abs" style="left:122px;top:860px;font-size:28px;font-weight:700">把法写进代码，把规写进流程</div>
+  <div class="abs mono" style="left:122px;top:914px;font-size:20px;color:#7d8fab">recruitment · onboarding · training · performance · er-admin</div>
+  <div class="label">深色技术 · 封面</div>
+</section>
+
+<!-- =================================== 招聘主链 A =================================== -->
+<section class="slide" id="d_a13">
+  <div class="ph" style="left:820px;top:330px;width:1100px;height:750px">
+    <img src="assets/rec_gates.jpg" style="height:750px;left:-230px;top:0"></div>
+  <div class="abs" style="left:820px;top:330px;width:380px;height:750px;background:linear-gradient(90deg,#081428,rgba(8,20,40,0))"></div>
+  <div class="abs" style="left:820px;top:330px;width:1100px;height:160px;background:linear-gradient(180deg,#081428,rgba(8,20,40,0))"></div>
+  <div class="grid" style="-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 60%)"></div>
+  <div class="progbg"></div><div class="prog" style="width:37%"></div>
+  <div class="hd"><span class="mono cM">03 / DEMO</span><b>技能演示</b><span>/　招聘 Agent</span><span style="flex:1"></span><span class="mono" style="color:#eaf1fb">13</span><span class="mono">/ 35</span></div>
+  <div class="abs" style="left:100px;top:100px;right:100px"><h1>模型每写一步，<span class="cS">后面都有脚本核</span></h1></div>
+  <div class="abs" id="trackA" style="left:100px;right:100px;top:244px;height:120px"></div>
+
+  <div class="on" style="left:1036px;top:452px;color:#3ddc97;background:rgba(8,20,40,.7)">④ 回溯</div>
+  <div class="on" style="left:1250px;top:476px;color:#3ddc97;background:rgba(8,20,40,.7)">⑤ 删敏</div>
+  <div class="on" style="left:1458px;top:496px;color:#3ddc97;background:rgba(8,20,40,.7)">⑦ 核数</div>
+  <div class="on" style="left:1336px;top:770px;color:#ff8a8a;background:rgba(8,20,40,.75)">58 万？ exit 1</div>
+  <div class="on" style="left:1700px;top:640px;color:#f5a524;background:rgba(8,20,40,.75)">⑨ HR 定</div>
+
+  <div class="abs" style="left:100px;top:420px;width:820px">
+    <div class="rule"></div>
+    <div class="tag cS" style="margin-top:26px"><i class="bS"></i>⑦ 数字回核 · 评分之后</div>
+    <div class="num" style="font-size:140px;font-weight:900;line-height:1.2;white-space:nowrap;margin-top:4px">
+      <span style="color:#3a4a63;position:relative">58万<span style="position:absolute;left:-6px;right:-6px;top:52%;height:8px;background:#ff6b6b;border-radius:4px"></span></span><span class="ink3" style="font-size:74px"> → </span><span class="cM">12.8万</span></div>
+    <div style="font-size:30px;font-weight:700;margin-top:2px">模型把岗位要求里的 58 万，写到了候选人头上</div>
+    <div class="ink2" style="font-size:25px;margin-top:8px">评语里每个数字都回原简历核；脚本只认原简历，不接收 JD</div>
+  </div>
+  <div class="abs" style="left:100px;top:806px;width:760px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(140,170,210,.22)">
+    <div style="padding:22px 30px 0 0;border-right:1px solid rgba(140,170,210,.22)"><div class="tag cS"><i class="bS"></i>④ 原文回溯</div>
+      <div class="num" style="font-size:72px;font-weight:900;line-height:1.2">22<span class="ink3" style="font-size:42px"> / 22</span></div>
+      <div class="ink2" style="font-size:24px">硬字段逐字在原简历里找到</div></div>
+    <div style="padding:22px 0 0 30px"><div class="tag cS"><i class="bS"></i>⑤ 删敏感字段</div>
+      <div class="num" style="font-size:72px;font-weight:900;line-height:1.2">31<span class="ink3" style="font-size:42px"> → </span>0</div>
+      <div class="ink2" style="font-size:24px">8 类敏感字段，评分前删掉</div></div>
+  </div>
+  <div class="label">深色技术 · 招聘主链 A 版（我的取舍）</div>
+</section>
+
+<!-- =================================== 招聘主链 B =================================== -->
+<section class="slide" id="d_b13">
+  <div class="ph" style="left:760px;top:0;width:1160px;height:300px">
+    <img src="assets/rec_gates.jpg" style="width:1160px;left:0;top:-160px"></div>
+  <div class="abs" style="left:760px;top:0;width:600px;height:300px;background:linear-gradient(90deg,#081428,rgba(8,20,40,0))"></div>
+  <div class="abs" style="left:760px;top:180px;width:1160px;height:120px;background:linear-gradient(0deg,#081428,rgba(8,20,40,0))"></div>
+  <div class="grid" style="-webkit-mask-image:linear-gradient(180deg,#000 20%,transparent 50%)"></div>
+  <div class="progbg"></div><div class="prog" style="width:37%"></div>
+  <div class="hd"><span class="mono cM">03 / DEMO</span><b>技能演示</b><span>/　招聘 Agent</span><span style="flex:1"></span><span class="mono" style="color:#eaf1fb">13</span><span class="mono">/ 35</span></div>
+  <div class="abs" style="left:100px;top:90px;width:1300px"><h1 style="font-size:50px">招聘 · 主链：模型每写一步，<span class="cS">后面都有脚本核</span></h1>
+    <div class="ink2" style="font-size:25px;margin-top:8px">从邮箱里的一份简历，到 HR 手里的一张画像：模型只写两步，每一步后面都有脚本闸，最后由人定</div></div>
+
+  <div class="abs" id="trackB" style="left:80px;right:80px;top:282px;height:200px"></div>
+
+  <div class="abs" style="left:100px;right:100px;top:500px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.12fr);gap:20px">
+    <div style="padding:22px 28px 22px;border:1px solid rgba(140,170,210,.22);border-top:3px solid #3ddc97;border-radius:6px;background:rgba(20,40,70,.35)"><div class="tag cS"><i class="bS"></i>④ 原文回溯 · 解析之后</div>
+      <div class="num" style="font-size:80px;font-weight:900;line-height:1.25">22<span class="ink3" style="font-size:46px"> / 22</span></div>
+      <div style="font-size:24px;line-height:1.55">硬字段逐字在原简历里找到<br><span class="ink2">对不上就退出码 1：重抽或人工确认，不能改 JSON 蒙混</span></div></div>
+    <div style="padding:22px 28px 22px;border:1px solid rgba(140,170,210,.22);border-top:3px solid #3ddc97;border-radius:6px;background:rgba(20,40,70,.35)"><div class="tag cS"><i class="bS"></i>⑤ 删敏感字段 · 评分之前</div>
+      <div class="num" style="font-size:80px;font-weight:900;line-height:1.25">31<span class="ink3" style="font-size:46px"> → </span>0</div>
+      <div style="font-size:24px;line-height:1.55">8 类字段，中英文键名、嵌套层都删<br><span class="ink2">删的是评分副本，原件 HR 仍可看；漏一个退出码 1，不进评分</span></div></div>
+    <div style="padding:22px 28px 22px;border:1px solid rgba(90,174,255,.45);border-top:3px solid #3ddc97;border-radius:6px;background:rgba(40,90,160,.22)"><div class="tag cS"><i class="bS"></i>⑦ 数字回核 · 评分之后</div>
+      <div class="num" style="font-size:80px;font-weight:900;line-height:1.25;white-space:nowrap"><span style="color:#3a4a63;position:relative">58万<span style="position:absolute;left:-4px;right:-4px;top:52%;height:7px;background:#ff6b6b;border-radius:4px"></span></span><span class="ink3" style="font-size:46px"> → </span><span class="cM">12.8万</span></div>
+      <div style="font-size:24px;line-height:1.55">评语里 23 个数字，逐个回原简历<br><span class="ink2">只认原简历，不接收 JD；判定失败退出码 1，不当作没问题</span></div></div>
+  </div>
+  <div class="abs" style="left:100px;right:100px;top:882px;display:grid;grid-template-columns:1.5fr 1fr;gap:50px;font-size:24px;line-height:1.65">
+    <div><b>法 → 删除脚本</b><span class="ink2">　《就业促进法》不得就业歧视；《个人信息保护法》敏感个人信息从严处理</span><br><b>规 → 回核脚本</b><span class="ink2">　交给 HR 的每个数字，都要能在本人简历里查到</span></div>
+    <div style="line-height:1.75"><span class="tag cM"><i class="bM"></i>模型写</span><span class="ink2">　解析字段、八维评分</span><br><span class="tag cS"><i class="bS"></i>脚本核</span><span class="ink2">　回溯、删字段、核数字</span><br><span class="tag cH"><i class="bH"></i>人来定</span><span class="ink2">　约不约面、录不录用</span></div>
+  </div>
+  <div class="label">深色技术 · 招聘主链 B 版（一字不删）</div>
+</section>
+
+<script>
+const STEPS=[['① 收简历','s','邮箱拉附件','按姓名-岗位落盘'],['② 转文档','s','PDF / Word','转成 Markdown'],['③ 解析字段','m','抽成结构化','JSON'],['④ 原文回溯','s','每个字段','回简历里找'],['⑤ 删敏感字段','s','8 类字段','评分前删掉'],['⑥ 八维评分','m','打分 + 评语','只给建议'],['⑦ 数字回核','s','评语里的数字','回原简历核'],['⑧ 生成画像','s','只渲染','不改分'],['⑨ HR 约面','h','约不约面','由 HR 定']];
+const N={m:'模型',s:'脚本',h:'人'}, HOT=[3,4,6];
+const C={m:'#5aaeff',s:'#3ddc97',h:'#f5a524'};
+function track(id,full){
+  const t=document.getElementById(id),W=t.clientWidth,n=9,w=W/n;
+  let h=`<div style="position:absolute;left:${w/2}px;right:${w/2}px;top:31px;height:2px;background:rgba(140,170,210,.25)"></div>`;
+  STEPS.forEach((s,i)=>{const hot=HOT.includes(i), hum=s[1]=='h', fill=hot||hum;
+    h+=`<div style="position:absolute;left:${i*w}px;width:${w}px;top:0;text-align:center">
+     <div style="margin:0 auto;width:64px;height:64px;border-radius:12px;background:${fill?C[s[1]]:'#081428'};border:2px solid ${C[s[1]]};color:${fill?'#081428':C[s[1]]};font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;${fill?`box-shadow:0 0 24px ${C[s[1]]}66`:''}">${N[s[1]]}</div>
+     <div style="font-size:${full?24:26}px;font-weight:800;margin-top:12px;color:${hum?'#f5a524':'#eaf1fb'}">${s[0]}</div>
+     ${full?`<div style="font-size:24px;color:#8fa3bf;line-height:1.35;margin-top:4px">${s[2]}<br>${s[3]}</div>`:''}</div>`});
+  t.innerHTML=h;}
+track('trackA',false);track('trackB',true);
+</script>
+</body></html>

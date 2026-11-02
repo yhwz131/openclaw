@@ -314,66 +314,81 @@ const DOMAIN_BIGRAMS = new Set([
   '出差', '费用', '发票', '补贴', '住宿',
 ]);
 
+const QUERY_TERM_CAP = 48;
+const DROP_TERMS = new Set(['公司的', '公司', '政策', '规定', '多少', '什么', '如何', '可以', '有没有', '政策是']);
+
 /** 从查询抽出用于正文匹配的词（偏长词/领域词，覆盖正文任意位置） */
 function queryTerms(query) {
-  const terms = new Set();
+  const anchors = new Set();
+  const grams = new Set();
   const raw = String(query || '').trim();
   if (!raw) return [];
 
-  const cleaned = raw
-    .replace(/[？?！!。，、；;：:\s]+/g, ' ')
-    .replace(/(吗|呢|啊|吧|嘛|帮我|请问|一下|是什么|怎么|如何|是否)/g, ' ')
-    .trim();
+  const tokens = raw
+    .replace(/[？?！!。，、；;：:]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .filter(Boolean);
+  const parts = [];
 
-  if (cleaned.length >= 2) terms.add(cleaned);
-  for (const part of cleaned.split(/\s+/)) {
-    if (part.length >= 2) terms.add(part);
-  }
-
-  const compact = cleaned.replace(/\s+/g, '');
-  // 3～6 字连续片段：足以命中正文任意位置，又避免「工作」类 2 字噪声
-  for (let n = 3; n <= Math.min(6, compact.length); n++) {
-    for (let i = 0; i + n <= compact.length; i++) {
-      const gram = compact.slice(i, i + n);
-      if (/[\u4e00-\u9fff]/.test(gram)) terms.add(gram);
+  // 只在原句的每个词内部切 3～6 字。「怎么/如何」删掉后露出的两字残片（如「处理」）不保留，
+  // 避免把两个话题粘成「年假休加班」，也避免「处理」这种词把无关文档抬上来。
+  for (const token of tokens) {
+    const pieces = token
+      .replace(/吗|呢|啊|吧|嘛|帮我|请问|一下|是什么|怎么|如何|是否/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .split(' ')
+      .filter(Boolean);
+    const splitByStop = pieces.length !== 1 || pieces[0] !== token;
+    for (const part of pieces) {
+      parts.push(part);
+      if (part.length <= 12 && part.length >= (splitByStop ? 3 : 2)) anchors.add(part);
+      for (let n = 3; n <= Math.min(6, part.length); n++) {
+        for (let i = 0; i + n <= part.length; i++) {
+          const gram = part.slice(i, i + n);
+          if (/[\u4e00-\u9fff]/.test(gram)) grams.add(gram);
+        }
+      }
+      for (let i = 0; i + 2 <= part.length; i++) {
+        const bi = part.slice(i, i + 2);
+        if (DOMAIN_BIGRAMS.has(bi)) anchors.add(bi);
+      }
     }
   }
-  // 2 字仅保留领域白名单
-  for (let i = 0; i + 2 <= compact.length; i++) {
-    const bi = compact.slice(i, i + 2);
-    if (DOMAIN_BIGRAMS.has(bi)) terms.add(bi);
-  }
 
+  const compact = parts.join('');
   // 轻量同义扩展：问句含「弹性工作」时正文常写「弹性与远程 / 远程办公」
   if (/弹性/.test(compact)) {
-    terms.add('弹性');
-    terms.add('远程');
-    terms.add('远程办公');
+    anchors.add('弹性');
+    anchors.add('远程');
+    anchors.add('远程办公');
   }
   if (/公积金|住房公积/.test(compact)) {
-    terms.add('住房公积金');
-    terms.add('公积金');
-    terms.add('缴存');
+    anchors.add('住房公积金');
+    anchors.add('公积金');
+    anchors.add('缴存');
   }
   if (/年假|清零|结转/.test(compact)) {
-    terms.add('年假');
-    terms.add('结转');
+    anchors.add('年假');
+    anchors.add('结转');
   }
   if (/报销|差旅|出差|差旅费|交通费|住宿补贴/.test(compact)) {
-    terms.add('报销');
-    terms.add('差旅');
-    terms.add('出差');
-    terms.add('差旅费');
-    terms.add('费用');
-    terms.add('住宿');
-    terms.add('交通费');
+    for (const t of ['报销', '差旅', '出差', '差旅费', '费用', '住宿', '交通费']) anchors.add(t);
   }
 
-  for (const bad of ['公司的', '公司', '政策', '规定', '多少', '什么', '如何', '可以', '有没有', '政策是']) {
-    terms.delete(bad);
+  for (const bad of DROP_TERMS) {
+    anchors.delete(bad);
+    grams.delete(bad);
   }
 
-  return [...terms].sort((a, b) => b.length - a.length).slice(0, 48);
+  const anchorList = [...anchors].sort((a, b) => b.length - a.length);
+  const gramList = [...grams]
+    .filter((g) => !anchors.has(g))
+    .sort((a, b) => b.length - a.length);
+  // 领域词和分句原词优先保留；48 个名额只裁滑动碎片
+  return [...anchorList, ...gramList].slice(0, QUERY_TERM_CAP);
 }
 
 /** 去掉空白与常见标点，便于「6 月 30 日」对上「6月30日」、「弹性与远程」对上「弹性」 */

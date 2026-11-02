@@ -6,8 +6,8 @@ NAME="${1:-员工}"
 PINYIN="${2:-employee}"   # 邮箱前缀用拼音，避免中文进 tr 被破坏
 STATE_DIR="$(cd "$(dirname "$0")/.."; pwd)/stub-state"
 mkdir -p "$STATE_DIR"
-WORKNO="XQ$(date +%s | tail -c 5)"
-EMAIL="${PINYIN}@xingqiao-tech.com"
+WORKNO="YG$(date +%s | tail -c 5)"
+EMAIL="${PINYIN}@xxx.com"
 cat > "$STATE_DIR/account.json" <<EOF
 {"system":"IT账号","candidate":"${NAME}","workno":"${WORKNO}","email":"${EMAIL}","wecom":"已创建","status":"待审批"}
 EOF

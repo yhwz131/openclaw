@@ -1,0 +1,117 @@
+{
+  "jd": "jds/jd-bigtech-后端开发工程师.md",
+  "scorer_version": 1,
+  "candidate_count": 1,
+  "llm_calls": 1,
+  "failed_candidates": [],
+  "pending_rescore": [],
+  "cached_skipped": [],
+  "ranking": [
+    {
+      "rank": 1,
+      "name": "员工10",
+      "resume_json": "scoring/clean-员工10.json",
+      "jd_match_score": 90,
+      "overall_rating": "A(强烈推荐)",
+      "hard_issues": [],
+      "suggested_action": "建议优先安排面试（供参考，最终由人工 HR 决定）",
+      "score_reasoning": "技术栈与 JD 核心要求几乎逐条对应（Java/Spring/MySQL/Redis/消息队列/容器化/可观测性），8 年后端经验且有高级岗位晋升，覆盖 3 年以上硬门槛；自评中的订单与对账业务场景贴近核心业务系统后端，方向高度对口。主要扣分点在于逻辑、沟通、协作、抗压、价值观等软性维度在结构化数据中缺乏直接证据，只能给中性分。"
+    }
+  ],
+  "details": [
+    {
+      "resume_json": "scoring/clean-员工10.json",
+      "name": "员工10",
+      "parsed": {
+        "name": "员工10",
+        "phone": "138****8010",
+        "email": "yg**10@example.com",
+        "target_position": "后端开发工程师",
+        "expected_salary": "25K-35K（月薪）",
+        "expected_city": "杭州",
+        "available_date": "一个月内（需办理工作交接）",
+        "education": {
+          "school": "某某大学3",
+          "major": "计算机科学与技术",
+          "degree": "本科 · 工学学士",
+          "graduation_year": "2018"
+        },
+        "work_experience": [
+          {
+            "company": "某某公司9",
+            "position": "高级后端开发工程师",
+            "start_date": "2020-07",
+            "end_date": "至今",
+            "industry": "",
+            "industry_inferred": false
+          },
+          {
+            "company": "某某公司8",
+            "position": "后端开发工程师",
+            "start_date": "2018-07",
+            "end_date": "2020-06",
+            "industry": "",
+            "industry_inferred": false
+          }
+        ],
+        "total_experience_years": 8.2,
+        "job_count": 2,
+        "skills": [
+          "Java（熟练）",
+          "Go（了解）",
+          "SQL",
+          "Spring Boot / Spring Cloud",
+          "MyBatis",
+          "MySQL（索引优化 / 分库分表）",
+          "Redis",
+          "Kafka",
+          "RocketMQ",
+          "Docker",
+          "Kubernetes",
+          "Git",
+          "Jenkins",
+          "Prometheus",
+          "SkyWalking"
+        ]
+      },
+      "score": {
+        "candidate_name": "员工10",
+        "dimension_scores": {
+          "专业技能": 5,
+          "经验匹配": 5,
+          "逻辑能力": 3,
+          "学习力": 4,
+          "沟通能力": 3,
+          "协作能力": 3,
+          "抗压能力": 3,
+          "价值观": 3
+        },
+        "dimension_reasons": {
+          "专业技能": "技能栈与 JD 高度对齐：Java（熟练）、Spring Boot / Spring Cloud、MyBatis、MySQL（含索引优化与分库分表）、Redis、Kafka、RocketMQ，覆盖 JD 第 2、3 条核心要求；另有 Docker、Kubernetes、Prometheus、SkyWalking，覆盖容器化部署与可观测性（链路追踪）加分项；Go 仅标注\"了解\"，可作为补充而非主力。",
+          "经验匹配": "累计 8 年后端开发经验，远超 JD 要求的 3 年以上；两段经历均为后端开发岗位，且后一段晋升为高级后端开发工程师；自评指出熟悉订单、对账类业务，能独立负责模块从设计到上线，对应 JD 中\"独立完成模块级方案设计与编码落地\"的职责。",
+          "逻辑能力": "结构化数据中没有可直接评估逻辑能力的证据（如算法、架构设计描述、复杂问题分析过程），仅能从\"能独立负责模块从设计到上线\"做间接推断，故给中性分。",
+          "学习力": "技术栈覆盖面广（消息队列掌握 Kafka 与 RocketMQ 两种、容器化 Docker+K8s、可观测性 Prometheus+SkyWalking），且在主语言 Java 之外了解 Go，体现出跨技术栈学习意愿；但缺少开源、博客、技术分享等直接证据，故不到 5 分。",
+          "沟通能力": "结构化数据未提供文档编写、技术分享、跨团队沟通的直接描述，仅有\"能独立负责模块\"的间接线索，故给中性分。",
+          "协作能力": "JD 要求与产品、前端、测试紧密协作，但简历中无相关协作描述或团队角色证据，只能给中性分。",
+          "抗压能力": "JD 提到高并发、高可用场景，候选人具备相关技术栈（分库分表、Redis、消息队列），且自评熟悉订单/对账类业务（通常为高峰期压力较大的业务），可做间接推断；但无直接的高并发线上压力场景描述，故给中性偏上分。",
+          "价值观": "自评聚焦\"独立负责模块、从设计到上线\"，体现出对交付质量和责任感的重视，与 JD 中\"按迭代计划交付高质量功能\"一致；但无更多直接证据，故给中性分。"
+        },
+        "jd_match_score": 90,
+        "overall_rating": "A(强烈推荐)",
+        "score_reasoning": "技术栈与 JD 核心要求几乎逐条对应（Java/Spring/MySQL/Redis/消息队列/容器化/可观测性），8 年后端经验且有高级岗位晋升，覆盖 3 年以上硬门槛；自评中的订单与对账业务场景贴近核心业务系统后端，方向高度对口。主要扣分点在于逻辑、沟通、协作、抗压、价值观等软性维度在结构化数据中缺乏直接证据，只能给中性分。",
+        "highlights": [
+          "技术栈与 JD 高度匹配：Java + Spring Boot/Cloud + MySQL（索引优化/分库分表）+ Redis + Kafka/RocketMQ，同时具备 Docker/K8s 与 Prometheus/SkyWalking 可观测性经验",
+          "8 年后端开发经验、2 段经历稳定且有从后端开发到高级后端开发的晋升路径",
+          "熟悉订单、对账类业务，能独立负责模块从设计到上线，贴近 JD 中核心业务系统与模块级独立落地的要求"
+        ],
+        "concerns": [
+          "期望薪资 25K-35K（杭州）处于中高位带宽，需 HR 结合岗位薪资带宽评估匹配度",
+          "结构化数据未体现具体项目细节（如高并发场景规模、性能优化量化成果），与 JD 加分项\"大型互联网/高流量系统性能优化\"暂无直接对应证据",
+          "逻辑能力、沟通能力、协作能力、抗压能力、价值观等维度在简历中缺乏可验证证据，评分以中性为主，需面试进一步确认"
+        ],
+        "hard_issues": []
+      },
+      "suggested_action": "建议优先安排面试（供参考，最终由人工 HR 决定）"
+    }
+  ]
+}

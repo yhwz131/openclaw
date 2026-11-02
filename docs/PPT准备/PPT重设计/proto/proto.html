@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<style>
+:root{
+  --bg:#070b14; --panel:rgba(255,255,255,.035); --line:rgba(255,255,255,.08);
+  --t1:#f8fafc; --t2:#cbd5e1; --t3:#8a97ab;
+  --m:#22d3ee;  /* 模型写 */
+  --s:#34d399;  /* 脚本核 */
+  --h:#fbbf24;  /* 人决定 */
+  --r:#f87171;  /* 坎 / 风险 */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#222;font-family:"Noto Sans CJK SC",sans-serif;color:var(--t1)}
+.slide{width:1920px;height:1080px;position:relative;overflow:hidden;background:var(--bg);margin-bottom:40px}
+.slide::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(900px 600px at 8% -10%,rgba(34,211,238,.10),transparent 60%),
+  radial-gradient(800px 600px at 105% 110%,rgba(251,191,36,.06),transparent 60%);pointer-events:none}
+.grid::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:120px 120px;opacity:.25;pointer-events:none;mask-image:linear-gradient(180deg,#000 0%,transparent 70%)}
+.abs{position:absolute}
+/* 页眉：细进度条代替两排导航 */
+.hd{position:absolute;left:96px;right:96px;top:48px;display:flex;align-items:center;gap:22px;font-size:22px;color:var(--t3);letter-spacing:1px;z-index:2}
+.hd .sec{color:var(--t2);font-weight:700}
+.hd .sec i{font-style:normal;color:var(--m);margin-right:10px}
+.hd .bar{flex:1;display:flex;gap:4px;height:4px}
+.hd .bar b{flex:1;background:rgba(255,255,255,.12);border-radius:2px}
+.hd .bar b.done{background:rgba(255,255,255,.4)} .hd .bar b.cur{background:var(--m)}
+.hd .pg{font-variant-numeric:tabular-nums;color:var(--t2);font-weight:700}
+.ttl{position:absolute;left:96px;top:110px;right:96px;z-index:2}
+.ttl .kicker{font-size:22px;letter-spacing:4px;color:var(--m);font-weight:700}
+.ttl h1{font-size:60px;font-weight:900;line-height:1.25;margin-top:10px;letter-spacing:1px}
+.ttl p{font-size:28px;color:var(--t3);margin-top:12px}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:22px;font-weight:800;padding:4px 14px;border-radius:8px}
+.tm{color:var(--m);background:rgba(34,211,238,.12)} .ts{color:var(--s);background:rgba(52,211,153,.12)} .th{color:var(--h);background:rgba(251,191,36,.14)}
+.foot{position:absolute;left:96px;right:96px;bottom:40px;font-size:22px;color:#5f6b7e;z-index:2}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:24px}
+.num{font-variant-numeric:tabular-nums;font-weight:900;letter-spacing:-1px}
+.label{position:absolute;left:24px;top:20px;font-size:20px;color:#000;background:#fff;padding:4px 14px;border-radius:6px;font-weight:800;z-index:9}
+</style></head><body>
+
+<!-- ================= A · 封面 ================= -->
+<section class="slide" id="a3">
+  <img src="assets/s3_0.png" class="abs" style="right:-120px;top:0;height:1080px;opacity:.85;mask-image:linear-gradient(90deg,transparent 0%,#000 35%)">
+  <div class="abs" style="left:0;top:0;bottom:0;width:1100px;background:linear-gradient(90deg,var(--bg) 55%,transparent)"></div>
+  <div class="abs" style="left:120px;top:110px;font-size:24px;color:var(--t3);letter-spacing:3px">2026 云南省职业院校技能大赛 · 人工智能赛道 · 高职组</div>
+  <div class="abs" style="left:116px;top:250px;font-size:220px;font-weight:900;letter-spacing:30px;line-height:1;background:linear-gradient(180deg,#fff 30%,#9fb3c8);-webkit-background-clip:text;color:transparent">小慧</div>
+  <div class="abs" style="left:124px;top:500px;font-size:48px;font-weight:700;color:var(--t2);letter-spacing:8px">HR 数字员工</div>
+  <div class="abs" style="left:124px;top:610px;display:flex;gap:20px;font-size:44px;font-weight:900">
+    <span style="color:var(--m)">模型写</span><span style="color:#334155">·</span><span style="color:var(--s)">脚本核</span><span style="color:#334155">·</span><span style="color:var(--h)">人决定</span>
+  </div>
+  <div class="abs" style="left:124px;top:700px;font-size:30px;color:var(--t3)">把法写进代码，把规写进流程 —— 一人决策 + 多 Agent 辅助的 OPD 一人部门</div>
+  <div class="abs" style="left:124px;top:850px;display:flex;gap:14px">
+    <span class="tag" style="border:1px solid var(--line);color:var(--t2);background:none">招聘</span><span class="tag" style="border:1px solid var(--line);color:var(--t2);background:none">入职</span><span class="tag" style="border:1px solid var(--line);color:var(--t2);background:none">培训</span><span class="tag" style="border:1px solid var(--line);color:var(--t2);background:none">绩效</span><span class="tag" style="border:1px solid var(--line);color:var(--t2);background:none">行政</span>
+  </div>
+  <div class="label">A版 · 封面（原第 3 页）</div>
+</section>
+
+<!-- ================= A · 三道坎 ================= -->
+<section class="slide grid" id="a4">
+  <div class="hd"><span class="sec"><i>01</i>项目背景</span><div class="bar" id="bar4"></div><span class="pg">04</span></div>
+  <div class="ttl"><div class="kicker">PROJECT BACKGROUND</div><h1>智能体进职场，卡在三道坎上</h1></div>
+  <div class="abs" style="left:96px;right:96px;top:330px;bottom:150px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px">
+    <div class="card" style="padding:44px 44px;position:relative;border-top:4px solid var(--r)">
+      <div class="num" style="font-size:30px;color:var(--r)">01</div>
+      <div style="font-size:72px;font-weight:900;margin-top:10px">说得不准</div>
+      <div style="font-size:30px;color:var(--t2);margin-top:22px;line-height:1.5">一本正经地<br>编数字、编事实</div>
+      <div style="margin-top:30px;font-size:24px;color:var(--t3);border-left:3px solid var(--line);padding-left:16px">信通院测评：幻觉输出率超过 <b style="color:var(--t1);font-size:34px">10%</b></div>
+      <div class="abs" style="left:44px;right:44px;bottom:40px;border-top:1px dashed var(--line);padding-top:24px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:24px;color:var(--t3)">小慧 · 招聘</span><span class="tag ts">脱敏 · 回核</span></div>
+    </div>
+    <div class="card" style="padding:44px 44px;position:relative;border-top:4px solid var(--r)">
+      <div class="num" style="font-size:30px;color:var(--r)">02</div>
+      <div style="font-size:72px;font-weight:900;margin-top:10px">做得越界</div>
+      <div style="font-size:30px;color:var(--t2);margin-top:22px;line-height:1.5">没让它做的事，<br>它也可能动手</div>
+      <div style="margin-top:30px;font-size:24px;color:var(--t3);border-left:3px solid var(--line);padding-left:16px">《实施意见》：执行不得超出用户授权</div>
+      <div class="abs" style="left:44px;right:44px;bottom:40px;border-top:1px dashed var(--line);padding-top:24px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:24px;color:var(--t3)">小慧 · 入职</span><span class="tag th">硬闸门 · 真暂停</span></div>
+    </div>
+    <div class="card" style="padding:44px 44px;position:relative;border-top:4px solid var(--r)">
+      <div class="num" style="font-size:30px;color:var(--r)">03</div>
+      <div style="font-size:72px;font-weight:900;margin-top:10px">查得不清</div>
+      <div style="font-size:30px;color:var(--t2);margin-top:22px;line-height:1.5"><b style="color:var(--t1);font-size:44px">58%</b> 的受访者<br>说不清它能碰哪些数据</div>
+      <div style="margin-top:30px;font-size:24px;color:var(--t3);border-left:3px solid var(--line);padding-left:16px">《实施意见》：重要行为要可验证、可追溯</div>
+      <div class="abs" style="left:44px;right:44px;bottom:40px;border-top:1px dashed var(--line);padding-top:24px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:24px;color:var(--t3)">小慧 · 行政</span><span class="tag ts">分权 · 有据</span></div>
+    </div>
+  </div>
+  <div class="foot">信通院《人工智能安全治理研究报告（2025）》｜三部门《智能体规范应用与创新发展实施意见》（2026.05）第 6、7 条｜21 世纪经济报道 2025.07.02，受访 43 人</div>
+  <div class="label">A版 · 三道坎（原第 4 页）</div>
+</section>
+
+<!-- ================= A · 招聘主链 ================= -->
+<section class="slide grid" id="a13">
+  <div class="hd"><span class="sec"><i>03</i>技能演示 · 招聘</span><div class="bar" id="bar13"></div><span class="pg">13</span></div>
+  <div class="ttl"><div class="kicker">RECRUITMENT · MAIN CHAIN</div><h1>模型每写一步，后面都有脚本核</h1></div>
+  <!-- 轨道 -->
+  <div class="abs" id="track" style="left:96px;right:96px;top:310px;height:150px"></div>
+  <!-- 三个大数字 -->
+  <div class="abs" style="left:96px;right:96px;top:520px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px">
+    <div class="card" style="padding:36px 40px;border-top:4px solid var(--s)">
+      <div style="font-size:24px;color:var(--s);font-weight:800">④ 原文回溯 · 解析之后</div>
+      <div class="num" style="font-size:120px;line-height:1.15;margin-top:6px">22<span style="color:var(--t3);font-size:72px"> / 22</span></div>
+      <div style="font-size:28px;color:var(--t2)">硬字段逐字在原简历里找到</div>
+    </div>
+    <div class="card" style="padding:36px 40px;border-top:4px solid var(--s)">
+      <div style="font-size:24px;color:var(--s);font-weight:800">⑤ 删敏感字段 · 评分之前</div>
+      <div class="num" style="font-size:120px;line-height:1.15;margin-top:6px">31<span style="color:var(--t3);font-size:72px"> → </span>0</div>
+      <div style="font-size:28px;color:var(--t2)">8 类敏感字段，评分前全部删掉</div>
+    </div>
+    <div class="card" style="padding:36px 40px;border-top:4px solid var(--s)">
+      <div style="font-size:24px;color:var(--s);font-weight:800">⑦ 数字回核 · 评分之后</div>
+      <div class="num" style="font-size:96px;line-height:1.4;margin-top:6px;white-space:nowrap"><span style="color:var(--r);text-decoration:line-through;text-decoration-thickness:6px">58万</span><span style="color:var(--t3);font-size:60px"> → </span>12.8万</div>
+      <div style="font-size:28px;color:var(--t2)">评语里的数字只认原简历</div>
+    </div>
+  </div>
+  <div class="abs" style="left:96px;right:96px;top:900px;display:flex;gap:28px;font-size:26px;color:var(--t2)">
+    <div class="card" style="flex:1;padding:22px 30px"><b style="color:var(--t1)">法 → 删除脚本</b>　《就业促进法》不得就业歧视 · 《个人信息保护法》敏感信息从严</div>
+    <div class="card" style="flex:1;padding:22px 30px"><b style="color:var(--t1)">规 → 回核脚本</b>　交给 HR 的每个数字，都要能在本人简历里查到</div>
+  </div>
+  <div class="label">A版 · 招聘主链（原第 13 页，细节移入备注）</div>
+</section>
+
+<!-- ================= A · 一期成果 ================= -->
+<section class="slide grid" id="a29">
+  <div class="hd"><span class="sec"><i>04</i>成果展望</span><div class="bar" id="bar29"></div><span class="pg">29</span></div>
+  <div class="ttl"><div class="kicker">PHASE I IN NUMBERS</div><h1>一期成果：可运行、可检查、可交付</h1></div>
+  <div class="abs" style="left:96px;right:96px;top:300px;bottom:110px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:28px">
+    <div class="card" style="grid-row:span 2;padding:48px;position:relative;background:linear-gradient(160deg,rgba(34,211,238,.14),rgba(255,255,255,.02));border-color:rgba(34,211,238,.35)">
+      <div style="font-size:26px;color:var(--m);font-weight:800">招聘初筛整理耗时</div>
+      <div class="num" style="font-size:210px;line-height:1;margin-top:30px;white-space:nowrap">85<span style="font-size:110px">%</span><span style="font-size:90px;color:var(--m)"> ↓</span></div>
+      <div style="font-size:28px;color:var(--t2);margin-top:24px">人工约 8 分钟/份 → 系统约 1.2 分钟/份</div>
+      <div class="abs" style="left:48px;right:48px;bottom:40px;font-size:22px;color:var(--t3);line-height:1.6">样本测算：同一批脱敏简历、同一份 JD，只比出材料速度，不比录用对错；不是企业正式上线数据。</div>
+    </div>
+    <div class="card" style="padding:36px 40px"><div class="num" style="font-size:96px;line-height:1.1">18<span style="color:var(--t3);font-size:56px"> / 30</span></div><div style="font-size:28px;font-weight:800;margin-top:4px">一期覆盖岗位典型事项</div><div style="font-size:24px;color:var(--t3);margin-top:8px">约 45% 事务工时，不含录用、审批等人工决定</div></div>
+    <div class="card" style="padding:36px 40px"><div class="num" style="font-size:96px;color:var(--s)">8<span style="color:var(--t3);font-size:56px"> / 8</span></div><div style="font-size:28px;font-weight:800;margin-top:4px">关键闸门实测通过</div><div style="font-size:24px;color:var(--t3);margin-top:8px">2026-08-29 → 09-10，首轮缺陷全部回归关闭</div></div>
+    <div class="card" style="padding:36px 40px"><div class="num" style="font-size:96px;color:var(--s)">0</div><div style="font-size:28px;font-weight:800;margin-top:4px">评分输入剩余敏感字段</div><div style="font-size:24px;color:var(--t3);margin-top:8px">8 类字段评分前物理删除，残留即 exit 1</div></div>
+    <div class="card" style="padding:36px 40px"><div class="num" style="font-size:66px;line-height:1.45;color:var(--h);white-space:nowrap">7 · 30 · 60 · 90</div><div style="font-size:28px;font-weight:800;margin-top:4px">试用期跟进节点</div><div style="font-size:24px;color:var(--t3);margin-top:8px">HCM 五节点全绿才注册，HR 回填才完成</div></div>
+  </div>
+  <div class="foot">闸门测试为项目组功能 / 边界 / 权限 / 回归测试，非第三方检验 · 机制有效性由前面的现场演示证明</div>
+  <div class="label">A版 · 一期成果（原第 29 页，“6 个任务入口”并入架构页）</div>
+</section>
+
+<!-- ================= B · 招聘主链（不删内容） ================= -->
+<section class="slide grid" id="b13">
+  <div class="hd"><span class="sec"><i>03</i>技能演示 · 招聘</span><div class="bar" id="barb13"></div><span class="pg">13</span></div>
+  <div class="ttl" style="top:100px"><div class="kicker">RECRUITMENT · MAIN CHAIN</div><h1 style="font-size:52px">招聘 · 主链：模型每写一步，后面都有脚本核</h1>
+    <p style="font-size:26px">从邮箱里的一份简历，到 HR 手里的一张画像：模型只写两步，每一步后面都有脚本闸，最后由人定</p></div>
+  <div class="abs" id="trackB" style="left:72px;right:72px;top:290px;height:200px"></div>
+  <div class="abs" style="left:72px;right:72px;top:520px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <div class="card" style="padding:26px 30px;border-top:4px solid var(--s)">
+      <div style="font-size:24px;color:var(--s);font-weight:800">④ 原文回溯 · 解析之后</div>
+      <div class="num" style="font-size:84px;line-height:1.15">22<span style="color:var(--t3);font-size:52px"> / 22</span></div>
+      <div style="font-size:24px;color:var(--t2);line-height:1.5">硬字段逐字在原简历里找到<br><span style="color:var(--t3)">对不上就退出码 1：重抽或人工确认，不能改 JSON 蒙混</span></div>
+    </div>
+    <div class="card" style="padding:26px 30px;border-top:4px solid var(--s)">
+      <div style="font-size:24px;color:var(--s);font-weight:800">⑤ 删敏感字段 · 评分之前</div>
+      <div class="num" style="font-size:84px;line-height:1.15">31<span style="color:var(--t3);font-size:52px"> → </span>0</div>
+      <div style="font-size:24px;color:var(--t2);line-height:1.5">8 类字段，中英文键名、嵌套层都删<br><span style="color:var(--t3)">删的是评分副本，原件 HR 仍可看；漏一个退出码 1，不进评分</span></div>
+    </div>
+    <div class="card" style="padding:26px 30px;border-top:4px solid var(--s)">
+      <div style="font-size:24px;color:var(--s);font-weight:800">⑦ 数字回核 · 评分之后</div>
+      <div class="num" style="font-size:84px;line-height:1.15"><span style="color:var(--r);text-decoration:line-through;text-decoration-thickness:5px">58万</span><span style="color:var(--t3);font-size:52px"> → </span>12.8万</div>
+      <div style="font-size:24px;color:var(--t2);line-height:1.5">评语里 23 个数字，逐个回原简历<br><span style="color:var(--t3)">只认原简历，不接收 JD；判定失败退出码 1，不当作没问题</span></div>
+    </div>
+  </div>
+  <div class="abs" style="left:72px;right:72px;top:858px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;font-size:24px;color:var(--t2)">
+    <div class="card" style="padding:18px 26px;line-height:1.6"><b style="color:var(--t1)">法 → 删除脚本</b>　《就业促进法》不得就业歧视；《个人信息保护法》敏感个人信息从严处理<br><b style="color:var(--t1)">规 → 回核脚本</b>　交给 HR 的每个数字，都要能在本人简历里查到</div>
+    <div class="card" style="padding:18px 26px;display:flex;flex-direction:column;justify-content:center;gap:8px">
+      <div><span class="tag tm">模型写</span>　解析字段、八维评分</div>
+      <div><span class="tag ts">脚本核</span>　回溯、删字段、核数字</div>
+      <div><span class="tag th">人来定</span>　约不约面、录不录用</div>
+    </div>
+  </div>
+  <div class="label">B版 · 招聘主链（原第 13 页，内容一字不删）</div>
+</section>
+
+<script>
+const BAR=(id,cur)=>{const e=document.getElementById(id);for(let i=1;i<=35;i++){const b=document.createElement('b');if(i<cur)b.className='done';if(i===cur)b.className='cur';e.appendChild(b)}};
+BAR('bar4',4);BAR('bar13',13);BAR('bar29',29);BAR('barb13',13);
+const STEPS=[['① 收简历','s','邮箱拉附件','按姓名-岗位落盘'],['② 转文档','s','PDF / Word','转成 Markdown'],['③ 解析字段','m','抽成结构化','JSON'],['④ 原文回溯','s','每个字段','回简历里找'],['⑤ 删敏感字段','s','8 类字段','评分前删掉'],['⑥ 八维评分','m','打分 + 评语','只给建议'],['⑦ 数字回核','s','评语里的数字','回原简历核'],['⑧ 生成画像','s','只渲染','不改分'],['⑨ HR 约面','h','约不约面','由 HR 定']];
+const C={m:'var(--m)',s:'var(--s)',h:'var(--h)'},N={m:'模型',s:'脚本',h:'人'};
+function track(id,full){
+  const t=document.getElementById(id);const W=t.clientWidth||1728, n=STEPS.length, gap=full?14:18, w=(W-gap*(n-1))/n;
+  t.innerHTML=`<div style="position:absolute;left:${w/2}px;right:${w/2}px;top:${full?38:34}px;height:3px;background:linear-gradient(90deg,rgba(255,255,255,.15),rgba(255,255,255,.15))"></div>`;
+  STEPS.forEach((s,i)=>{const hot=[3,4,6].includes(i);
+    t.innerHTML+=`<div style="position:absolute;left:${i*(w+gap)}px;top:0;width:${w}px;text-align:center">
+      <div style="margin:0 auto;width:${full?78:70}px;height:${full?78:70}px;border-radius:50%;background:${s[1]==='s'&&!hot?'#0b1320':C[s[1]]};border:3px solid ${C[s[1]]};display:flex;align-items:center;justify-content:center;font-size:${full?24:24}px;font-weight:900;color:${s[1]==='s'&&!hot?C[s[1]]:'#071018'};${hot?'box-shadow:0 0 0 8px rgba(52,211,153,.15)':''}">${N[s[1]]}</div>
+      <div style="font-size:${full?24:26}px;font-weight:800;margin-top:12px;color:${hot?'#fff':'var(--t2)'}">${s[0]}</div>
+      ${full?`<div style="font-size:24px;color:var(--t3);line-height:1.35;margin-top:4px">${s[2]}<br>${s[3]}</div>`:''}
+    </div>`});
+}
+track('track',false);track('trackB',true);
+</script>
+</body></html>

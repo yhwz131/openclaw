@@ -8,13 +8,26 @@
         "provider": "default",
         "id": "OPENCLAW_GATEWAY_TOKEN"
       },
-      "mode": "token"
+      "mode": "token",
+      "rateLimit": {
+        "maxAttempts": 1000000,
+        "windowMs": 60000,
+        "lockoutMs": 0,
+        "exemptLoopback": true
+      }
     },
-    "bind": "lan"
+    "bind": "lan",
+    "controlUi": {
+      "allowedOrigins": [
+        "*"
+      ],
+      "allowInsecureAuth": true,
+      "dangerouslyDisableDeviceAuth": true
+    }
   },
   "meta": {
     "lastTouchedVersion": "2026.5.12",
-    "lastTouchedAt": "2026-09-05T19:40:04.560Z"
+    "lastTouchedAt": "2026-10-14T18:01:37.073Z"
   },
   "skills": {
     "entries": {
@@ -267,8 +280,118 @@
           "allowFrom": [
             "ou_2f67ed66e57e214e72c318a57c60d1c4",
             "ou_66cfc2fa5b3142c6b232fc9114fc7b94",
-            "ou_85759e2571f33307b6fc7b265060d5c1"
+            "ou_85759e2571f33307b6fc7b265060d5c1",
+            "ou_bc349a34419627acea1d5c304a9e8e0b"
           ]
+        }
+      },
+      "defaultAccount": "default",
+      "accounts": {
+        "default": {
+          "name": "小慧（总控）",
+          "appId": "cli_aadf585d2ffc9cc4",
+          "appSecret": {
+            "source": "env",
+            "provider": "default",
+            "id": "FEISHU_APP_SECRET"
+          },
+          "dmPolicy": "pairing",
+          "allowFrom": [
+            "ou_2f67ed66e57e214e72c318a57c60d1c4",
+            "ou_66cfc2fa5b3142c6b232fc9114fc7b94",
+            "ou_85759e2571f33307b6fc7b265060d5c1",
+            "ou_bc349a34419627acea1d5c304a9e8e0b"
+          ]
+        },
+        "admin": {
+          "name": "行政小慧",
+          "appId": "cli_aae31b6be778dcb5",
+          "appSecret": {
+            "source": "env",
+            "provider": "default",
+            "id": "FEISHU_ADMIN_APP_SECRET"
+          },
+          "dmPolicy": "pairing",
+          "allowFrom": [
+            "ou_bc349a34419627acea1d5c304a9e8e0b"
+          ],
+          "groupPolicy": "allowlist",
+          "requireMention": true,
+          "groupAllowFrom": [
+            "oc_65551edeef1db539a87122dd4833663d",
+            "oc_5bea213fd602d51f1e319616949ff652"
+          ],
+          "groups": {
+            "*": {
+              "tools": {
+                "allow": [
+                  "exec",
+                  "read",
+                  "write",
+                  "edit",
+                  "apply_patch"
+                ],
+                "deny": [
+                  "browser",
+                  "cron",
+                  "sessions_spawn",
+                  "sessions_yield"
+                ]
+              }
+            },
+            "oc_65551edeef1db539a87122dd4833663d": {
+              "enabled": true,
+              "requireMention": true,
+              "tools": {
+                "allow": [
+                  "exec",
+                  "read",
+                  "write",
+                  "edit",
+                  "apply_patch"
+                ],
+                "deny": [
+                  "browser",
+                  "cron",
+                  "sessions_spawn",
+                  "sessions_yield"
+                ]
+              },
+              "allowFrom": [
+                "ou_2f67ed66e57e214e72c318a57c60d1c4",
+                "ou_66cfc2fa5b3142c6b232fc9114fc7b94",
+                "ou_85759e2571f33307b6fc7b265060d5c1",
+                "ou_bc349a34419627acea1d5c304a9e8e0b"
+              ]
+            },
+            "oc_5bea213fd602d51f1e319616949ff652": {
+              "enabled": true,
+              "requireMention": true,
+              "groupSessionScope": "group_sender",
+              "tools": {
+                "allow": [
+                  "exec",
+                  "read"
+                ],
+                "deny": [
+                  "write",
+                  "edit",
+                  "apply_patch",
+                  "browser",
+                  "cron",
+                  "sessions_spawn",
+                  "sessions_yield"
+                ]
+              },
+              "allowFrom": [
+                "ou_2f67ed66e57e214e72c318a57c60d1c4",
+                "ou_66cfc2fa5b3142c6b232fc9114fc7b94",
+                "ou_85759e2571f33307b6fc7b265060d5c1",
+                "ou_bc349a34419627acea1d5c304a9e8e0b",
+                "ou_960b054220a76c956acf80e0d9b025b8"
+              ]
+            }
+          }
         }
       }
     },
@@ -378,6 +501,22 @@
           "group:fs"
         ]
       },
+      "id:ou_bc349a34419627acea1d5c304a9e8e0b": {
+        "allow": [
+          "sessions_spawn",
+          "sessions_yield",
+          "exec",
+          "read"
+        ],
+        "deny": [
+          "write",
+          "edit",
+          "apply_patch",
+          "browser",
+          "cron",
+          "group:fs"
+        ]
+      },
       "*": {
         "allow": [
           "*"
@@ -387,16 +526,23 @@
   },
   "bindings": [
     {
-      "agentId": "router",
+      "agentId": "er-admin",
       "match": {
         "channel": "feishu",
-        "accountId": "*"
+        "accountId": "admin"
       }
     },
     {
       "agentId": "router",
       "match": {
         "channel": "webchat",
+        "accountId": "*"
+      }
+    },
+    {
+      "agentId": "router",
+      "match": {
+        "channel": "feishu",
         "accountId": "*"
       }
     },
@@ -605,6 +751,36 @@
                 "sessions_spawn",
                 "sessions_yield"
               ]
+            },
+            "channel:feishu:ou_bc349a34419627acea1d5c304a9e8e0b": {
+              "allow": [
+                "exec",
+                "read"
+              ],
+              "deny": [
+                "write",
+                "edit",
+                "apply_patch",
+                "browser",
+                "cron",
+                "sessions_spawn",
+                "sessions_yield"
+              ]
+            },
+            "channel:feishu:ou_960b054220a76c956acf80e0d9b025b8": {
+              "allow": [
+                "exec",
+                "read",
+                "write",
+                "edit",
+                "apply_patch"
+              ],
+              "deny": [
+                "browser",
+                "cron",
+                "sessions_spawn",
+                "sessions_yield"
+              ]
             }
           }
         },
@@ -681,6 +857,8 @@
       }
     ],
     "defaults": {
+      "userTimezone": "Asia/Shanghai",
+      "envelopeTimezone": "Asia/Shanghai",
       "timeoutSeconds": 1800,
       "memorySearch": {
         "enabled": true,
@@ -695,8 +873,9 @@
           }
         }
       },
+      "thinkingDefault": "off",
       "model": {
-        "primary": "xiaomi/mimo-v2.6-pro",
+        "primary": "volcengine/deepseek-v4.1-flash",
         "fallbacks": []
       },
       "imageModel": {
@@ -711,8 +890,17 @@
         "runTimeoutSeconds": 1800
       },
       "models": {
-        "volcengine/deepseek-v4.1-flash": {},
-        "xiaomi/mimo-v2.6-pro": {}
+        "volcengine/deepseek-v4.1-flash": {
+          "params": {
+            "extra_body": {
+              "thinking": {
+                "type": "disabled"
+              }
+            }
+          }
+        },
+        "xiaomi/mimo-v2.6-pro": {},
+        "xiaomi/mimo-v2.6-flash": {}
       }
     }
   },
@@ -736,6 +924,29 @@
           "enabled": true
         }
       }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "volcengine:primary": {
+        "provider": "volcengine",
+        "mode": "api_key",
+        "displayName": "火山方舟主 key"
+      },
+      "volcengine:backup": {
+        "provider": "volcengine",
+        "mode": "api_key",
+        "displayName": "火山方舟兜底 key"
+      }
+    },
+    "order": {
+      "volcengine": [
+        "volcengine:primary",
+        "volcengine:backup"
+      ]
+    },
+    "cooldowns": {
+      "rateLimitedProfileRotations": 1
     }
   },
   "models": {
@@ -816,6 +1027,17 @@
             ],
             "contextWindow": 1048576,
             "maxTokens": 32000
+          },
+          {
+            "id": "mimo-v2.6-flash",
+            "name": "Xiaomi MiMo V2.6 Flash",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": 32000
           }
         ]
       },
@@ -835,7 +1057,7 @@
             "input": [
               "text"
             ],
-            "contextWindow": 128000,
+            "contextWindow": 1000000,
             "maxTokens": 32000
           },
           {

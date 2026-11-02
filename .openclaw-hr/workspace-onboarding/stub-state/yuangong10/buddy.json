@@ -1,0 +1,10 @@
+{
+  "system": "Buddy匹配",
+  "candidate": "员工10",
+  "hcm_status": "completed",
+  "status": "已完成",
+  "source": "hcm",
+  "updated_at": "2026-10-26T11:14:02+08:00",
+  "buddy": "后端组",
+  "mentor": "导师2"
+}

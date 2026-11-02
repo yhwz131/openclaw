@@ -51,10 +51,11 @@ const DERIVED_FIELDS = ['total_experience_years', 'job_count'];
 function norm(s) {
   if (s === null || s === undefined) return '';
   return String(s)
+    // NFKC 先把 PDF 字体子集溢出产生的兼容表意文字（U+F900–U+FAFF，如 年→U+F98E）
+    // 与全角符号还原成常规字符——这一步不做，PDF 转换件会被整片误判为「对不上原文」。
+    .normalize('NFKC')
     .replace(/\s+/g, '')
-    .replace(/[（）]/g, (c) => (c === '（' ? '(' : ')'))
-    .replace(/[—–~～－]/g, '-')
-    .replace(/[：]/g, ':')
+    .replace(/[\p{Pd}~]/gu, '-')
     .toLowerCase();
 }
 

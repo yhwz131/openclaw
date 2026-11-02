@@ -24,8 +24,9 @@ import argparse
 import os
 import sys
 from datetime import datetime, timedelta
-from imap_tools import MailBox, AND
+from imap_tools import AND
 from imap_tools.consts import MailMessageFlags
+from fetch_resumes import open_live_mailbox
 
 
 def _print(msg: str, *, dry: bool = False) -> None:
@@ -81,8 +82,7 @@ def main() -> int:
         print("[!] 缺 IMAP 凭据 (IMAP_USER / IMAP_PASS 或 --user/--password)", file=sys.stderr)
         return 2
 
-    with MailBox(args.host, port=args.port).login(args.user, args.password) as mb:
-        mb.folder.set(args.folder)
+    with open_live_mailbox(args.host, args.port, args.user, args.password, args.folder) as mb:
 
         # 候选 UID 集合
         candidates: list[str] = []

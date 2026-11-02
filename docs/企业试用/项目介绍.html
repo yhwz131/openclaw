@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 900px; background: #061a38; color: #e6f0fa; font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
+  .page { padding: 48px 52px 40px; }
+  .eyebrow { color: #00d4ff; font-size: 15px; letter-spacing: 2px; font-weight: 700; }
+  h1 { font-size: 46px; margin-top: 10px; letter-spacing: 2px; }
+  h1 span { color: #00d4ff; }
+  .lead { font-size: 21px; margin-top: 14px; color: #c9dcf0; line-height: 1.6; }
+  .rule { display: flex; gap: 12px; margin-top: 26px; }
+  .rule div { flex: 1; border-radius: 10px; padding: 14px 16px; background: #0b2a55; border-top: 4px solid; }
+  .rule b { display: block; font-size: 20px; margin-bottom: 6px; }
+  .rule p { font-size: 15px; color: #a9c3de; line-height: 1.5; }
+  .m { border-color: #00d4ff; } .m b { color: #00d4ff; }
+  .s { border-color: #26d098; } .s b { color: #26d098; }
+  .h { border-color: #ffa630; } .h b { color: #ffa630; }
+  h2 { font-size: 24px; margin: 34px 0 14px; padding-left: 12px; border-left: 5px solid #00d4ff; }
+  .mods { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .mod { background: #0b2a55; border: 1px solid #1d4a80; border-radius: 10px; padding: 14px 16px; }
+  .mod .t { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+  .mod p { font-size: 15px; line-height: 1.6; color: #c9dcf0; }
+  .mod .who { margin-top: 6px; font-size: 14px; color: #ffa630; }
+  .wide { grid-column: span 2; }
+  .entry { margin-top: 12px; font-size: 15px; color: #a9c3de; }
+  .trial { background: #0e3a66; border: 2px solid #00d4ff; border-radius: 12px; padding: 18px 20px; }
+  .trial .row { display: flex; gap: 16px; }
+  .trial .col { flex: 1; }
+  .trial h3 { font-size: 18px; color: #00d4ff; margin-bottom: 8px; }
+  .trial li { font-size: 15px; line-height: 1.7; margin-left: 18px; color: #e6f0fa; }
+  .promise { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .promise div { background: #0b2a55; border-radius: 8px; padding: 9px 12px; font-size: 15px; }
+  .promise div::before { content: "✓ "; color: #26d098; font-weight: 700; }
+  .foot { margin-top: 26px; padding-top: 14px; border-top: 1px solid #1d4a80; font-size: 14px; color: #8fb6dc; line-height: 1.7; }
+</style>
+</head>
+<body><div class="page">
+  <div class="eyebrow">学生竞赛项目 · 企业试用邀请</div>
+  <h1>小慧 · <span>HR 数字员工</span></h1>
+  <p class="lead">把简历整理、制度答疑、进度跟进这类重复的人事事务交给 AI；<br>录用、审批、定级这些关键决定，始终留给 HR。</p>
+
+  <div class="rule">
+    <div class="m"><b>模型去写</b><p>读简历、写评语、答制度，又快又好，但可能出错</p></div>
+    <div class="s"><b>脚本去核</b><p>规则写进代码：对不上原件就打回，没权限就拦下</p></div>
+    <div class="h"><b>人去定</b><p>影响一个人去留和权益的事，签字的始终是人</p></div>
+  </div>
+
+  <h2>五项功能</h2>
+  <div class="mods">
+    <div class="mod">
+      <div class="t">招聘 · 简历初筛</div>
+      <p>自动收简历、整理成候选人画像。评分前删掉性别、年龄、婚育等信息；评语里的数字逐个回原简历核对。</p>
+      <div class="who">约不约面、录不录用，由 HR 定</div>
+    </div>
+    <div class="mod">
+      <div class="t">行政 · 制度答疑</div>
+      <p>员工问请假、报销、年假等，照公司制度原文回答并标出处；查不到原文就不答。</p>
+      <div class="who">个案、争议、审批，转给 HR</div>
+    </div>
+    <div class="mod">
+      <div class="t">入职 · 进度跟进</div>
+      <p>跟踪各部门入职手续的办理进度、提醒卡点；试用期第 7/30/60/90 天自动提醒。</p>
+      <div class="who">合同、账号权限必须人批，才往下走</div>
+    </div>
+    <div class="mod">
+      <div class="t">绩效 · 360 反馈汇总</div>
+      <p>按上级、平级、下属、自评分组汇总，标出共识与分歧，生成面谈材料。</p>
+      <div class="who">只给材料，不出评级</div>
+    </div>
+    <div class="mod wide">
+      <div class="t">培训 · 资料生成</div>
+      <p>按需生成培训需求分析、课程设计、课件大纲、测试题等资料，缺前序材料就停下来问。<span style="color:#ffa630">　讲师审稿后使用</span></p>
+    </div>
+  </div>
+  <div class="entry">使用入口：飞书 · 网页对话 · 企业邮箱 · AI 眼镜语音<br>数据权限：只有 HR 能查花名册和月报，员工之间查不到彼此的个人数据</div>
+
+  <h2>这次想请您帮忙</h2>
+  <div class="trial">
+    <div class="row">
+      <div class="col">
+        <h3>试用两项功能</h3>
+        <ul>
+          <li><b>制度答疑</b>：您提供几份制度和常见问题，看它答得对不对</li>
+          <li><b>简历初筛</b>：您提供一个岗位和几份简历，对比您自己筛的结果与耗时</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>需要您提供</h3>
+        <ul>
+          <li>3–5 份不涉密的制度 + 15–20 个员工常问的问题</li>
+          <li>1 份岗位说明 + 5–10 份已去掉姓名、电话的简历</li>
+          <li>约 1 小时：看结果、填一份反馈表</li>
+        </ul>
+      </div>
+    </div>
+    <div class="promise">
+      <div>在我们自己的电脑上运行，不接入贵司任何系统</div>
+      <div>只用脱敏材料，不需要工资、身份证等信息</div>
+      <div>试用结束后删除全部材料</div>
+      <div>比赛中企业名称脱敏，不公开</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    联系人：【姓名】　电话 / 微信：【　　　　】　｜　【学校】【专业】学生团队<br>
+    本项目为职业院校技能大赛参赛作品，目前处于测试阶段，试用结果仅用于改进项目和竞赛展示。
+  </div>
+</div></body>
+</html>

@@ -7,7 +7,7 @@
 - 收邮件：整行 `bash scripts/fetch-mail.sh`
 - 本域 Skill：`bash scripts/recruitment-run.sh python3|node skills/…`
 - 面试转写：`bash scripts/recruitment-run.sh python3 skills/transcribing-interviews/scripts/transcribe_diarize.py <wav> interview/<转写名>.json`（会切 `funasr_me`、用本 workspace `models/`）；再 `bash scripts/recruitment-run.sh node skills/transcribing-interviews/scripts/validate_transcript.js interview/<转写名>.json`
-- 看本 workspace：`ls` / `cat` / `head` / `tail` / `find` / `wc` / `grep` / `mkdir` / `mv` / `cp`（路径里不能出现 `workspace-onboarding` 等其它域）
+- 看本 workspace：`bash scripts/recruitment-run.sh ls|cat|head|tail|find|wc|grep|mkdir|mv|cp …`（必须带这个前缀，裸 `ls` / `cat` / `pwd` 一律被闸拒绝；路径里不能出现 `workspace-onboarding` 等其它域）。只读文件优先用 `read` 工具
 
 不要 `source`、`cd`、`&&`、`$(date)`、`2>&1`、`python3 -c`。yaml **没有** `tools.exec.allowlist`。闸在 `$OPENCLAW_STATE_DIR/exec-approvals.json`（本仓即 `/opt/openclaw-hr/.openclaw-hr/exec-approvals.json`，**不是** `~/.openclaw/exec-approvals.json`）。
 

@@ -85,19 +85,21 @@ fi
 echo "[schedule-reviews] 本地 review 表已 ensure 7/30/60/90"
 
 PROFILE_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
+# 催办从行政 bot（账号 admin）发出。总控 bot 只做招聘眼镜演示的兜底，两边的 open_id 不是同一个。
+FEISHU_ACCOUNT="${ONBOARDING_REVIEW_FEISHU_ACCOUNT:-admin}"
 resolve_feishu_to () {
   local raw="${ONBOARDING_REVIEW_FEISHU_TO:-}"
   if [ -z "$raw" ]; then
-    local allow="$PROFILE_ROOT/credentials/feishu-default-allowFrom.json"
-    if [ -f "$allow" ]; then
-      raw="$(python3 - "$allow" <<'PY'
-import json, sys
-data = json.load(open(sys.argv[1], encoding="utf-8"))
-ids = data.get("allowFrom") or []
-print(ids[0] if ids else "")
+    raw="$(python3 - "$PROFILE_ROOT" <<'PY'
+import json, re, sys
+from pathlib import Path
+root = Path(sys.argv[1])
+allow = json.loads((root / "credentials/feishu-admin-allowFrom.json").read_text(encoding="utf-8"))
+ids = [str(x) for x in (allow.get("allowFrom") or [])]
+hr = set(re.findall(r"ou_[0-9a-f]{32}", (root / "workspace-er-admin/scripts/hr-data-access.sh").read_text(encoding="utf-8").split("DENY_IDS")[0]))
+print(next((i for i in ids if i in hr), ""))
 PY
 )"
-    fi
   fi
   raw="$(printf '%s' "$raw" | tr -d '[:space:]')"
   if [ -z "$raw" ]; then
@@ -113,9 +115,9 @@ PY
 
 FEISHU_TO="$(resolve_feishu_to)"
 if [ -n "$FEISHU_TO" ]; then
-  echo "[schedule-reviews] 飞书催办目标=${FEISHU_TO}"
+  echo "[schedule-reviews] 飞书催办：账号=${FEISHU_ACCOUNT} 目标=${FEISHU_TO}"
 else
-  echo "[schedule-reviews] 警告：未设 ONBOARDING_REVIEW_FEISHU_TO 且无 allowFrom，隔离会话可能投不到飞书" >&2
+  echo "[schedule-reviews] 警告：行政 bot 的 HR 不在 feishu-admin-allowFrom.json 里，隔离会话可能投不到飞书" >&2
 fi
 
 schedule_one () {
@@ -139,11 +141,12 @@ bash ${REVIEW_SH} ${NAME} ${day} ${PINYIN}"
   echo "[schedule-reviews] day${day} → ${at_iso}  name=${job_name}"
 
   if [ "${SCHEDULE_DRY_RUN:-0}" = "1" ]; then
-    echo "  DRY_RUN: $OPENCLAW_BIN cron add --name $job_name --at $at_iso ..."
+    echo "  DRY_RUN: $OPENCLAW_BIN cron add --name $job_name --at $at_iso --account $FEISHU_ACCOUNT --channel feishu --to $FEISHU_TO"
     return 0
   fi
 
-  # --announce + 显式 feishu to：隔离会话没有 last chat，必须写 HR 的 ou_
+  # --announce + --account + 显式 feishu to：隔离会话没有 last chat。
+  # 不写 --account 时网关用默认账号，也就是总控 bot。
   # --best-effort-deliver：投递失败不拖垮任务
   # --delete-after-run：一次性 --at 跑完即删
   # --tools exec：允许 Agent 执行 bash
@@ -162,7 +165,7 @@ bash ${REVIEW_SH} ${NAME} ${day} ${PINYIN}"
     --message "$msg"
   )
   if [ -n "$FEISHU_TO" ]; then
-    add_args+=(--channel feishu --to "$FEISHU_TO")
+    add_args+=(--account "$FEISHU_ACCOUNT" --channel feishu --to "$FEISHU_TO")
   fi
   if ! "$OPENCLAW_BIN" cron add "${add_args[@]}"; then
     echo "[schedule-reviews] 警告：注册 day${day} 失败（可稍后手动 cron add）" >&2
